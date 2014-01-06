@@ -85,7 +85,19 @@ module.exports = function(grunt) {
       },
       jquery:{
         src:"libs/jquery/jquery.js",
-        dest:'dist/js/jquery.js'
+        dest:'dist/js/libs/jquery.js'
+      },
+      require:{
+        src:"libs/require/requier.js",
+        dest:'dist/js/require.js'
+      },
+      angular:{
+        src:"libs/angular/angular.js",
+        dest:'dist/js/libs/angular.js'
+      },
+      highcharts:{
+        src:"libs/highcharts/highcharts.js",
+        dest:'dist/js/libs/highcharts.js'
       }
     },
 
@@ -110,7 +122,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-recess');
 
   // Default task.
-  grunt.registerTask('default', ['clean', 'concat', 'uglify']);
+  grunt.registerTask('default', ['clean', 'concat', 'uglify','recess','copy']);
   // CSS distribution task.
   grunt.registerTask('dist-css', ['recess']);
   // JS distribution task.
