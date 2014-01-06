@@ -1,0 +1,26 @@
+{
+  "name": "ZUI",
+  "title": "ZUI",
+  "description": "The UI System for Backend useage.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/zhiyan/ZUI",
+  "author": {
+    "name": "zhiyan",
+    "email": "zhiyan1987@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zhiyan/ZUI.git"
+  },
+  "bugs": "https://github.com/zhiyan/ZUI/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/zhiyan/ZUI/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}
