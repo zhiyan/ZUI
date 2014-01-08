@@ -1,0 +1,9 @@
+{
+	"ret" : true,
+	"data" : {
+		"value" : 12.33333,
+		"images" : [
+			"http://www.baidu.com/img/bdlogo.gif"
+		]
+	}
+}

@@ -13,7 +13,8 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     source:['src/<%= pkg.name %>.js'],
     path:{
-      "bootstrap" : "src/bootstrap/"
+      "bootstrap" : "src/bootstrap/",
+      "angular" : "libs/angular/"
     },
 
     // Task configuration.
@@ -22,13 +23,17 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: true
-      },
       dist: {
+        options: {
+          banner: '<%= banner %>',
+          stripBanners: true
+        },
         src: ['src/<%= pkg.name %>.js'],
         dest: 'dist/js/<%= pkg.name %>.js'
+      },
+      angular:{
+        src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js'],
+        dest:'dist/js/libs/angular.js'
       }
     },
 
@@ -90,10 +95,6 @@ module.exports = function(grunt) {
       require:{
         src:"libs/require/requier.js",
         dest:'dist/js/require.js'
-      },
-      angular:{
-        src:"libs/angular/angular.js",
-        dest:'dist/js/libs/angular.js'
       },
       highcharts:{
         src:"libs/highcharts/highcharts.js",
