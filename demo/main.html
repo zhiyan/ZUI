@@ -7,11 +7,14 @@
 </head>
 <body class="ng-cloak">
 
-<!-- <ul>
-	<li><a href="#list">list</a></li>
-</ul> -->
+<!-- header -->
+<header ng-include src="'template/common/header.html'"></header>
 
+<!-- container -->
 <div ng-view></div>
+
+<!-- footer -->
+<footer ng-include src="'template/common/footer.html'"></footer>
 
 <script src="../dist/js/libs/angular.js"></script>
 <script src="js/app.js"></script>

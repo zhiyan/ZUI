@@ -2,11 +2,11 @@ var zui = angular.module('zui',['ngRoute','ngResource','mainFilter','mainService
 zui.config(['$routeProvider',function ($routeProvider) {
       $routeProvider
       .when('/list', {
-        templateUrl: 'route/list.html',
+        templateUrl: 'template/list.html',
         controller: 'ListCtl'
       })
       .when('/list/:id', {
-          templateUrl: 'route/detail.html',
+          templateUrl: 'template/detail.html',
           controller: 'DetailCtl'
       })
       .otherwise({
