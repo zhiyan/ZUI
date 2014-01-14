@@ -1,13 +1,16 @@
-var zui = angular.module('zui',['ngRoute','ngResource','mainFilter','mainServices']);
+// app
+var zui = angular.module('zui',['ngRoute','ngResource','mainServices']);
+
+// route
 zui.config(['$routeProvider',function ($routeProvider) {
       $routeProvider
       .when('/list', {
         templateUrl: 'template/list.html',
-        controller: 'ListCtl'
+        controller: 'ListController'
       })
       .when('/list/:id', {
           templateUrl: 'template/detail.html',
-          controller: 'DetailCtl'
+          controller: 'DetailController'
       })
       .otherwise({
         redirectTo: '/list'

@@ -92,10 +92,6 @@ module.exports = function(grunt) {
         src:"libs/jquery/jquery.js",
         dest:'dist/js/libs/jquery.js'
       },
-      require:{
-        src:"libs/require/requier.js",
-        dest:'dist/js/require.js'
-      },
       highcharts:{
         src:"libs/highcharts/highcharts.js",
         dest:'dist/js/libs/highcharts.js'
