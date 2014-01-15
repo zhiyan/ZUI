@@ -34,7 +34,7 @@
 // -------------------------
 
 @link-color:            @brand-primary;
-@link-hover-color:      darken(@link-color, 15%);
+@link-hover-color:      @brand-primary;
 
 // Typography
 // -------------------------
@@ -80,7 +80,7 @@
 
 @border-radius-base:             4px;
 @border-radius-large:            6px;
-@border-radius-small:            3px;
+@border-radius-small:            0px;
 
 @component-active-bg:            @brand-primary;
 
@@ -236,20 +236,20 @@
 // -------------------------
 
 // Basics of a navbar
-@navbar-height:                    50px;
+@navbar-height:                    42px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
+@navbar-default-bg:                #428bca;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
-@navbar-border-radius:             @border-radius-base;
+@navbar-border-radius:             0px;
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 
 // Navbar links
-@navbar-default-link-color:                #777;
-@navbar-default-link-hover-color:          #333;
-@navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
+@navbar-default-link-color:                #fff;
+@navbar-default-link-hover-color:          #fff;
+@navbar-default-link-hover-bg:             #2972b1;
+@navbar-default-link-active-color:         #fff;
 @navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
@@ -313,11 +313,12 @@
 
 // Tabs
 @nav-tabs-border-color:                     #ddd;
+@nav-tabs-bg-color:                         #d9e8f4;
 
 @nav-tabs-link-hover-border-color:          @gray-lighter;
 
 @nav-tabs-active-link-hover-bg:             @body-bg;
-@nav-tabs-active-link-hover-color:          @gray;
+@nav-tabs-active-link-hover-color:          #444;
 @nav-tabs-active-link-hover-border-color:   #ddd;
 
 @nav-tabs-justified-link-border-color:            #ddd;
@@ -330,13 +331,14 @@
 
 // Pagination
 // -------------------------
+@pagination-bg-color:                  #309dea;
 
 @pagination-bg:                        #fff;
 @pagination-border:                    #ddd;
 
 @pagination-hover-bg:                  @gray-lighter;
 
-@pagination-active-bg:                 @brand-primary;
+@pagination-active-bg:                 @pagination-bg-color;
 @pagination-active-color:              #fff;
 
 @pagination-disabled-color:            @gray-light;
@@ -377,6 +379,10 @@
 @state-info-text:                #3a87ad;
 @state-info-bg:                  #d9edf7;
 @state-info-border:              darken(spin(@state-info-bg, -10), 7%);
+
+@state-tip-text:             #c09853;
+@state-tip-bg:               #fcf8e3;
+@state-tip-border:           darken(spin(@state-tip-bg, -10), 3%);
 
 
 // Tooltips
@@ -458,6 +464,9 @@
 @alert-danger-text:           @state-danger-text;
 @alert-danger-border:         @state-danger-border;
 
+@alert-tip-bg:             @state-tip-bg;
+@alert-tip-text:           @state-tip-text;
+@alert-tip-border:         @state-tip-border;
 
 // Progress bars
 // -------------------------
@@ -538,12 +547,12 @@
 // -------------------------
 @badge-color:                 #fff;
 @badge-link-hover-color:      #fff;
-@badge-bg:                    @gray-light;
+@badge-bg:                    #428bca;
 
 @badge-active-color:          @link-color;
 @badge-active-bg:             #fff;
 
-@badge-font-weight:           bold;
+@badge-font-weight:           normal;
 @badge-line-height:           1;
 @badge-border-radius:         10px;
 
@@ -551,9 +560,9 @@
 // Breadcrumbs
 // -------------------------
 @breadcrumb-bg:               #f5f5f5;
-@breadcrumb-color:            #ccc;
-@breadcrumb-active-color:     @gray-light;
-
+@breadcrumb-color:            #309dea;
+@breadcrumb-active-color:     #666;
+@breadcrumb-separator:        "/";
 
 // Carousel
 // ------------------------

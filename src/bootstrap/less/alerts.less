@@ -10,7 +10,6 @@
   padding: @alert-padding;
   margin-bottom: @line-height-computed;
   border: 1px solid transparent;
-  border-radius: @alert-border-radius;
 
   // Headings for larger alerts
   h4 {
@@ -64,4 +63,7 @@
 }
 .alert-danger {
   .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+}
+.alert-tip {
+  .alert-variant(@alert-tip-bg; @alert-tip-border; @alert-tip-text);
 }
