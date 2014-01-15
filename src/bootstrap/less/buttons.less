@@ -9,16 +9,16 @@
 // Core styles
 .btn {
   display: inline-block;
-  padding: @padding-base-vertical @padding-base-horizontal;
+  height: 30px;
+  line-height: 30px;
   margin-bottom: 0; // For input.btn
-  font-size: @font-size-base;
-  font-weight: @btn-font-weight;
-  line-height: @line-height-base;
+  font-size: @font-size-large;
+  font-weight: bold;
+  padding:0 18px;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid transparent;
-  border-radius: @border-radius-base;
   white-space: nowrap;
   .user-select(none);
 
@@ -44,7 +44,8 @@
   fieldset[disabled] & {
     cursor: not-allowed;
     pointer-events: none; // Future-proof disabling of clicks
-    .opacity(.65);
+    background: #e6e6e6;
+    color:#b3b3b3;
     .box-shadow(none);
   }
 
@@ -127,8 +128,10 @@
 }
 .btn-sm,
 .btn-xs {
-  // line-height: ensure proper height of button next to small input
-  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+  padding: 0 10px;
+  font-size: @font-size-base;
+  line-height:24px;
+  height: 24px;
 }
 .btn-xs {
   padding: 1px 5px;

@@ -5,13 +5,14 @@
 
 // Global values
 // --------------------------------------------------
-
+@color-main:  			 #309dea;
+@text-tip:     			 #ff6600;
 // Grays
 // -------------------------
-
+@gray-black: 			 #000;
 @gray-darker:            lighten(#000, 13.5%); // #222
-@gray-dark:              lighten(#000, 20%);   // #333
-@gray:                   lighten(#000, 33.5%); // #555
+@gray-dark:              #666;   // #333
+@gray:                   #666; 
 @gray-light:             lighten(#000, 60%);   // #999
 @gray-lighter:           lighten(#000, 93.5%); // #eee
 
@@ -39,16 +40,17 @@
 // Typography
 // -------------------------
 
-@font-family-sans-serif:  "微软雅黑","Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "微软雅黑", Arial, "Helvetica Neue", Helvetica, sans-serif;
+@font-family-simsun: "宋体", Arial;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          14px;
-@font-size-large:         ceil(@font-size-base * 1.25); // ~18px
-@font-size-small:         ceil(@font-size-base * 0.85); // ~12px
+@font-size-base:          12px;
+@font-size-large:         14px; 
+@font-size-small:         11px; 
 
-@line-height-base:        1.428571429; // 20/14
+@line-height-base:        20/12; 
 @line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
 
 @headings-font-family:    @font-family-base;
@@ -111,7 +113,7 @@
 @btn-default-border:             #ccc;
 
 @btn-primary-color:              #fff;
-@btn-primary-bg:                 @brand-primary;
+@btn-primary-bg:                 #5989f3;
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
 @btn-success-color:              #fff;
@@ -140,15 +142,15 @@
 @input-bg-disabled:              @gray-lighter;
 
 @input-color:                    @gray;
-@input-border:                   #ccc;
-@input-border-radius:            @border-radius-base;
-@input-border-focus:             #66afe9;
+@input-border:                   #d8d8d8;
+@input-border-radius:            0;
+@input-border-focus:             #4285f4;
 
 @input-color-placeholder:        @gray-light;
 
 @input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2);
 @input-height-large:             (floor(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2);
-@input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
+@input-height-small:             24px;
 
 @legend-color:                   @gray-dark;
 @legend-border-color:            #e5e5e5;

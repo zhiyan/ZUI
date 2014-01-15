@@ -117,10 +117,9 @@ input[type="number"] {
 .form-control {
   display: block;
   width: 100%;
-  height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  height: 30px;
   padding: @padding-base-vertical @padding-base-horizontal;
   font-size: @font-size-base;
-  line-height: @line-height-base;
   color: @input-color;
   vertical-align: middle;
   background-color: @input-bg;
@@ -224,7 +223,7 @@ input[type="checkbox"],
 
 // Form control sizing
 .input-sm {
-  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; 0);
 }
 
 .input-lg {
