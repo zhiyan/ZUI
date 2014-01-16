@@ -42,16 +42,36 @@
   > .btn {
     position: relative;
     float: left;
+    font-weight: normal;
+    background: #fff;
+    color:@color-main;
+    box-shadow:none;
     // Bring the "active" button to the front
     &:hover,
     &:focus,
     &:active,
     &.active {
       z-index: 2;
+      background: #f5f5f5;
+      color:@color-main;
+    }
+    &.cur{
+      background: #309dea;
+      color:#fff;
     }
     &:focus {
       // Remove focus outline when dropdown JS adds it after closing the menu
       outline: none;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      cursor: not-allowed;
+      pointer-events: none; // Future-proof disabling of clicks
+      background: #e6e6e6;
+      color:#b3b3b3;
+      .box-shadow(none);
     }
   }
 }

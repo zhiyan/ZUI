@@ -6,6 +6,9 @@
 // Body text
 // -------------------------
 
+body{
+  font-family: @font-family-simsun;
+}
 p {
   margin: 0 0 (@line-height-computed / 2);
 }
@@ -49,9 +52,9 @@ cite    { font-style: normal; }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: @headings-font-family;
-  font-weight: @headings-font-weight;
+  font-weight:normal;
   line-height: @headings-line-height;
+  color:@gray;
   small {
     font-weight: normal;
     line-height: 1;
@@ -72,12 +75,12 @@ h6 {
   margin-bottom: (@line-height-computed / 2);
 }
 
-h1, .h1 { font-size: floor(@font-size-base * 2.60); } // ~36px
-h2, .h2 { font-size: floor(@font-size-base * 2.15); } // ~30px
-h3, .h3 { font-size: ceil(@font-size-base * 1.70); } // ~24px
-h4, .h4 { font-size: ceil(@font-size-base * 1.25); } // ~18px
-h5, .h5 { font-size:  @font-size-base; }
-h6, .h6 { font-size: ceil(@font-size-base * 0.85); } // ~12px
+h1, .h1 { font-size: 24px; font-family:@font-family-sans-serif;} 
+h2, .h2 { font-size: 18px; font-family:@font-family-sans-serif;} 
+h3, .h3 { font-size: 14px; font-family:@font-family-simsun;} 
+h4, .h4 { font-size: 12px; font-family:@font-family-simsun;} 
+h5, .h5 { font-size: 12px; font-family:@font-family-simsun;}
+h6, .h6 { font-size: 12px; font-family:@font-family-simsun;} 
 
 h1 small, .h1 small { font-size: ceil(@font-size-base * 1.70); } // ~24px
 h2 small, .h2 small { font-size: ceil(@font-size-base * 1.25); } // ~18px
@@ -235,4 +238,17 @@ address {
   margin-bottom: @line-height-computed;
   font-style: normal;
   line-height: @line-height-base;
+}
+
+// strong
+strong,.strong{
+  font-weight: bold;
+}
+em,.em{
+  color:@text-tip;
+  font-style:normal;
+}
+b,.b{
+  color:@gray-black;
+  font-weight: normal;
 }
