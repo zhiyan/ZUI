@@ -8744,6 +8744,21 @@ td.visible-print {
   width: 47%;
 }
 
+.bottom-nav {
+  padding-top: 17px;
+  margin-top: 30px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.menu {
+  border-right: 1px solid #428bca;
+}
+
+.menu .menu-t {
+  background-color: #428bca;
+}
+
 .btn-default,
 .btn-primary,
 .btn-success,
