@@ -8,6 +8,7 @@ zui.controller('ListController', function($scope,List) {
 	    });
 	});
 });
+
 zui.controller('DetailController',function($scope, $routeParams, $http) {
 	$http.get('api/' + $routeParams.id + '.json').success(function(data) {
 	    $scope.data = data.data;

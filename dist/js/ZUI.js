@@ -26,15 +26,16 @@ zui.directive("datepicker",function(){
       link:link
     };
 })
-zui.directive("ngMenu",function($scope, $routeParams, $http) {
-	$scope.menuList = {
-		"0" : {
-			"name" : "机票",
 
-		},
+zui.directive("ngMenu",function($http){
 
+	function link(scope, element, attrs){
+		$http.get('api/menu.json').success(function(data) {
+		    scope.menus = data.data.menus;
+		 });
 	}
-	// $http.get('api/' + $routeParams.id + '.json').success(function(data) {
-	//     $scope.data = data.data;
-	//  });
-});
+
+	 return {
+      link:link
+    };
+})
