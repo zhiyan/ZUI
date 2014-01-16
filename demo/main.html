@@ -12,11 +12,13 @@
 
 <!-- container -->
 <div class="container">
-	<div class="col-md-3">
-		<nav ng-include src="'template/common/nav.html'"></nav>
-	</div>
-	<div class="col-md-17">
-		<div ng-view>
+	<div class="row">
+		<div class="col-md-3">
+			<nav ng-include src="'template/common/nav.html'"></nav>
+		</div>
+		<div class="col-md-17">
+			<div ng-view>
+			</div>
 		</div>
 	</div>
 </div>

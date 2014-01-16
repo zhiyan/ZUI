@@ -5,7 +5,10 @@
 
 // Set the container width, and override it for fixed navbars in media queries
 .container {
-  .container-fixed();
+  margin-right: auto;
+  margin-left: auto;
+  width: @main-width;
+  .clearfix();
 }
 
 // mobile first defaults
@@ -124,7 +127,7 @@
 
 @media (min-width: @screen-tablet) {
   .container {
-    max-width: @container-tablet;
+    // max-width: @container-tablet;
   }
 
   .col-sm-1,
@@ -202,7 +205,7 @@
 
 @media (min-width: @screen-desktop) {
   .container {
-    max-width: @container-desktop;
+    // max-width: @container-desktop;
   }
   .col-md-1,
   .col-md-2,
@@ -322,7 +325,7 @@
 
 @media (min-width: @screen-lg-desktop) {
   .container {
-    max-width: @container-lg-desktop;
+    // max-width: @container-lg-desktop;
   }
 
   .col-lg-1,

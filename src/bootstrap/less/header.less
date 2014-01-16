@@ -1,0 +1,32 @@
+header{
+	width: @main-width;
+	background: @brand-primary;
+	height: 42px;
+	width: 100%;
+	margin-bottom: 20px;
+	.container{
+		padding:0 20px;
+	}
+	.logo{
+		margin-top: 11px;
+		float: left;
+	}
+	.header-link{
+		float: left;
+		margin-left: 30px;
+		overflow:hidden;
+		a{
+			color:#fff;
+			float: left;
+			height: 42px;
+			line-height: 42px;
+			font-size:16px;
+			font-weight: bold;
+			padding:0 30px;
+			text-decoration: none;
+			&:hover,&.cur{
+				background: #2972b1;
+			}
+		}
+	}
+}
