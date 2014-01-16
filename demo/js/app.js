@@ -1,6 +1,3 @@
-// app
-var zui = angular.module('zui',['ngRoute','ngResource','mainServices']);
-
 // route
 zui.config(['$routeProvider',function ($routeProvider) {
       $routeProvider

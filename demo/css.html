@@ -1,15 +1,12 @@
 <!doctype html>
-<html>
+<html ng-app="zui">
 <head>
 	<meta charset="UTF-8">
 	<title>ZUI -- demo</title>
 	<link rel="stylesheet" href="../dist/css/ZUI.min.css">
-	<style>
-		.row div{background: red;height:100px;}
-	</style>
 </head>
-<body>
-<div style="height: 30px;padding:10px;background: red;"></div>
+<body style="margin-bottom: 100px;" class="ng-cloak">
+
 <h1>栅格系统</h1>
 <div class="row">
 	<div class="col-md-1">1</div>
@@ -232,11 +229,18 @@
     </div>  
 </div>  
 <h1>日历</h1>
-<div class="datepicker-input input-group" id="datepicker">
-                          <input class="form-control" data-format="YYYY-MM-DD" placeholder="Select datepicker" type="text">
-                          <span class="input-group-addon">
-                            <span data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></span>
-                          </span>
-                        </div>
+月:
+<input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="month"/>
+日:
+<input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="day"/>
+季度：
+<input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="quarter"/>
+年：
+<input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="year"/>
+
+<script src="../dist/js/libs/jquery.js"></script>
+<script src="../dist/js/libs/angular.js"></script>
+<script src="../dist/js/ZUI.js"></script>
+<script src="js/appService.js"></script>
 </body>
 </html>

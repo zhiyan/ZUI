@@ -28,7 +28,7 @@ module.exports = function(grunt) {
           banner: '<%= banner %>',
           stripBanners: true
         },
-        src: ['src/<%= pkg.name %>.js'],
+        src: ['src/<%= pkg.name %>.js','src/directive/*'],
         dest: 'dist/js/<%= pkg.name %>.js'
       },
       angular:{
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
 
     watch: {
       main: {
-        files: '<%= source %>',
+        files: ['<%= source %>','src/directive/*'],
         tasks: ['concat','uglify']
       },
       recess:{
