@@ -4419,7 +4419,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .input-group-addon.input-sm {
   padding: 5px 10px;
   font-size: 11px;
+<<<<<<< HEAD
   border-radius: 0;
+=======
+  border-radius: 3px;
+>>>>>>> d56f95c91e6eaa19eed37ab8495baaab101fe352
 }
 
 .input-group-addon.input-lg {
@@ -4594,7 +4598,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
+<<<<<<< HEAD
   color: #444444;
+=======
+  color: #666666;
+>>>>>>> d56f95c91e6eaa19eed37ab8495baaab101fe352
   cursor: default;
   background-color: #ffffff;
   border: 1px solid #dddddd;
@@ -4987,7 +4995,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-brand {
   float: left;
+<<<<<<< HEAD
   padding: 11px 15px;
+=======
+  padding: 15px 15px;
+>>>>>>> d56f95c91e6eaa19eed37ab8495baaab101fe352
   font-size: 14px;
   line-height: 20px;
 }
@@ -5762,7 +5774,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   min-width: 10px;
   padding: 3px 7px;
   font-size: 11px;
+<<<<<<< HEAD
   font-weight: normal;
+=======
+  font-weight: bold;
+>>>>>>> d56f95c91e6eaa19eed37ab8495baaab101fe352
   line-height: 1;
   color: #ffffff;
   text-align: center;
