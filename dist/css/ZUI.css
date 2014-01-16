@@ -8752,11 +8752,23 @@ td.visible-print {
 }
 
 .menu {
-  border-right: 1px solid #428bca;
+  border-right: 1px solid #d9e8f4;
 }
 
 .menu .menu-t {
-  background-color: #428bca;
+  background-color: #d9e8f4;
+}
+
+.menu .menu-c {
+  background-color: #f9fcff;
+}
+
+.menu .menu-c:hover {
+  background-color: #e87948;
+}
+
+.menu .menu-c:hover a {
+  color: #ffffff;
 }
 
 .btn-default,

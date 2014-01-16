@@ -1,6 +1,16 @@
 .menu{
-	border-right:1px solid @brand-primary;
+	border-right:1px solid @menu-first-bg;
 	.menu-t{
-		background-color:@brand-primary;
+		background-color: @menu-first-bg;
 	}
+	.menu-c {
+		background-color: @menu-second-bg;
+		&:hover{
+			background-color:@menu-hover-bg;
+			a{
+				color:@menu-hover-color;
+			}
+		}
+	}
+
 }
