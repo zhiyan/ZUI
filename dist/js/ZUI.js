@@ -26,11 +26,11 @@ zui.directive("datepicker",function(){
       link:link
     };
 })
-
 zui.directive("ngMenu",function($http){
 
 	function link(scope, element, attrs){
-		$http.get('api/menu.json').success(function(data) {
+		var url = attrs['url'];
+		$http.get(url).success(function(data) {
 		    scope.menus = data.data.menus;
 		 });
 	}
