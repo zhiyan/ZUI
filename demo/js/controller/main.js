@@ -1,4 +1,4 @@
-zui.controller('ListController', function($scope,List) {
+zui.controller('FlightClicksController', function($scope,List) {
 	$scope.data=[];
 	List.query(function (response) {
 	    angular.forEach(response.list, function (item) {
