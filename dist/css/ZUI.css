@@ -8769,6 +8769,12 @@ header .header-link a.cur {
   width: 100%;
 }
 
+.search h3 {
+  padding: 0;
+  margin: 0;
+  font-weight: 800;
+}
+
 .search ul,
 .search li {
   padding: 0;
@@ -8780,6 +8786,21 @@ header .header-link a.cur {
   margin-top: 20px;
   border: 1px solid #53a6ef;
   border-top-width: 2px;
+}
+
+.search .search-box .search-date {
+  float: left;
+}
+
+.search .search-box .search-date .form-control {
+  display: inline-block;
+  width: 90px;
+  height: 24px;
+  margin: 10px;
+}
+
+.search .search-box .search-date em {
+  color: #333;
 }
 
 .search .search-box tr {
@@ -8794,9 +8815,14 @@ header .header-link a.cur {
   background-color: #f2fbff;
 }
 
+.search .search-box .btn-group {
+  float: left;
+  margin: 10px;
+}
+
 .search .search-box .search-options {
-  width: 832px;
-  padding: 10px 10px;
+  width: 885px;
+  padding: 10px 0;
 }
 
 .search .search-box .search-options li {
@@ -8831,10 +8857,62 @@ header .header-link a.cur {
   margin-top: 30px;
 }
 
-.db-table .form-control {
+.db-table .search-input {
+  padding: 5px;
+  background-color: #f2fbff;
+  border: 1px solid #e6e6e6;
+}
+
+.db-table .search-input .form-control {
   float: left;
   width: 135px;
   margin: 0 10px;
+}
+
+.db-table .search-input .glyphicon {
+  float: right;
+  margin: 5px 10px;
+  cursor: pointer;
+}
+
+.db-table table {
+  width: 100%;
+  border: 1px solid #e6e6e6;
+}
+
+.db-table table tr {
+  border: 1px solid #e6e6e6;
+  border-right: 0;
+  border-left: 0;
+}
+
+.db-table table tr td,
+.db-table table tr th {
+  line-height: 24px;
+  text-indent: 15px;
+  border-right: 1px solid #e6e6e6;
+}
+
+.db-table .db-footer {
+  padding: 5px 10px;
+  line-height: 24px;
+  background-color: #f9f9f9;
+  border: 1px solid #e6e6e6;
+  border-top: 0;
+}
+
+.db-table .db-footer .db-number {
+  float: right;
+}
+
+.db-table .pagination {
+  float: right;
+  margin: 5px 0;
+}
+
+.db-table .pagination li > a,
+.db-table .pagination li > span {
+  padding: 0 6px;
 }
 
 .btn-default,
