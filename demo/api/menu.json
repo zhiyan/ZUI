@@ -5,14 +5,79 @@
 			"name" : "机票",
 			"data" : [
 				{
-					"id" : 11,
+					"id" : 1,
+					"name" : "账户余额",
+					"url"	: "accountBalance"
+				},
+				{
+					"id" : 2,
 					"name" : "多日点击",
-					"url"	: "list"
+					"url"	: "multiClick"
+				},
+				{
+					"id" : 3,
+					"name" : "多日消费",
+					"url"	: "multiConsume"
+				},
+				{
+					"id" : 4,
+					"name" : "多日出票",
+					"url"	: "multiDraft"
+				},
+				{
+					"id" : 5,
+					"name" : "点击分析",
+					"url"	: "clickAnalyze"
+				},
+				{
+					"id" : 7,
+					"name" : "点击阶梯分析",
+					"url"	: "clickStepAnalyze"
+				},
+				{
+					"id" : 7,
+					"name" : "Top航线上传",
+					"url"	: "topAirUpload"
+				},
+				{
+					"id" : 8,
+					"name" : "Top航线列表",
+					"url"	: "topAirList"
+				},
+				{
+					"id" : 9,
+					"name" : "Top航线消费",
+					"url"	: "topAirConsume"
+				},
+				{
+					"id" : 10,
+					"name" : "CPC价格配置",
+					"url"	: "cpcPriceSetting"
 				},
 				{
 					"id" : 11,
-					"name" : "多日消费",
-					"url"	: "list\/1"
+					"name" : "航空公司舱位票面额汇总",
+					"url"	: "companyCollect"
+				},
+				{
+					"id" : 12,
+					"name" : "业务视角收入报表",
+					"url"	: "bussinessIncome"
+				},
+				{
+					"id" : 13,
+					"name" : "航空公司CPA总额阶梯票面额汇总",
+					"url"	: "companyCpaCollect"
+				},
+				{
+					"id" : 14,
+					"name" : "CPC月结报表",
+					"url"	: "cpcMonth"
+				},
+				{
+					"id" : 15,
+					"name" : "CPA月结报表",
+					"url"	: "cpaMonth"
 				}
 			]
 		}, 
@@ -21,12 +86,12 @@
 			"name" : "酒店",
 			"data" : [
 				{
-					"id" : 11,
+					"id" : 1,
 					"name" : "多日点击",
 					"url"	: "list"
 				},
 				{
-					"id" : 11,
+					"id" : 1,
 					"name" : "多日消费",
 					"url"	: "list\/2"
 				}
