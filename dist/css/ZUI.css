@@ -8747,10 +8747,12 @@ header .header-link a.cur {
 
 .menu .menu-t {
   padding: 10px;
+  cursor: pointer;
   background-color: #d9e8f4;
 }
 
 .menu .menu-c {
+  display: none;
   padding: 10px;
   cursor: pointer;
   background-color: #f9fcff;
