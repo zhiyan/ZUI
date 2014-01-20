@@ -10,7 +10,7 @@ zui.controller('FlightClicksController', function($scope) {
 });
 
 zui.controller('DetailController',function($scope, $routeParams, $http) {
-	$http.get('api/' + $routeParams.id + '.json').success(function(data) {
+	$http.get('/api/' + $routeParams.id + '.json').success(function(data) {
 	    $scope.data = data.data;
 	 });
 });
