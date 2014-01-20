@@ -107,7 +107,7 @@ module.exports = function(grunt) {
     watch: {
       main: {
         files: ['<%= source %>','src/directive/*'],
-        tasks: ['concat','uglify']
+        tasks: ['concat','uglify','copy']
       },
       recess:{
         files: '**/*.less',
