@@ -8765,6 +8765,23 @@ header .header-link a.cur {
   text-decoration: none;
 }
 
+.menu .glyphicon {
+  top: 4px;
+  float: right;
+  height: 11px;
+  padding: 1px;
+  font-family: "宋体";
+  font-size: 14px;
+  line-height: 8px;
+  color: #0263bd;
+  cursor: pointer;
+  border: 1px solid #0263bd;
+}
+
+.menu .glyphicon-minus {
+  padding: 0;
+}
+
 .search {
   width: 100%;
 }
@@ -8851,6 +8868,23 @@ header .header-link a.cur {
 .search .search-box .search-btn .search-more {
   float: right;
   margin-right: 10px;
+}
+
+.search .search-box .glyphicon {
+  top: 2px;
+  height: 11px;
+  padding: 1px;
+  margin-right: 3px;
+  font-family: "宋体";
+  font-size: 14px;
+  line-height: 8px;
+  color: #0263bd;
+  cursor: pointer;
+  border: 1px solid #0263bd;
+}
+
+.search .search-box .glyphicon-minus {
+  padding: 0;
 }
 
 .db-table {
