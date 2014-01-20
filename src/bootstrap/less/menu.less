@@ -6,16 +6,23 @@
 		cursor: pointer;
 	}
 	.menu-c {
-		display:none;
 		background-color: @menu-second-bg;
 		padding:10px;
 		cursor: pointer;
+		display:none;
 		&:hover{
 			background-color:@menu-hover-bg;
 			a{
 				color:@menu-hover-color;
 				text-decoration: none;
 			}
+		}
+	}
+	.menu-active{
+		background-color:@menu-hover-bg;
+		a{
+			color:@menu-hover-color;
+			text-decoration: none;
 		}
 	}
 	.glyphicon{
@@ -28,9 +35,10 @@
 		height: 11px;
 		top:4px;
 		float: right;
-		cursor: pointer;
 	}
 	.glyphicon-minus{
 		padding: 0px;
+		font-size: 12px;
+		text-align: center;
 	}
 }

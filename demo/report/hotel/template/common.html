@@ -1,7 +1,7 @@
-<div class="search">
+<div class="search" ng-search>
 	<h3>机票多日点击</h3>
 	<div class="search-box">
-		<table>
+		<table id="search-opation">
 			<tr><th>开始时间：</th><td><div class="btn-group btn-group-sm">
 			  <button type="button" class="btn btn-default cur">昨天</button>
 			  <button type="button" class="btn btn-default">最近7天</button>
@@ -13,8 +13,11 @@
 			</div>
 			</td></tr>
 			<tr><th>客户类型：</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
+			<tr><th>客户类型2：</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
+			<tr><th>客户类型3：</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
+			<tr><th>客户类型4：</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
 			<tr><th>业务范围</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
-			<tr bgcolor = "#f5f5f5" class="search-btn"><td colspan="2"><button type="button" class="btn btn-primary btn-sm">确定</button><button type="button" class="btn btn-default btn-sm">重置</button><a href="" class="search-more"><em class="glyphicon glyphicon-plus"></em>更多筛选条件</a></td></tr>
+			<tr bgcolor = "#f5f5f5" class="search-btn"><td colspan="2"><button type="button" class="btn btn-primary btn-sm">确定</button><button type="button" class="btn btn-default btn-sm">重置</button><a href="javascript:;" ng-click = "showMore()" class="search-more"><em class="glyphicon glyphicon-plus" ></em>更多筛选条件</a></td></tr>
 		</table>
 	</div>
 </div>

@@ -4,9 +4,10 @@
             <span>{{menu.name}}</span>
             <em class="glyphicon glyphicon-plus" ></em>
         </div>
-        <div class="menu-c" ng-repeat="one in menu.data">
+        <div class="menu-c" ng-repeat="one in menu.data" ng-click="menuBg($event.target)">
             <a href="{{one.url}}" title="{{one.name}}">{{one.name}}</a>
         </div>
 	</div>
 </div>
+
 
