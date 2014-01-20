@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ZUI -- demo</title>
-	<link rel="stylesheet" href="../dist/css/ZUI.min.css">
+	<link rel="stylesheet" href="dist/css/ZUI.min.css">
 </head>
 <body style="margin-bottom: 100px;" class="ng-cloak">
 
@@ -238,9 +238,11 @@
 年：
 <input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="year"/>
 
-<script src="../dist/js/libs/jquery.js"></script>
-<script src="../dist/js/libs/angular.js"></script>
-<script src="../dist/js/ZUI.js"></script>
-<script src="js/appService.js"></script>
+<script src="dist/js/libs/jquery.js"></script>
+<script src="dist/js/libs/angular.js"></script>
+<script>
+	angular.module('zuiServices', []);
+</script>
+<script src="dist/js/ZUI.js"></script>
 </body>
 </html>

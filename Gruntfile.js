@@ -95,6 +95,12 @@ module.exports = function(grunt) {
       highcharts:{
         src:"libs/highcharts/highcharts.js",
         dest:'dist/js/libs/highcharts.js'
+      },
+      dist:{
+        expand: true,
+        src:"dist/**/*",
+        dest:"demo/",
+        filter: 'isFile'
       }
     },
 

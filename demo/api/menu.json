@@ -87,29 +87,70 @@
 			"data" : [
 				{
 					"id" : 1,
-					"name" : "多日点击",
-					"url"	: "list"
+					"name" : "账户余额",
+					"url"	: "accountBalance"
 				},
 				{
-					"id" : 1,
+					"id" : 2,
+					"name" : "多日点击",
+					"url"	: "multiClick"
+				},
+				{
+					"id" : 3,
 					"name" : "多日消费",
-					"url"	: "list\/2"
+					"url"	: "multiConsume"
+				},
+				{
+					"id" : 4,
+					"name" : "点击分析",
+					"url"	: "clickAnalyze"
+				},
+				{
+					"id" : 5,
+					"name" : "点击阶梯分析",
+					"url"	: "clickStepAnalyze"
+				},
+				{
+					"id" : 6,
+					"name" : "价格配置",
+					"url"	: "priceSetting"
 				}
 			]
 		}, 
 		{
 			"id": 1,
-			"name" : "报销",
+			"name" : "度假",
 			"data" : [
 				{
-					"id" : 11,
-					"name" : "多日点击",
-					"url"	: "list"
+					"id" : 1,
+					"name" : "账户余额",
+					"url"	: "accountBalance"
 				},
 				{
-					"id" : 11,
+					"id" : 2,
+					"name" : "多日点击",
+					"url"	: "multiClick"
+				},
+				{
+					"id" : 3,
 					"name" : "多日消费",
-					"url"	: "list\/3"
+					"url"	: "multiConsume"
+				},
+				{
+					"id" : 4,
+					"name" : "价格配置",
+					"url"	: "priceSetting"
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name" : "保险",
+			"data" : [
+				{
+					"id" : 1,
+					"name" : "多日统计",
+					"url"	: "multiStatistics"
 				}
 			]
 		}
