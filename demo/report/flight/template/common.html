@@ -31,22 +31,17 @@
 	<div class="db-cont">
 		<table>
 			<tr>
-				<th></th><th>网站名称</th><th>网站地址</th><th>客户类型</th><th>终端类型</th><th>客服</th><th>消费金额 (&yen)</th>
+				<th ng-repeat="t in title">{{t}}</th>
 			</tr>
-			<tr>
-				<td>1</td><td><a href="#">畅游商旅网</a></td><td>http://chi.trade.qunar.com/</td><td>OTA</td><td>Web</td><td>张开杰</td><td>632，020.00</td>
-			</tr>
-			<tr>
-				<td>1</td><td><a href="#">畅游商旅网</a></td><td>http://chi.trade.qunar.com/</td><td>OTA</td><td>Web</td><td>张开杰</td><td>632，020.00</td>
-			</tr>
-			<tr>
-				<td>1</td><td><a href="#">畅游商旅网</a></td><td>http://chi.trade.qunar.com/</td><td>OTA</td><td>Web</td><td>张开杰</td><td>632，020.00</td>
-			</tr>
-			<tr>
-				<td>1</td><td><a href="#">畅游商旅网</a></td><td>http://chi.trade.qunar.com/</td><td>OTA</td><td>Web</td><td>张开杰</td><td>632，020.00</td>
-			</tr>
-			<tr>
-				<td>1</td><td><a href="#">畅游商旅网</a></td><td>http://chi.trade.qunar.com/</td><td>OTA</td><td>Web</td><td>张开杰</td><td>632，020.00</td>
+			<tr ng-repeat="one in list">
+				<td>{{one.id}}</td>
+				<td>{{one.otaPay}}</td>
+				<td>{{one.pay}}</td>
+				<td>{{one.insuranceId}}</td>
+				<td>{{one.insuranceAccountId}}</td>
+				<td>{{one.payDate}}</td>
+				<td>{{one.profit}}</td>
+				<td>{{one.payed}}</td>
 			</tr>
 		</table>
 	</div>

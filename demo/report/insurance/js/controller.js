@@ -1,4 +1,4 @@
-zui.controller('FlightClicksController', function($scope) {
+zui.controller('MultiStatisticsController', function($scope) {
 	$scope.data=[];
 	// List.query(function (response) {
 	//     angular.forEach(response.list, function (item) {
@@ -7,10 +7,4 @@ zui.controller('FlightClicksController', function($scope) {
 	//         }
 	//     });
 	// });
-});
-
-zui.controller('DetailController',function($scope, $routeParams, $http) {
-	$http.get('/api/' + $routeParams.id + '.json').success(function(data) {
-	    $scope.data = data.data;
-	 });
 });

@@ -1,15 +1,23 @@
 // route
 zui.config(['$routeProvider',function ($routeProvider) {
       $routeProvider
-      .when('/flight/clicks', {
-        templateUrl: 'template/flightClicks.html',
-        controller: 'FlightClicksController'
+      .when('/accountBalance', {
+        templateUrl: 'template/common.html',
+        controller: 'AccountBalanceController'
       })
-      /*.when('/list/:id', {
-          templateUrl: 'template/detail.html',
-          controller: 'DetailController'
-      })*/
+      .when('/multiClick', {
+        templateUrl: 'template/common.html',
+        controller: 'MultiClickController'
+      })
+      .when('/multiConsume', {
+        templateUrl: 'template/common.html',
+        controller: 'MultiConsumeController'
+      })
+      .when('/priceSetting', {
+        templateUrl: 'template/common.html',
+        controller: 'PriceSettingController'
+      })
       .otherwise({
-        redirectTo: '/flight/clicks'
+        redirectTo: '/accountBalance'
       });
 }]);

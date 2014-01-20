@@ -1,4 +1,12 @@
-zui.controller('FlightClicksController', function($scope) {
+// 账户余额
+zui.controller('AccountBalanceController',function($scope, $routeParams, $http) {
+	// $http.get('/api/' + $routeParams.id + '.json').success(function(data) {
+	//     $scope.data = data.data;
+	//  });
+});
+
+// 多日点击
+zui.controller('MultiClickController', function($scope) {
 	$scope.data=[];
 	// List.query(function (response) {
 	//     angular.forEach(response.list, function (item) {
@@ -9,8 +17,10 @@ zui.controller('FlightClicksController', function($scope) {
 	// });
 });
 
-zui.controller('DetailController',function($scope, $routeParams, $http) {
-	$http.get('/api/' + $routeParams.id + '.json').success(function(data) {
-	    $scope.data = data.data;
-	 });
+// 多日消费
+zui.controller('MultiConsumeController',function($scope, $routeParams, $http) {
+});
+
+// 价格配置
+zui.controller('PriceSettingController',function($scope, $routeParams, $http) {
 });
