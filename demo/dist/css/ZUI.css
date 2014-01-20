@@ -8896,6 +8896,7 @@ header .header-link a.cur {
 }
 
 .search .search-box .glyphicon-minus {
+  top: 0;
   padding: 0;
   font-size: 12px;
   text-align: center;

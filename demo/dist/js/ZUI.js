@@ -30,19 +30,18 @@ zui.directive("ngMenu",function($http){
 
 	function link(scope, element, attrs){
 		var url = attrs['url'];
-		scope.open = false;
 		$http.get(url).success(function(data) {
 		    scope.menus = data.data.menus;
 		});
 		scope.showMenu = function(target){
-			if(scope.open) {
+			if($(target).attr("flag") === "true") {
 				$(target).nextAll(".menu-c").hide();
 				$(target).find(".glyphicon").removeClass("glyphicon-minus");
-				scope.open = false;
+				$(target).attr("flag", false);
 			} else {
 				$(target).nextAll(".menu-c").show()
 				$(target).find(".glyphicon").addClass("glyphicon-minus");
-				scope.open = true;
+				$(target).attr("flag", true);
 			}
 		}
 		scope.menuBg = function(target){
