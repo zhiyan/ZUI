@@ -1,8 +1,8 @@
 <div class="menu" ng-menu url="/api/menu.json">
     <div ng-repeat="menu in menus">
-        <div class="menu-t">
+        <div class="menu-t" ng-click="showMenu($event.target)">
             <span>{{menu.name}}</span>
-            <em class="glyphicon glyphicon-plus"></em>
+            <em class="glyphicon glyphicon-plus" ></em>
         </div>
         <div class="menu-c" ng-repeat="one in menu.data">
             <a href="#{{one.url}}" title="{{one.name}}">{{one.name}}</a>
