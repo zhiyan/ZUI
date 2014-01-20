@@ -7,14 +7,19 @@ zui.directive("ngMenu",function($http){
 		    scope.menus = data.data.menus;
 		});
 		scope.showMenu = function(target){
-			scope.open = scope.open ? false : true;
 			if(scope.open) {
 				$(target).nextAll(".menu-c").hide();
 				$(target).find(".glyphicon").removeClass("glyphicon-minus");
+				scope.open = false;
 			} else {
 				$(target).nextAll(".menu-c").show()
 				$(target).find(".glyphicon").addClass("glyphicon-minus");
+				scope.open = true;
 			}
+		}
+		scope.menuBg = function(target){
+			$(target).addClass("menu-active");
+			$(target).siblings().removeClass("menu-active");
 		}
 	}
 

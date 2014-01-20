@@ -8747,10 +8747,12 @@ header .header-link a.cur {
 
 .menu .menu-t {
   padding: 10px;
+  cursor: pointer;
   background-color: #d9e8f4;
 }
 
 .menu .menu-c {
+  display: none;
   padding: 10px;
   cursor: pointer;
   background-color: #f9fcff;
@@ -8765,6 +8767,15 @@ header .header-link a.cur {
   text-decoration: none;
 }
 
+.menu .menu-active {
+  background-color: #e87948;
+}
+
+.menu .menu-active a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .menu .glyphicon {
   top: 4px;
   float: right;
@@ -8774,12 +8785,13 @@ header .header-link a.cur {
   font-size: 14px;
   line-height: 8px;
   color: #0263bd;
-  cursor: pointer;
   border: 1px solid #0263bd;
 }
 
 .menu .glyphicon-minus {
   padding: 0;
+  font-size: 12px;
+  text-align: center;
 }
 
 .search {
@@ -8885,6 +8897,8 @@ header .header-link a.cur {
 
 .search .search-box .glyphicon-minus {
   padding: 0;
+  font-size: 12px;
+  text-align: center;
 }
 
 .db-table {
