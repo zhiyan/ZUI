@@ -1,28 +1,45 @@
-zui.directive("ngMenu",function($http){
+zui.directive("ngMenu",function($http,$location){
 
-	function link(scope, element, attrs){
-		var url = attrs['url'];
-		$http.get(url).success(function(data) {
-		    scope.menus = data.data.menus;
-		});
-		scope.showMenu = function(target){
-			if($(target).attr("flag") === "true") {
-				$(target).nextAll(".menu-c").hide();
-				$(target).find(".glyphicon").removeClass("glyphicon-minus");
-				$(target).attr("flag", false);
-			} else {
-				$(target).nextAll(".menu-c").show()
-				$(target).find(".glyphicon").addClass("glyphicon-minus");
-				$(target).attr("flag", true);
-			}
-		}
-		scope.menuBg = function(target){
-			$(target).addClass("menu-active");
-			$(target).siblings().removeClass("menu-active");
-		}
-	}
+  var host = $location.host(),
+      url = $location.absUrl(),
+      rUrl = new RegExp(".*"+host);
+      currentUrl = url.replace(rUrl,"");
 
-	 return {
+  function link(scope, element, attrs){
+    var url = attrs['url'];
+
+    $http.get(url+"?t="+( +new Date() ) ).success(function(res) {
+      var menus = res.data.menus,
+          current;
+      angular.forEach(menus, function(value, key){
+        value.style = "";
+        angular.forEach(value.data,function(v,k){
+          if( v.url === currentUrl ){
+            value.style = "display:block;";
+          }
+        });
+      });
+      scope.menus = menus;
+    });
+
+    // 当前class
+    scope.getClass = function(one){
+      if( one.url === currentUrl ){
+        return "menu-active";
+      }
+    }
+
+    $(element)
+      .on("click",".menu-t",function(){
+        $(this).siblings(".menu-c").slideToggle();
+        $(this).parent().siblings().find(".menu-c:visible").slideToggle();
+      })
+      .on("click",".menu-c a",function(){
+        currentUrl = $(this).attr("href");
+      });
+  }
+
+   return {
       link:link
     };
 });

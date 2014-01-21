@@ -32,7 +32,8 @@ module.exports = function(grunt) {
         dest: 'dist/js/<%= pkg.name %>.js'
       },
       angular:{
-        src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js','<%= path.angular %>angular-animate.js'],
+        // src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js','<%= path.angular %>angular-animate.js'],
+        src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js'],
         dest:'dist/js/libs/angular.js'
       }
     },
@@ -111,7 +112,7 @@ module.exports = function(grunt) {
       },
       recess:{
         files: '**/*.less',
-        tasks: ['recess']
+        tasks: ['recess','copy']
       }
     }
   });

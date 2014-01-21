@@ -7,77 +7,77 @@
 				{
 					"id" : 1,
 					"name" : "账户余额",
-					"url"	: "/report/flight/#accountBalance"
+					"url"	: "/report/flight/#/accountBalance"
 				},
 				{
 					"id" : 2,
 					"name" : "多日点击",
-					"url"	: "/report/flight/#multiClick"
+					"url"	: "/report/flight/#/multiClick"
 				},
 				{
 					"id" : 3,
 					"name" : "多日消费",
-					"url"	: "/report/flight/#multiConsume"
+					"url"	: "/report/flight/#/multiConsume"
 				},
 				{
 					"id" : 4,
 					"name" : "多日出票",
-					"url"	: "/report/flight/#multiDraft"
+					"url"	: "/report/flight/#/multiDraft"
 				},
 				{
 					"id" : 5,
 					"name" : "点击分析",
-					"url"	: "/report/flight/#clickAnalyze"
+					"url"	: "/report/flight/#/clickAnalyze"
 				},
 				{
 					"id" : 7,
 					"name" : "点击阶梯分析",
-					"url"	: "/report/flight/#clickStepAnalyze"
+					"url"	: "/report/flight/#/clickStepAnalyze"
 				},
 				{
 					"id" : 7,
 					"name" : "Top航线上传",
-					"url"	: "/report/flight/#topAirUpload"
+					"url"	: "/report/flight/#/topAirUpload"
 				},
 				{
 					"id" : 8,
 					"name" : "Top航线列表",
-					"url"	: "/report/flight/#topAirList"
+					"url"	: "/report/flight/#/topAirList"
 				},
 				{
 					"id" : 9,
 					"name" : "Top航线消费",
-					"url"	: "/report/flight/#topAirConsume"
+					"url"	: "/report/flight/#/topAirConsume"
 				},
 				{
 					"id" : 10,
 					"name" : "CPC价格配置",
-					"url"	: "/report/flight/#cpcPriceSetting"
+					"url"	: "/report/flight/#/cpcPriceSetting"
 				},
 				{
 					"id" : 11,
 					"name" : "航空公司舱位票面额汇总",
-					"url"	: "/report/flight/#companyCollect"
+					"url"	: "/report/flight/#/companyCollect"
 				},
 				{
 					"id" : 12,
 					"name" : "业务视角收入报表",
-					"url"	: "/report/flight/#bussinessIncome"
+					"url"	: "/report/flight/#/bussinessIncome"
 				},
 				{
 					"id" : 13,
 					"name" : "航空公司CPA总额阶梯票面额汇总",
-					"url"	: "/report/flight/#companyCpaCollect"
+					"url"	: "/report/flight/#/companyCpaCollect"
 				},
 				{
 					"id" : 14,
 					"name" : "CPC月结报表",
-					"url"	: "/report/flight/#cpcMonth"
+					"url"	: "/report/flight/#/cpcMonth"
 				},
 				{
 					"id" : 15,
 					"name" : "CPA月结报表",
-					"url"	: "/report/flight/#cpaMonth"
+					"url"	: "/report/flight/#/cpaMonth"
 				}
 			]
 		}, 
@@ -88,32 +88,32 @@
 				{
 					"id" : 1,
 					"name" : "账户余额",
-					"url"	: "/report/hotel/#accountBalance"
+					"url"	: "/report/hotel/#/accountBalance"
 				},
 				{
 					"id" : 2,
 					"name" : "多日点击",
-					"url"	: "/report/hotel/#multiClick"
+					"url"	: "/report/hotel/#/multiClick"
 				},
 				{
 					"id" : 3,
 					"name" : "多日消费",
-					"url"	: "/report/hotel/#multiConsume"
+					"url"	: "/report/hotel/#/multiConsume"
 				},
 				{
 					"id" : 4,
 					"name" : "点击分析",
-					"url"	: "/report/hotel/#clickAnalyze"
+					"url"	: "/report/hotel/#/clickAnalyze"
 				},
 				{
 					"id" : 5,
 					"name" : "点击阶梯分析",
-					"url"	: "/report/hotel/#clickStepAnalyze"
+					"url"	: "/report/hotel/#/clickStepAnalyze"
 				},
 				{
 					"id" : 6,
 					"name" : "价格配置",
-					"url"	: "/report/hotel/#priceSetting"
+					"url"	: "/report/hotel/#/priceSetting"
 				}
 			]
 		}, 
@@ -124,22 +124,22 @@
 				{
 					"id" : 1,
 					"name" : "账户余额",
-					"url"	: "/report/dujia/#accountBalance"
+					"url"	: "/report/dujia/#/accountBalance"
 				},
 				{
 					"id" : 2,
 					"name" : "多日点击",
-					"url"	: "/report/dujia/#multiClick"
+					"url"	: "/report/dujia/#/multiClick"
 				},
 				{
 					"id" : 3,
 					"name" : "多日消费",
-					"url"	: "/report/dujia/#multiConsume"
+					"url"	: "/report/dujia/#/multiConsume"
 				},
 				{
 					"id" : 4,
 					"name" : "价格配置",
-					"url"	: "/report/dujia/#priceSetting"
+					"url"	: "/report/dujia/#/priceSetting"
 				}
 			]
 		},
@@ -150,7 +150,7 @@
 				{
 					"id" : 1,
 					"name" : "多日统计",
-					"url"	: "/report/insurance/#multiStatistics"
+					"url"	: "/report/insurance/#/multiStatistics"
 				}
 			]
 		}

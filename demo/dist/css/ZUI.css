@@ -8753,7 +8753,6 @@ header .header-link a.cur {
 
 .menu .menu-c {
   display: none;
-  padding: 10px;
   cursor: pointer;
   background-color: #f9fcff;
 }
@@ -8765,6 +8764,11 @@ header .header-link a.cur {
 .menu .menu-c:hover a {
   color: #ffffff;
   text-decoration: none;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
 }
 
 .menu .menu-active {
@@ -8904,6 +8908,11 @@ header .header-link a.cur {
 
 .db-table {
   margin-top: 30px;
+}
+
+.db-table .chart {
+  height: 400px;
+  min-width: 700px;
 }
 
 .db-table .search-input {
