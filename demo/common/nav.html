@@ -1,11 +1,11 @@
 <div class="menu" ng-menu url="/api/menu.json">
     <div ng-repeat="menu in menus">
-        <div class="menu-t" ng-click="showMenu($event.target)">
+        <div class="menu-t">
             <span>{{menu.name}}</span>
-            <em class="glyphicon glyphicon-plus" ></em>
+            <em class="glyphicon glyphicon-plus"></em>
         </div>
-        <div class="menu-c" ng-repeat="one in menu.data" ng-click="menuBg($event.target)">
-            <a href="{{one.url}}" title="{{one.name}}">{{one.name}}</a>
+        <div class="menu-c" ng-repeat="one in menu.data" ng-class="getClass(one)" style="{{menu.style}}">
+	           <a href="{{one.url}}" title="{{one.name}}">{{one.name}}</a>
         </div>
 	</div>
 </div>

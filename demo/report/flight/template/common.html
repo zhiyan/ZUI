@@ -1,3 +1,4 @@
+<!-- filter -->
 <div class="search">
 	<h3>机票多日点击</h3>
 	<div class="search-box">
@@ -18,8 +19,12 @@
 		</table>
 	</div>
 </div>
+
+<!-- chart -->
+<div ng-chart class="chart" url="{{chartUrl}}"></div>
+
+<!-- table -->
 <div class="db-table">
-	<div id="container" class="chart" ng-chart></div>
 	<div class="search-input">
 		<select name="" id="" class="form-control">
 			<option value="">网站名称</option>
@@ -27,7 +32,7 @@
 		</select>
 		<input type="text" value="" placeholder="请输入用户名" class="form-control">
 		<button type="button" class="btn btn-primary">查询</button>
-		<span class="glyphicon glyphicon-save">下载报表</span>
+		<a class="glyphicon glyphicon-save" href="javascript:void(0)" target="_blank">下载报表</a>
 	</div>
 	<div class="db-cont">
 		<table>
@@ -49,7 +54,7 @@
 	<div class="db-footer"><span class="total">合计21个客户</span><span class="db-number">632,020.00</span></div>
 	<ul class="pagination">
 			<li class="disabled">
-				<a href="#"><span class="icon-double-angle-left"><<</span></a>
+				<a href="#"><span class="icon-double-angle-left">&lt;&lt;</span></a>
 			</li>
 			<li class="active">
 				<a href="#">1</a>
@@ -64,7 +69,7 @@
 				<a href="#">5</a>
 			</li>
 			<li>
-				<a href="#"><span class="icon-double-angle-right">>></span></a>
+				<a href="#"><span class="icon-double-angle-right">&gt;&gt;</span></a>
 			</li>
 		</ul>
 </div>
