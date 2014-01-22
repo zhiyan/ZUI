@@ -8921,6 +8921,41 @@ header .header-link a.cur {
   border: 1px solid #e6e6e6;
 }
 
+.db-table .search-input .input-group-btn {
+  float: left;
+  width: 110px;
+}
+
+.db-table .search-input .input-group-btn .dropdown-toggle {
+  width: 96px;
+}
+
+.db-table .search-input .input-group-btn .caret {
+  float: right;
+  margin-top: 7px;
+}
+
+.db-table .search-input .input-group-btn .dropdown-menu {
+  left: 10px;
+  width: 96px;
+  margin: 0;
+  border-top: 0;
+  border-radius: 0;
+}
+
+.db-table .search-input .input-group-btn .dropdown-menu li {
+  padding: 5px 16px;
+}
+
+.db-table .search-input .input-group-btn .dropdown-menu li:hover {
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+
+.db-table .search-input .input-text {
+  margin-left: 150px;
+}
+
 .db-table .search-input .form-control {
   float: left;
   width: 135px;
@@ -8931,6 +8966,56 @@ header .header-link a.cur {
   float: right;
   margin: 5px 10px;
   cursor: pointer;
+}
+
+.db-table .search-input .db-user-list {
+  position: absolute;
+  left: 134px;
+  z-index: 1001;
+  display: none;
+  width: 400px;
+  padding: 10px;
+  margin-top: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+
+.db-table .search-input .db-user-list .nav-tabs {
+  position: static;
+  margin: 10px 0 0px 0px;
+}
+
+.db-table .search-input .db-user-list .nav > li > a {
+  padding: 3px 15px;
+}
+
+.db-table .search-input .db-user-list .customer-list {
+  padding: 10px;
+}
+
+.db-table .search-input .db-user-list .customer-list .active {
+  display: block;
+}
+
+.db-table .search-input .db-user-list .customer-list li {
+  display: none;
+}
+
+.db-table .search-input .db-user-list .customer-list li span {
+  display: inline-block;
+  max-width: 50px;
+  padding: 0 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.db-table .search-input .db-user-list .customer-list li span:hover {
+  background-color: #f5f5f5;
 }
 
 .db-table table {
@@ -8971,6 +9056,20 @@ header .header-link a.cur {
 .db-table .pagination li > a,
 .db-table .pagination li > span {
   padding: 0 6px;
+}
+
+.nav-tabs {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: -30px;
+}
+
+.nav-tabs li {
+  margin-right: 7px;
+}
+
+.nav-tabs .active {
+  background-color: #fff;
 }
 
 .btn-default,
