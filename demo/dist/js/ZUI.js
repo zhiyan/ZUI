@@ -102,46 +102,53 @@ zui.directive("ngSearch",function(){
 			});
 		}
 
-		function quickDate( date, element ){
-			var btn = element.find(".search-quick-date button"),
+		function initDate( scope, element ){
+			var offset = scope.dateOffset,
+				btn = element.find(".search-quick-date button"),
 				iptFrom = element.find(".date-from"),
 				iptTo = element.find(".date-to");
 
-			if( element.find(".search-quick-date").length ){
-				bindChange( iptFrom, element, iptTo );
-				bindChange( iptTo, element, iptFrom );
+			scope.search.fromdate = moment().subtract('days', offset).format('YYYY-MM-DD');
+			scope.search.todate =  moment().format('YYYY-MM-DD');
 
-				btn.bind("click",function(){
-					var elem = angular.element(this),
-						date = elem.attr("rel");
-					elem.addClass("cur").siblings().removeClass("cur");
-					initDate(date,element);
-				});
-				btn.filter("[rel="+date+"]").trigger("click");
-			}
-		}
 
-		function initDate( date, element ){
-			var iptFrom = element.find(".date-from"),
-				iptTo = element.find(".date-to");
+			scope.chooseDate = function( offset, $event ){
+				scope.dateOffset = offset;
+				angular.element($event.target).addClass("cur").siblings().removeClass("cur");
+				scope.search.fromdate = moment().subtract('days', offset).format('YYYY-MM-DD');
+				scope.search.todate =  moment().format('YYYY-MM-DD');
+			};
 
-				iptFrom.val( moment().subtract('days', date).format('YYYY-MM-DD') );
-				iptTo.val( moment().format('YYYY-MM-DD') );
+			scope.changeDate = function(type){
+
+				var fdate = moment(scope.search.fromdate),
+					tdate = moment(scope.search.todate);
+
+				scope.dateOffset = "";
+
+				if( type === 'from' && +fdate >= +tdate ){
+					scope.search.todate = fdate.add('day',1).format('YYYY-MM-DD');
+				}
+				if( type === 'to' && +fdate >= +tdate ){
+					scope.search.fromdate = tdate.subtract('day',1).format('YYYY-MM-DD');
+				}
+			};
+
 		}
 
 		return {
-			"initDate" : initDate,
-			"quickDate" : quickDate
+			"initDate" : initDate
 		};
 	})();
 
 	function searchBox(scope, element, attrs){
 
+		scope.search={};
+
 		// init date
-		var date = attrs['date'];
-		if( date ){
-			// handleDate.initDate( date, element );
-			handleDate.quickDate( date, element );
+		scope.dateOffset = attrs['date'];
+		if( scope.dateOffset ){
+			handleDate.initDate( scope, element );
 		}
 
 		scope.box = $("#search-opation");
