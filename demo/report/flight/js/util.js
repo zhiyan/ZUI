@@ -60,6 +60,7 @@ zui.directive("ngToggle", function($http) {
             event.stopPropagation();
         }
         scope.opation.find("li").bind("click", function() {
+            scope.inputVal.val("");
             scope.opation.hide();
             scope.inputText.text($(this).text());
             scope.inputText.attr("data-value", $(this).attr("data-id"));
