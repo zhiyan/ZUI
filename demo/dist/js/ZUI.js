@@ -85,38 +85,21 @@ zui.directive("ngSearch",function(){
 	// 日期处理
 	var handleDate = (function(){
 
-		function bindChange( ipt, element, rel ){
-			ipt.change(function(){
-				var value = moment( ipt.val() ),
-					relValue = moment( rel.val() ),
-					isFrom = rel.is(".date-to");
+		var dateFormat = 'YYYY-MM-DD';
 
-				element.find(".search-quick-date button").removeClass("cur");
-
-				if( isFrom && +value > +relValue ){
-					rel.val(  value.add('day',1).format('YYYY-MM-DD') );
-				}
-				if( !isFrom && +value <= +relValue ){
-					rel.val(  value.subtract('days', 1).format('YYYY-MM-DD') );
-				}
-			});
+		function makeDate( scope ){
+			scope.search.fromdate = moment().subtract('days', scope.dateOffset).format( dateFormat );
+			scope.search.todate =  moment().format( dateFormat );
 		}
 
 		function initDate( scope, element ){
-			var offset = scope.dateOffset,
-				btn = element.find(".search-quick-date button"),
-				iptFrom = element.find(".date-from"),
-				iptTo = element.find(".date-to");
 
-			scope.search.fromdate = moment().subtract('days', offset).format('YYYY-MM-DD');
-			scope.search.todate =  moment().format('YYYY-MM-DD');
-
+			makeDate( scope );
 
 			scope.chooseDate = function( offset, $event ){
 				scope.dateOffset = offset;
 				angular.element($event.target).addClass("cur").siblings().removeClass("cur");
-				scope.search.fromdate = moment().subtract('days', offset).format('YYYY-MM-DD');
-				scope.search.todate =  moment().format('YYYY-MM-DD');
+				makeDate( scope );
 			};
 
 			scope.changeDate = function(type){
@@ -127,10 +110,10 @@ zui.directive("ngSearch",function(){
 				scope.dateOffset = "";
 
 				if( type === 'from' && +fdate >= +tdate ){
-					scope.search.todate = fdate.add('day',1).format('YYYY-MM-DD');
+					scope.search.todate = fdate.add('day',1).format( dateFormat );
 				}
 				if( type === 'to' && +fdate >= +tdate ){
-					scope.search.fromdate = tdate.subtract('day',1).format('YYYY-MM-DD');
+					scope.search.fromdate = tdate.subtract('day',1).format( dateFormat );
 				}
 			};
 
