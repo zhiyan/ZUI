@@ -35,25 +35,27 @@ zui.directive("ngToggle", function($http) {
         scope.opation = $("#opation");
         scope.inputText = $("#input-select-text");
         scope.userList = $("#db-user-list");
-        scope.customers = $("#customers");
         scope.inputVal = $("#input-val");
+        scope.customers = $(".customer-list");
         scope.toggleShow = function() {
             scope.opation.show();
             event.stopPropagation();
         };
-        scope.showCustomer = function() {
+        scope.showCustomer = function(ele) {
             scope.userList.show();
-            scope.customers.show();
+            scope.list = $(ele);
+            scope.customers.hide();
+            scope.list.show();
             scope.userList.find(".nav li").bind("click", function() {
                 $(this).addClass("active");
                 $(this).siblings().removeClass("active");
-                scope.customers.find("li").removeClass("active");
-                scope.customers.find("[data-window='" + $(this).attr("data-target") + "']").addClass("active");
+                scope.list.find("li").removeClass("active");
+                scope.list.find("[data-window='" + $(this).attr("data-target") + "']").addClass("active");
                 event.stopPropagation();
             });
-            scope.customers.find("span").bind("click", function() {
+            scope.list.find("span").bind("click", function() {
                 scope.inputVal.val($(this).text());
-                scope.customers.hide();
+                scope.list.hide();
                 scope.userList.hide();
                 event.stopPropagation();
             });
@@ -68,7 +70,7 @@ zui.directive("ngToggle", function($http) {
         $(document).not($("#selectBtn")).bind("click", function() {
             scope.opation.hide();
         });
-        $(document).not(scope.customers).bind("click", function() {
+        $(document).not(scope.list).bind("click", function() {
             scope.userList.hide();
             scope.customers.hide();
         });

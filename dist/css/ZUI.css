@@ -8995,6 +8995,7 @@ header .header-link a.cur {
 }
 
 .db-table .search-input .db-user-list .customer-list {
+  display: none;
   padding: 10px;
 }
 
@@ -9008,7 +9009,7 @@ header .header-link a.cur {
 
 .db-table .search-input .db-user-list .customer-list li span {
   display: inline-block;
-  max-width: 50px;
+  max-width: 80px;
   padding: 0 10px;
   margin: 5px;
   cursor: pointer;
