@@ -1,34 +1,6 @@
 // service
 angular.module('zuiServices', []);
 
-// search
-zui.directive("ngSearch", function() {
-    function searchBox(scope, element, attrs) {
-        scope.box = $("#search-opation");
-        scope.icon = $(".glyphicon");
-        scope.textInfo = $("#text");
-        scope.box.find("tr:gt(2)").not(":last-child").hide();
-        scope.flag = false;
-        scope.showMore = function(target) {
-            if (scope.flag) {
-                scope.box.find("tr:gt(2)").not(":last-child").hide();
-                scope.icon.removeClass("glyphicon-minus");
-                scope.textInfo.text("更多筛选条件");
-                scope.flag = false;
-            } else {
-                scope.box.find("tr").show();
-                scope.icon.addClass("glyphicon-minus");
-                scope.textInfo.text("收起");
-                scope.flag = true;
-            }
-
-        };
-    }
-
-    return {
-        link: searchBox
-    };
-});
 //ng-toggle
 zui.directive("ngToggle", function($http) {
     function toggle(scope, element, attrs) {
@@ -79,6 +51,7 @@ zui.directive("ngToggle", function($http) {
         link: toggle
     };
 });
+
 // chart
 zui.directive("ngChart", function($http) {
 

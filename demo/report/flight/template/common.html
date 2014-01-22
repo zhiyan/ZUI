@@ -1,18 +1,23 @@
 <!-- filter -->
-<div class="search" ng-search>
+<div class="search" ng-search date="7">
 	<h3>机票多日点击</h3>
 	<div class="search-box">
 		<table>
-			<tr><th>开始时间：</th><td><div class="btn-group btn-group-sm">
-			  <button type="button" class="btn btn-default">昨天</button>
-			  <button type="button" class="btn btn-default cur">最近7天</button>
-			  <button type="button" class="btn btn-default">最近三十天</button>
-			</div>
-			<div class="search-date">
-				<input type="text" datepicker="" value="" class="form-control"  cate="day"><em>--</em>
-				<input type="text" datepicker="" value="" class="form-control" cate="day">
-			</div>
-			</td></tr>
+			<tr>
+				<th>开始时间：</th>
+				<td>
+					<div class="btn-group btn-group-sm search-quick-date">
+					  <button type="button" class="btn btn-default" ng-click="chooseDate('1',$event)" ng-class="{'cur':dateOffset==1}">昨天</button>
+					  <button type="button" class="btn btn-default" ng-click="chooseDate('7',$event)" ng-class="{'cur':dateOffset==7}">最近7天</button>
+					  <button type="button" class="btn btn-default" ng-click="chooseDate('30',$event)" ng-class="{'cur':dateOffset==30}">最近三十天</button>
+					</div>
+					<div class="search-date">
+						<input type="text" datepicker="" value="" class="form-control date-from"  cate="day" ng-model="search.fromdate" ng-change="changeDate('from')">
+						<em>--</em>
+						<input type="text" datepicker="" value="" class="form-control date-to" cate="day" ng-model="search.todate" ng-change="changeDate('to')">
+					</div>
+				</td>
+			</tr>
 			<tr><th>客户类型：</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
 			<tr><th>业务范围</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
 			<tr ng-if="navTab"><th>查询方式</th><td><ul class="search-options"><li><input type="radio" name="search-type" checked/>时间段</li><li><input type="radio" name="search-type"/>日期</li></ul></td></tr>
@@ -38,6 +43,7 @@
 		</a>
 	</li>
 </ul>
+
 <!-- table -->
 <div class="db-table" >
 	<div class="search-input" ng-toggle>
@@ -46,8 +52,8 @@
               <ul class="dropdown-menu" id="opation">
                 <li data-id="0">网站名称</li>
                 <li data-id="1">客户ID</li>
-                <li data-id="2" ng-click = "showCustomer('#customers')">客服</li>
-                <li data-id="3" ng-click = "showCustomer('#salers')">销售</li>
+                <li data-id="2" ng-click="showCustomer('#customers')">客服</li>
+                <li data-id="3" ng-click="showCustomer('#salers')">销售</li>
               </ul>
         </div>
 		<input type="text" value="" placeholder="请输入用户名" class="form-control input-text" id="input-val">
