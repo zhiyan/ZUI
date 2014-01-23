@@ -49,7 +49,6 @@ zui.directive("ngSearch",function(){
 		scope.search={};
 
 		// init date
-		scope.dateOffset = attrs['date'];
 		if( scope.dateOffset ){
 			handleDate.initDate( scope, element );
 		}

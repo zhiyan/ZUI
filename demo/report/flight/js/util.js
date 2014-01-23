@@ -1,5 +1,7 @@
 // service
-angular.module('zuiServices', []);
+zui.value("vars",{
+    "dateOffset" : 7
+});
 
 //ng-toggle
 zui.directive("ngToggle", function($http) {
