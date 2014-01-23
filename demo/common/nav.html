@@ -2,9 +2,9 @@
     <div ng-repeat="menu in menus">
         <div class="menu-t">
             <span>{{menu.name}}</span>
-            <em class="glyphicon glyphicon-plus"></em>
+            <em class="glyphicon {{menu.isShow ? 'glyphicon-minus' : 'glyphicon-plus'}}"></em>
         </div>
-        <div class="menu-c" ng-repeat="one in menu.data" ng-class="getClass(one)" style="{{menu.style}}">
+        <div class="menu-c" ng-repeat="one in menu.data" ng-class="getClass(one)" style="{{menu.isShow ? 'display:block' : ''}}">
 	           <a href="{{one.url}}" title="{{one.name}}">{{one.name}}</a>
         </div>
 	</div>

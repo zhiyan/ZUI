@@ -52,10 +52,10 @@ zui.directive("ngMenu",function($http,$location){
       var menus = res.data.menus,
           current;
       angular.forEach(menus, function(value, key){
-        value.style = "";
+        value.isShow = false;
         angular.forEach(value.data,function(v,k){
           if( v.url === currentUrl ){
-            value.style = "display:block;";
+            value.isShow =true;
           }
         });
       });
@@ -71,8 +71,10 @@ zui.directive("ngMenu",function($http,$location){
 
     $(element)
       .on("click",".menu-t",function(){
+        $(this).find(".glyphicon ").toggleClass("glyphicon-plus glyphicon-minus");
         $(this).siblings(".menu-c").slideToggle();
         $(this).parent().siblings().find(".menu-c:visible").slideToggle();
+        $(this).parent().siblings().find(".glyphicon-minus").toggleClass("glyphicon-plus glyphicon-minus");
       })
       .on("click",".menu-c a",function(){
         currentUrl = $(this).attr("href");
@@ -135,14 +137,27 @@ zui.directive("ngSearch",function(){
 		};
 	})();
 
+	var reset = function( scope ){
+		scope.search = scope.master || {};
+	};
+
 	function searchBox(scope, element, attrs){
+
+		var offset;
 
 		scope.search={};
 
 		// init date
 		if( scope.dateOffset ){
 			handleDate.initDate( scope, element );
+			scope.master = angular.copy(scope.search);
+			offset = scope.dateOffset;
 		}
+
+		scope.reset = function(){
+			scope.search = angular.copy( scope.master ) || {};
+			scope.dateOffset = offset;
+		};
 
 	}
 

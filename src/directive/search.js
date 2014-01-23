@@ -42,14 +42,27 @@ zui.directive("ngSearch",function(){
 		};
 	})();
 
+	var reset = function( scope ){
+		scope.search = scope.master || {};
+	};
+
 	function searchBox(scope, element, attrs){
+
+		var offset;
 
 		scope.search={};
 
 		// init date
 		if( scope.dateOffset ){
 			handleDate.initDate( scope, element );
+			scope.master = angular.copy(scope.search);
+			offset = scope.dateOffset;
 		}
+
+		scope.reset = function(){
+			scope.search = angular.copy( scope.master ) || {};
+			scope.dateOffset = offset;
+		};
 
 	}
 
