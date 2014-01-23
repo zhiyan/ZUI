@@ -31,7 +31,22 @@ zui.controller('MultiConsumeController', function($scope, $routeParams, $http) {
 });
 
 // 多日出票
-zui.controller('MultiDraftController', function($scope, $routeParams, $http) {});
+zui.controller('MultiDraftController', function($scope, $routeParams, $http) {
+    $scope.chartUrl = "/api/chart.json";
+    $http.get('/api/table.json').success(function(data) {
+        $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
+        $scope.dbTitle = [{
+            date: "2012-11-20",
+            count: "出票数量",
+            price: "票面额"
+        }, {
+            date: "2012-11-30",
+            count: "出票数量",
+            price: "票面额"
+        }];
+        $scope.list = data.data.flights;
+    });
+});
 
 // 点击分析
 zui.controller('ClickAnalyzeController', function($scope, $routeParams, $http) {});
@@ -39,6 +54,10 @@ zui.controller('ClickAnalyzeController', function($scope, $routeParams, $http) {
 // 点击阶梯分析
 zui.controller('ClickStepAnalyzeController', function($scope, $routeParams, $http) {
     $scope.navTab = true;
+    $http.get('/api/table.json').success(function(data) {
+        $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
+        $scope.list = data.data.flights;
+    });
 });
 
 // Top航线上传

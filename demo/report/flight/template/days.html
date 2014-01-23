@@ -1,5 +1,5 @@
 <!-- filter -->
-<div class="search" ng-search>
+<div class="search" ng-search date="7">
 	<h3>机票多日点击</h3>
 	<div class="search-box">
 		<table>
@@ -7,46 +7,21 @@
 				<th>开始时间：</th>
 				<td>
 					<div class="btn-group btn-group-sm search-quick-date">
-					  <button type="button" class="btn btn-default" ng-click="dateOffset=1" ng-class="{'cur':dateOffset==1}">昨天</button>
-					  <button type="button" class="btn btn-default" ng-click="dateOffset=7" ng-class="{'cur':dateOffset==7}">最近7天</button>
-					  <button type="button" class="btn btn-default" ng-click="dateOffset=30" ng-class="{'cur':dateOffset==30}">最近三十天</button>
+					  <button type="button" class="btn btn-default" ng-click="chooseDate('1',$event)" ng-class="{'cur':dateOffset==1}">昨天</button>
+					  <button type="button" class="btn btn-default" ng-click="chooseDate('7',$event)" ng-class="{'cur':dateOffset==7}">最近7天</button>
+					  <button type="button" class="btn btn-default" ng-click="chooseDate('30',$event)" ng-class="{'cur':dateOffset==30}">最近三十天</button>
 					</div>
 					<div class="search-date">
-						<input type="text" datepicker value="" class="form-control date-from"  cate="day" ng-model="search.fromdate" ng-change="dateOffset=''">
+						<input type="text" datepicker="" value="" class="form-control date-from"  cate="day" ng-model="search.fromdate" ng-change="changeDate('from')">
 						<em>--</em>
-						<input type="text" datepicker value="" class="form-control date-to" cate="day" ng-model="search.todate" ng-change="dateOffset=''">
+						<input type="text" datepicker="" value="" class="form-control date-to" cate="day" ng-model="search.todate" ng-change="changeDate('to')">
 					</div>
 				</td>
 			</tr>
-			<tr ng-repeat="one in searchKeys" ng-show="$index <= 2 || showmore">
-				<th>{{searchParam[one].name}}</th>
-				<td>
-					<ul class="search-options">
-						<li ng-repeat="param in searchParam[one].values">
-							<input type="checkbox" name="{{one}}" value="{{param.id}}" />{{param.name}}
-						</li>
-					</ul>
-				</td>
-			</tr>
-
-			<tr ng-if="navTab">
-				<th>查询方式</th>
-				<td>
-					<ul class="search-options">
-						<li><input type="radio" name="search-type" checked/>时间段</li>
-						<li><input type="radio" name="search-type"/>日期</li>
-					</ul>
-				</td>
-			</tr>
-
-			<tr bgcolor = "#f5f5f5" class="search-btn">
-				<td colspan="2">
-					<button type="button" class="btn btn-primary btn-sm">确定</button>
-					<button type="button" class="btn btn-default btn-sm">重置</button>
-					<a  ng-show="!showmore" href="javascript:;" ng-click="showmore=true" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a>
-					<a ng-show="showmore" href="javascript:;" ng-click="showmore=false" class="search-more"><em class="glyphicon glyphicon-minus"></em><span id="text">收起</span></a>
-				</td>
-			</tr>
+			<tr><th>客户类型：</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
+			<tr><th>业务范围</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
+			<tr ng-if="navTab"><th>查询方式</th><td><ul class="search-options"><li><input type="radio" name="search-type" checked/>时间段</li><li><input type="radio" name="search-type"/>日期</li></ul></td></tr>
+			<tr bgcolor = "#f5f5f5" class="search-btn"><td colspan="2"><button type="button" class="btn btn-primary btn-sm">确定</button><button type="button" class="btn btn-default btn-sm">重置</button><a href="javascript:;" ng-click="showMore($event.target)" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a></td></tr>
 		</table>
 	</div>
 </div>
@@ -70,7 +45,7 @@
 </ul>
 
 <!-- table -->
-<div class="db-table">
+<div class="db-table" >
 	<div class="search-input" ng-toggle>
 		<div class="input-group-btn">
               <button type="button" class="form-control dropdown-toggle" ng-click="toggleShow()" id="selectBtn"><span id="input-select-text" data-value="0">网站名称</span> <span class="caret"></span></button>
@@ -159,85 +134,47 @@
 		</div>
 		<!--end customerList-->
 	</div>
-	<div class="db-table-box" data-window="sales">
-		<div class="db-cont">
-			<table>
-				<tr>
-					<th ng-repeat="t in title">{{t}}</th>
-				</tr>
-				<tr ng-repeat="one in list">
-					<td>{{one.id}}</td>
-					<td>{{one.otaPay}}</td>
-					<td>{{one.pay}}</td>
-					<td>{{one.insuranceId}}</td>
-					<td>{{one.insuranceAccountId}}</td>
-					<td>{{one.payDate}}</td>
-					<td>{{one.profit}}</td>
-					<td>{{one.payed}}</td>
-				</tr>
-			</table>
-		</div>
-	    <div class="db-footer"><span class="total">合计22个客户</span><span class="db-number">632,020.00</span></div>
-		<ul class="pagination">
-			<li class="disabled">
-				<a href="#"><span class="icon-double-angle-left">&lt;&lt;</span></a>
-			</li>
-			<li class="active">
-				<a href="#">1</a>
-			</li>
-			<li>
-				<a href="#">3</a>
-			</li>
-			<li>
-				<a href="#">4</a>
-			</li>
-			<li>
-				<a href="#">5</a>
-			</li>
-			<li>
-				<a href="#"><span class="icon-double-angle-right">&gt;&gt;</span></a>
-			</li>
-		</ul>
+	<div class="db-cont">
+		<table>
+			<tr>
+				<th ng-repeat="t in title">{{t}}
+				</th>
+				<th ng-repeat="dt in dbTitle">
+					<div class="db-date">{{dt.date}}</div>
+					<div class="db-count">{{dt.count}}</div><div class="db-price">{{dt.price}}</div></tr>
+				</th>
+			</tr>
+			<tr ng-repeat="one in list">
+				<td>{{one.id}}</td>
+				<td>{{one.otaPay}}</td>
+				<td>{{one.pay}}</td>
+				<td>{{one.insuranceId}}</td>
+				<td>{{one.insuranceAccountId}}</td>
+				<td>{{one.payDate}}</td>
+				<td>{{one.profit}}</td>
+				<td>{{one.payed}}</td>
+			</tr>
+		</table>
 	</div>
-<!-- if tab -->
-	<div class="db-table-box free-table" ng-if="navTab" data-window="free">
-		<div class="db-cont">
-			<table>
-				<tr>
-					<th ng-repeat="t in title">{{t}}</th>
-				</tr>
-				<tr ng-repeat="one in list">
-					<td>{{one.id}}</td>
-					<td>{{one.otaPay}}</td>
-					<td>{{one.pay}}</td>
-					<td>{{one.insuranceId}}</td>
-					<td>{{one.insuranceAccountId}}</td>
-					<td>{{one.payDate}}</td>
-					<td>{{one.profit}}</td>
-					<td>{{one.payed}}</td>
-				</tr>
-			</table>
-		</div>
-	    <div class="db-footer"><span class="total">合计23个客户</span><span class="db-number">632,020.00</span></div>
-		<ul class="pagination">
-			<li class="disabled">
-				<a href="#"><span class="icon-double-angle-left">&lt;&lt;</span></a>
-			</li>
-			<li class="active">
-				<a href="#">2</a>
-			</li>
-			<li>
-				<a href="#">3</a>
-			</li>
-			<li>
-				<a href="#">4</a>
-			</li>
-			<li>
-				<a href="#">5</a>
-			</li>
-			<li>
-				<a href="#"><span class="icon-double-angle-right">&gt;&gt;</span></a>
-			</li>
-		</ul>
-	</div>
+    <div class="db-footer"><span class="total">合计22个客户</span><span class="db-number">632,020.00</span></div>
+	<ul class="pagination">
+		<li class="disabled">
+			<a href="#"><span class="icon-double-angle-left">&lt;&lt;</span></a>
+		</li>
+		<li class="active">
+			<a href="#">1</a>
+		</li>
+		<li>
+			<a href="#">3</a>
+		</li>
+		<li>
+			<a href="#">4</a>
+		</li>
+		<li>
+			<a href="#">5</a>
+		</li>
+		<li>
+			<a href="#"><span class="icon-double-angle-right">&gt;&gt;</span></a>
+		</li>
+	</ul>
 </div>

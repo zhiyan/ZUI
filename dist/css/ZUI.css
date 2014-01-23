@@ -9037,6 +9037,24 @@ header .header-link a.cur {
   border-right: 1px solid #e6e6e6;
 }
 
+.db-table table .db-date {
+  text-indent: 40px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.db-table table .db-count {
+  float: left;
+  width: 45%;
+  text-align: left;
+  border-right: 1px solid #e6e6e6;
+}
+
+.db-table table .db-price {
+  float: left;
+  width: 45%;
+  text-align: left;
+}
+
 .db-table .db-footer {
   padding: 5px 10px;
   line-height: 24px;
@@ -9057,6 +9075,10 @@ header .header-link a.cur {
 .db-table .pagination li > a,
 .db-table .pagination li > span {
   padding: 0 6px;
+}
+
+.free-table {
+  display: none;
 }
 
 .nav-tabs {
