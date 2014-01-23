@@ -12,9 +12,9 @@
 					  <button type="button" class="btn btn-default" ng-click="chooseDate('30',$event)" ng-class="{'cur':dateOffset==30}">最近三十天</button>
 					</div>
 					<div class="search-date">
-						<input type="text" datepicker="" value="" class="form-control date-from"  cate="day" ng-model="search.fromdate" ng-change="changeDate('from')">
+						<input type="text" datepicker value="" class="form-control date-from"  cate="day" ng-model="search.fromdate">
 						<em>--</em>
-						<input type="text" datepicker="" value="" class="form-control date-to" cate="day" ng-model="search.todate" ng-change="changeDate('to')">
+						<input type="text" datepicker value="" class="form-control date-to" cate="day" ng-model="search.todate">
 					</div>
 				</td>
 			</tr>

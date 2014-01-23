@@ -4,7 +4,7 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http)
         $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
         $scope.list = data.data.flights;
     });
-
+    $scope.chartUrl = "/api/chart.json";
 });
 
 // 多日点击

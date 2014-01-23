@@ -1,4 +1,4 @@
-/*! ZUI - v0.0.1 - 2014-01-22
+/*! ZUI - v0.0.1 - 2014-01-23
 * https://github.com/zhiyan/ZUI
 * Copyright (c) 2014 zhiyan; Licensed MIT */
 // init
@@ -102,20 +102,21 @@ zui.directive("ngSearch",function(){
 				makeDate( scope );
 			};
 
-			scope.changeDate = function(type){
-
+			scope.$watch("search.fromdate",function(){
 				var fdate = moment(scope.search.fromdate),
-					tdate = moment(scope.search.todate);
-
-				scope.dateOffset = "";
-
-				if( type === 'from' && +fdate >= +tdate ){
+				 	tdate = moment(scope.search.todate);
+				if( +fdate >= +tdate ){
 					scope.search.todate = fdate.add('day',1).format( dateFormat );
 				}
-				if( type === 'to' && +fdate >= +tdate ){
+			});
+
+			scope.$watch("search.todate",function(){
+				var fdate = moment(scope.search.fromdate),
+				 	tdate = moment(scope.search.todate);
+				if( +fdate >= +tdate ){
 					scope.search.fromdate = tdate.subtract('day',1).format( dateFormat );
 				}
-			};
+			});
 
 		}
 
