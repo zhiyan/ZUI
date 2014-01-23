@@ -1,6 +1,11 @@
 // service
-zui.value("vars",{
+zui.value("$vars",{
     "dateOffset" : 7
+});
+
+// form
+zui.factory("form",function(){
+
 });
 
 //ng-toggle

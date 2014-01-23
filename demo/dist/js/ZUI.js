@@ -96,11 +96,9 @@ zui.directive("ngSearch",function(){
 
 			makeDate( scope );
 
-			scope.chooseDate = function( offset, $event ){
-				scope.dateOffset = offset;
-				angular.element($event.target).addClass("cur").siblings().removeClass("cur");
-				makeDate( scope );
-			};
+			scope.$watch("dateOffset",function(newValue){
+				if(!!newValue) makeDate( scope );
+			});
 
 			scope.$watch("search.fromdate",function(){
 				var fdate = moment(scope.search.fromdate),

@@ -7,14 +7,14 @@
 				<th>开始时间：</th>
 				<td>
 					<div class="btn-group btn-group-sm search-quick-date">
-					  <button type="button" class="btn btn-default" ng-click="chooseDate('1',$event)" ng-class="{'cur':dateOffset==1}">昨天</button>
-					  <button type="button" class="btn btn-default" ng-click="chooseDate('7',$event)" ng-class="{'cur':dateOffset==7}">最近7天</button>
-					  <button type="button" class="btn btn-default" ng-click="chooseDate('30',$event)" ng-class="{'cur':dateOffset==30}">最近三十天</button>
+					  <button type="button" class="btn btn-default" ng-click="dateOffset=1" ng-class="{'cur':dateOffset==1}">昨天</button>
+					  <button type="button" class="btn btn-default" ng-click="dateOffset=7" ng-class="{'cur':dateOffset==7}">最近7天</button>
+					  <button type="button" class="btn btn-default" ng-click="dateOffset=30" ng-class="{'cur':dateOffset==30}">最近三十天</button>
 					</div>
 					<div class="search-date">
-						<input type="text" datepicker value="" class="form-control date-from"  cate="day" ng-model="search.fromdate">
+						<input type="text" datepicker value="" class="form-control date-from"  cate="day" ng-model="search.fromdate" ng-change="dateOffset=''">
 						<em>--</em>
-						<input type="text" datepicker value="" class="form-control date-to" cate="day" ng-model="search.todate">
+						<input type="text" datepicker value="" class="form-control date-to" cate="day" ng-model="search.todate" ng-change="dateOffset=''">
 					</div>
 				</td>
 			</tr>

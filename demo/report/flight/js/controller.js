@@ -1,11 +1,11 @@
 // 账户余额
-zui.controller('AccountBalanceController', function($scope, $routeParams, $http, vars) {
+zui.controller('AccountBalanceController', function($scope, $routeParams, $http, $vars) {
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
         $scope.list = data.data.flights;
     });
     $scope.chartUrl = "/api/chart.json";
-    $scope.dateOffset = vars.dateOffset;
+    $scope.dateOffset = $vars.dateOffset;
 });
 
 // 多日点击
