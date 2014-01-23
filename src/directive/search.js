@@ -51,13 +51,14 @@ zui.directive("ngSearch",function(){
 		var offset;
 
 		scope.search={};
+		if( !scope.dateOffset ){
+			scope.dateOffset = 0;
+		}
 
 		// init date
-		if( scope.dateOffset ){
-			handleDate.initDate( scope, element );
-			scope.master = angular.copy(scope.search);
-			offset = scope.dateOffset;
-		}
+		handleDate.initDate( scope, element );
+		scope.master = angular.copy(scope.search);
+		offset = scope.dateOffset;
 
 		scope.reset = function(){
 			scope.search = angular.copy( scope.master ) || {};
