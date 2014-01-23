@@ -3,9 +3,30 @@ zui.value("$vars",{
     "dateOffset" : 7
 });
 
-// form
-zui.factory("form",function(){
+// search
+zui.factory("$search",function($http){
 
+    var keys = ["scope","customerType","searchType","terminalType","incomeType"];
+
+    function getKey( arr ){
+        if( !!arr ){
+            return arr.join();
+        }else{
+            return keys.join();
+        }
+    }
+
+    function init( $scope, param  ){
+        var keys = getKey( param );
+        $http.get('/api/search.json',{"keys":keys}).success(function(res) {
+            $scope.searchKeys = keys.split(",");
+            $scope.searchParam = res.data;
+        });
+    }
+
+    return {
+        "init" : init
+    };
 });
 
 //ng-toggle
