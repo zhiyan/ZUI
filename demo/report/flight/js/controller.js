@@ -1,6 +1,6 @@
 // 账户余额
 zui.controller('AccountBalanceController', function($scope, $routeParams, $http, $vars, $search) {
-	$search.init( $scope );
+    $search.init($scope);
 
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
@@ -58,6 +58,7 @@ zui.controller('ClickStepAnalyzeController', function($scope, $routeParams, $htt
         $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
         $scope.list = data.data.flights;
     });
+    $scope.dateOffset = $vars.dateOffset;
 });
 
 // Top航线上传

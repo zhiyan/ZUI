@@ -8836,6 +8836,10 @@ header .header-link a.cur {
   color: #333;
 }
 
+.search .search-box table {
+  width: 100%;
+}
+
 .search .search-box tr {
   border-bottom: 1px solid #e5e5e5;
 }
