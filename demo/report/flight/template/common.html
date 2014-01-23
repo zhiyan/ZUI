@@ -1,5 +1,5 @@
 <!-- filter -->
-<div class="search" ng-search date="7">
+<div class="search" ng-search>
 	<h3>机票多日点击</h3>
 	<div class="search-box">
 		<table>
@@ -7,21 +7,46 @@
 				<th>开始时间：</th>
 				<td>
 					<div class="btn-group btn-group-sm search-quick-date">
-					  <button type="button" class="btn btn-default" ng-click="chooseDate('1',$event)" ng-class="{'cur':dateOffset==1}">昨天</button>
-					  <button type="button" class="btn btn-default" ng-click="chooseDate('7',$event)" ng-class="{'cur':dateOffset==7}">最近7天</button>
-					  <button type="button" class="btn btn-default" ng-click="chooseDate('30',$event)" ng-class="{'cur':dateOffset==30}">最近三十天</button>
+					  <button type="button" class="btn btn-default" ng-click="dateOffset=1" ng-class="{'cur':dateOffset==1}">昨天</button>
+					  <button type="button" class="btn btn-default" ng-click="dateOffset=7" ng-class="{'cur':dateOffset==7}">最近7天</button>
+					  <button type="button" class="btn btn-default" ng-click="dateOffset=30" ng-class="{'cur':dateOffset==30}">最近三十天</button>
 					</div>
 					<div class="search-date">
-						<input type="text" datepicker="" value="" class="form-control date-from"  cate="day" ng-model="search.fromdate" ng-change="changeDate('from')">
+						<input type="text" datepicker value="" class="form-control date-from"  cate="day" ng-model="search.fromdate" ng-change="dateOffset=''">
 						<em>--</em>
-						<input type="text" datepicker="" value="" class="form-control date-to" cate="day" ng-model="search.todate" ng-change="changeDate('to')">
+						<input type="text" datepicker value="" class="form-control date-to" cate="day" ng-model="search.todate" ng-change="dateOffset=''">
 					</div>
 				</td>
 			</tr>
-			<tr><th>客户类型：</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
-			<tr><th>业务范围</th><td><ul class="search-options"><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li><li><input type="checkbox"/>OTA</li></ul></td></tr>
-			<tr ng-if="navTab"><th>查询方式</th><td><ul class="search-options"><li><input type="radio" name="search-type" checked/>时间段</li><li><input type="radio" name="search-type"/>日期</li></ul></td></tr>
-			<tr bgcolor = "#f5f5f5" class="search-btn"><td colspan="2"><button type="button" class="btn btn-primary btn-sm">确定</button><button type="button" class="btn btn-default btn-sm">重置</button><a href="javascript:;" ng-click="showMore($event.target)" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a></td></tr>
+			<tr ng-repeat="one in searchKeys" ng-show="$index <= 2 || showmore">
+				<th>{{searchParam[one].name}}</th>
+				<td>
+					<ul class="search-options">
+						<li ng-repeat="param in searchParam[one].values">
+							<input type="checkbox" name="{{one}}" value="{{param.id}}" />{{param.name}}
+						</li>
+					</ul>
+				</td>
+			</tr>
+
+			<tr ng-if="navTab">
+				<th>查询方式</th>
+				<td>
+					<ul class="search-options">
+						<li><input type="radio" name="search-type" checked/>时间段</li>
+						<li><input type="radio" name="search-type"/>日期</li>
+					</ul>
+				</td>
+			</tr>
+
+			<tr bgcolor = "#f5f5f5" class="search-btn">
+				<td colspan="2">
+					<button type="button" class="btn btn-primary btn-sm">确定</button>
+					<button type="button" class="btn btn-default btn-sm">重置</button>
+					<a  ng-show="!showmore" href="javascript:;" ng-click="showmore=true" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a>
+					<a ng-show="showmore" href="javascript:;" ng-click="showmore=false" class="search-more"><em class="glyphicon glyphicon-minus"></em><span id="text">收起</span></a>
+				</td>
+			</tr>
 		</table>
 	</div>
 </div>
