@@ -8,7 +8,7 @@ var zui = angular.module('zui',['ngRoute','ngResource','ui.bootstrap']);
 
 
 
-zui.directive("datepicker",function(){
+zui.directive("pickerdate",function(){
 
 	var type = {
 		"month":{"startView":'year',"minView":'year',"format":'yyyy-mm',"autoclose":true},
