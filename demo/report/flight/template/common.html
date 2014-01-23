@@ -1,3 +1,5 @@
+<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+<button class='btn btn-default' ng-click="addAlert()">Add Alert</button>
 <!-- filter -->
 <div class="search" ng-search>
 	<h3>机票多日点击</h3>
@@ -41,7 +43,8 @@
 
 			<tr bgcolor = "#f5f5f5" class="search-btn">
 				<td colspan="2">
-					<button type="button" class="btn btn-primary btn-sm">确定</button>
+					<button type="button" class="bt
+					n btn-primary btn-sm">确定</button>
 					<button type="button" class="btn btn-default btn-sm">重置</button>
 					<a  ng-show="!showmore" href="javascript:;" ng-click="showmore=true" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a>
 					<a ng-show="showmore" href="javascript:;" ng-click="showmore=false" class="search-more"><em class="glyphicon glyphicon-minus"></em><span id="text">收起</span></a>

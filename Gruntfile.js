@@ -35,6 +35,13 @@ module.exports = function(grunt) {
         // src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js','<%= path.angular %>angular-animate.js'],
         src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js'],
         dest:'dist/js/libs/angular.js'
+      },
+      bootstrap:{
+        src: [
+          'libs/bootstrap/ui-bootstrap.min.js',
+          'libs/bootstrap/ui-bootstrap-tpls.min.js'
+        ],
+        dest: 'dist/js/libs/bootstrap.js'
       }
     },
 
@@ -45,23 +52,6 @@ module.exports = function(grunt) {
         },
         src: '<%= concat.dist.dest %>',
         dest: 'dist/js/<%= pkg.name %>.min.js'
-      },
-      bootstrap:{
-        src: [
-          '<%= path.bootstrap %>js/transition.js',
-          '<%= path.bootstrap %>js/alert.js',
-          '<%= path.bootstrap %>js/button.js',
-          '<%= path.bootstrap %>js/carousel.js',
-          '<%= path.bootstrap %>js/collapse.js',
-          '<%= path.bootstrap %>js/dropdown.js',
-          '<%= path.bootstrap %>js/modal.js',
-          '<%= path.bootstrap %>js/tooltip.js',
-          '<%= path.bootstrap %>js/popover.js',
-          '<%= path.bootstrap %>js/scrollspy.js',
-          '<%= path.bootstrap %>js/tab.js',
-          '<%= path.bootstrap %>js/affix.js'
-        ],
-        dest: 'dist/js/bootstrap.js'
       }
     },
 
