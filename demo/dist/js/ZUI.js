@@ -1,4 +1,4 @@
-/*! ZUI - v0.0.1 - 2014-01-22
+/*! ZUI - v0.0.1 - 2014-01-23
 * https://github.com/zhiyan/ZUI
 * Copyright (c) 2014 zhiyan; Licensed MIT */
 // init
@@ -80,79 +80,82 @@ zui.directive("ngMenu",function($http,$location){
 
 (function(factory){if(typeof define==="function"&&define.amd){define(["moment"],factory)}else if(typeof exports==="object"){module.exports=factory(require("../moment"))}else{factory(window.moment)}})(function(moment){return moment.lang("zh-cn",{months:"一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),monthsShort:"1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),weekdays:"星期日_星期一_星期二_星期三_星期四_星期五_星期六".split("_"),weekdaysShort:"周日_周一_周二_周三_周四_周五_周六".split("_"),weekdaysMin:"日_一_二_三_四_五_六".split("_"),longDateFormat:{LT:"Ah点mm",L:"YYYY-MM-DD",LL:"YYYY年MMMD日",LLL:"YYYY年MMMD日LT",LLLL:"YYYY年MMMD日ddddLT",l:"YYYY-MM-DD",ll:"YYYY年MMMD日",lll:"YYYY年MMMD日LT",llll:"YYYY年MMMD日ddddLT"},meridiem:function(hour,minute,isLower){var hm=hour*100+minute;if(hm<600){return"凌晨"}else if(hm<900){return"早上"}else if(hm<1130){return"上午"}else if(hm<1230){return"中午"}else if(hm<1800){return"下午"}else{return"晚上"}},calendar:{sameDay:function(){return this.minutes()===0?"[今天]Ah[点整]":"[今天]LT"},nextDay:function(){return this.minutes()===0?"[明天]Ah[点整]":"[明天]LT"},lastDay:function(){return this.minutes()===0?"[昨天]Ah[点整]":"[昨天]LT"},nextWeek:function(){var startOfWeek,prefix;startOfWeek=moment().startOf("week");prefix=this.unix()-startOfWeek.unix()>=7*24*3600?"[下]":"[本]";return this.minutes()===0?prefix+"dddAh点整":prefix+"dddAh点mm"},lastWeek:function(){var startOfWeek,prefix;startOfWeek=moment().startOf("week");prefix=this.unix()<startOfWeek.unix()?"[上]":"[本]";return this.minutes()===0?prefix+"dddAh点整":prefix+"dddAh点mm"},sameElse:"LL"},ordinal:function(number,period){switch(period){case"d":case"D":case"DDD":return number+"日";case"M":return number+"月";case"w":case"W":return number+"周";default:return number}},relativeTime:{future:"%s内",past:"%s前",s:"几秒",m:"1分钟",mm:"%d分钟",h:"1小时",hh:"%d小时",d:"1天",dd:"%d天",M:"1个月",MM:"%d个月",y:"1年",yy:"%d年"},week:{dow:1,doy:4}})});
 // search
-zui.directive("ngSearch",function(){
+zui.directive("ngSearch", function() {
 
-	// 日期处理
-	var handleDate = (function(){
+    // 日期处理
+    var handleDate = (function() {
 
-		var dateFormat = 'YYYY-MM-DD';
+        var dateFormat = 'YYYY-MM-DD';
 
-		function makeDate( scope ){
-			scope.search.fromdate = moment().subtract('days', scope.dateOffset).format( dateFormat );
-			scope.search.todate =  moment().format( dateFormat );
-		}
+        function makeDate(scope) {
+            scope.search.fromdate = moment().subtract('days', scope.dateOffset).format(dateFormat);
+            scope.search.todate = moment().format(dateFormat);
+        }
 
-		function initDate( scope, element ){
+        function initDate(scope, element) {
 
-			makeDate( scope );
+            makeDate(scope);
 
-			scope.chooseDate = function( offset, $event ){
-				scope.dateOffset = offset;
-				angular.element($event.target).addClass("cur").siblings().removeClass("cur");
-				makeDate( scope );
-			};
+            scope.chooseDate = function(offset, $event) {
+                scope.dateOffset = offset;
+                angular.element($event.target).addClass("cur").siblings().removeClass("cur");
+                makeDate(scope);
+            };
 
-			scope.changeDate = function(type){
+            scope.changeDate = function(type) {
 
-				var fdate = moment(scope.search.fromdate),
-					tdate = moment(scope.search.todate);
+                var fdate = moment(scope.search.fromdate),
+                    tdate = moment(scope.search.todate);
 
-				scope.dateOffset = "";
+                scope.dateOffset = "";
 
-				if( type === 'from' && +fdate >= +tdate ){
-					scope.search.todate = fdate.add('day',1).format( dateFormat );
-				}
-				if( type === 'to' && +fdate >= +tdate ){
-					scope.search.fromdate = tdate.subtract('day',1).format( dateFormat );
-				}
-			};
+                if (type === 'from' && +fdate >= +tdate) {
+                    scope.search.todate = fdate.add('day', 1).format(dateFormat);
+                }
+                if (type === 'to' && +fdate >= +tdate) {
+                    scope.search.fromdate = tdate.subtract('day', 1).format(dateFormat);
+                }
+            };
 
-		}
+        }
 
-		return {
-			"initDate" : initDate
-		};
-	})();
+        return {
+            "initDate": initDate
+        };
+    })();
 
-	function searchBox(scope, element, attrs){
+    function searchBox(scope, element, attrs) {
 
-		scope.search={};
+        scope.search = {};
 
-		// init date
-		scope.dateOffset = attrs['date'];
-		if( scope.dateOffset ){
-			handleDate.initDate( scope, element );
-		}
+        // init date
+        scope.dateOffset = attrs['date'];
+        if (scope.dateOffset) {
+            handleDate.initDate(scope, element);
+        }
 
-		scope.box = $("#search-opation");
-		scope.icon = $(".glyphicon");
-		scope.box.find("tr:gt(2)").not(":last-child").hide();
-		scope.flag = false;
-		scope.showMore = function(target){
-			if(scope.flag){
-				scope.box.find("tr:gt(2)").not(":last-child").hide();
-				scope.icon.removeClass("glyphicon-minus");
-				scope.flag = false;
-			} else {
-				scope.box.find("tr").show();
-				scope.icon.addClass("glyphicon-minus");
-				scope.flag = true;
-			}
-			
-		}
-	}
+        scope.box = $("#search-opation");
+        scope.icon = $(".glyphicon");
+        scope.textInfo = $("#text");
+        scope.box.find("tr:gt(2)").not(":last-child").hide();
+        scope.flag = false;
+        scope.showMore = function(target) {
+            if (scope.flag) {
+                scope.box.find("tr:gt(2)").not(":last-child").hide();
+                scope.icon.removeClass("glyphicon-minus");
+                scope.textInfo.text("更多筛选条件");
+                scope.flag = false;
+            } else {
+                scope.box.find("tr").show();
+                scope.icon.addClass("glyphicon-minus");
+                scope.textInfo.text("收起");
+                scope.flag = true;
+            }
 
-	return {
-      link:searchBox
+        }
+    }
+
+    return {
+        link: searchBox
     };
 });

@@ -29,15 +29,15 @@
 <!-- chart -->
 <div  ng-chart class="chart" url="{{chartUrl}}" ng-if="chartUrl"></div>
 <!-- tab -->
-<ul class="nav nav-tabs" ng-if="navTab">
-	<li class="active">
-		<a href="javascript:;" data-target="sales">
+<ul class="nav nav-tabs" ng-if="navTab" id="tabs" ng-table>
+	<li class="active" data-target="sales">
+		<a href="javascript:;" >
 		<i class="blue icon-inbox bigger-130"></i>
 		<span class="bigger-110">售出点击</span>
 		</a>
 	</li>
-	<li>
-		<a href="javascript:;" data-target="free">
+	<li data-target="free">
+		<a href="javascript:;" >
 		<i class="orange icon-location-arrow bigger-130 "></i>
 		<span class="bigger-110">免费点出</span>
 		</a>
@@ -45,7 +45,7 @@
 </ul>
 
 <!-- table -->
-<div class="db-table" >
+<div class="db-table">
 	<div class="search-input" ng-toggle>
 		<div class="input-group-btn">
               <button type="button" class="form-control dropdown-toggle" ng-click="toggleShow()" id="selectBtn"><span id="input-select-text" data-value="0">网站名称</span> <span class="caret"></span></button>
@@ -134,44 +134,26 @@
 		</div>
 		<!--end customerList-->
 	</div>
-	<div class="db-cont" data-window="sales">
-		<table>
-			<tr>
-				<th ng-repeat="t in title">{{t}}</th>
-			</tr>
-			<tr ng-repeat="one in list">
-				<td>{{one.id}}</td>
-				<td>{{one.otaPay}}</td>
-				<td>{{one.pay}}</td>
-				<td>{{one.insuranceId}}</td>
-				<td>{{one.insuranceAccountId}}</td>
-				<td>{{one.payDate}}</td>
-				<td>{{one.profit}}</td>
-				<td>{{one.payed}}</td>
-			</tr>
-		</table>
-	</div>
-    <!--free block-->
-    <div class="db-cont" ng-if="navTab" data-window="free">
-		<table>
-			<tr>
-				<th ng-repeat="t in title">{{t}}</th>
-			</tr>
-			<tr ng-repeat="one in list">
-				<td>{{one.id}}</td>
-				<td>{{one.otaPay}}</td>
-				<td>{{one.pay}}</td>
-				<td>{{one.insuranceId}}</td>
-				<td>{{one.insuranceAccountId}}</td>
-				<td>{{one.payDate}}</td>
-				<td>{{one.profit}}</td>
-				<td>{{one.payed}}</td>
-			</tr>
-		</table>
-	</div>
-    <!--end free block-->
-	<div class="db-footer"><span class="total">合计21个客户</span><span class="db-number">632,020.00</span></div>
-	<ul class="pagination">
+	<div class="db-table-box" data-window="sales">
+		<div class="db-cont">
+			<table>
+				<tr>
+					<th ng-repeat="t in title">{{t}}</th>
+				</tr>
+				<tr ng-repeat="one in list">
+					<td>{{one.id}}</td>
+					<td>{{one.otaPay}}</td>
+					<td>{{one.pay}}</td>
+					<td>{{one.insuranceId}}</td>
+					<td>{{one.insuranceAccountId}}</td>
+					<td>{{one.payDate}}</td>
+					<td>{{one.profit}}</td>
+					<td>{{one.payed}}</td>
+				</tr>
+			</table>
+		</div>
+	    <div class="db-footer"><span class="total">合计22个客户</span><span class="db-number">632,020.00</span></div>
+		<ul class="pagination">
 			<li class="disabled">
 				<a href="#"><span class="icon-double-angle-left">&lt;&lt;</span></a>
 			</li>
@@ -191,4 +173,46 @@
 				<a href="#"><span class="icon-double-angle-right">&gt;&gt;</span></a>
 			</li>
 		</ul>
+	</div>
+<!-- if tab -->
+	<div class="db-table-box free-table" ng-if="navTab" data-window="free">
+		<div class="db-cont">
+			<table>
+				<tr>
+					<th ng-repeat="t in title">{{t}}</th>
+				</tr>
+				<tr ng-repeat="one in list">
+					<td>{{one.id}}</td>
+					<td>{{one.otaPay}}</td>
+					<td>{{one.pay}}</td>
+					<td>{{one.insuranceId}}</td>
+					<td>{{one.insuranceAccountId}}</td>
+					<td>{{one.payDate}}</td>
+					<td>{{one.profit}}</td>
+					<td>{{one.payed}}</td>
+				</tr>
+			</table>
+		</div>
+	    <div class="db-footer"><span class="total">合计23个客户</span><span class="db-number">632,020.00</span></div>
+		<ul class="pagination">
+			<li class="disabled">
+				<a href="#"><span class="icon-double-angle-left">&lt;&lt;</span></a>
+			</li>
+			<li class="active">
+				<a href="#">2</a>
+			</li>
+			<li>
+				<a href="#">3</a>
+			</li>
+			<li>
+				<a href="#">4</a>
+			</li>
+			<li>
+				<a href="#">5</a>
+			</li>
+			<li>
+				<a href="#"><span class="icon-double-angle-right">&gt;&gt;</span></a>
+			</li>
+		</ul>
+	</div>
 </div>

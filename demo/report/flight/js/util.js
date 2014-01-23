@@ -10,24 +10,25 @@ zui.directive("ngToggle", function($http) {
         scope.inputVal = $("#input-val");
         scope.customers = $(".customer-list");
         scope.toggleShow = function() {
+            console.log(element);
             scope.opation.show();
             event.stopPropagation();
         };
         scope.showCustomer = function(ele) {
             scope.userList.show();
-            scope.list = $(ele);
+            scope.uslist = $(ele);
             scope.customers.hide();
-            scope.list.show();
+            scope.uslist.show();
             scope.userList.find(".nav li").bind("click", function() {
                 $(this).addClass("active");
                 $(this).siblings().removeClass("active");
-                scope.list.find("li").removeClass("active");
-                scope.list.find("[data-window='" + $(this).attr("data-target") + "']").addClass("active");
+                scope.uslist.find("li").removeClass("active");
+                scope.uslist.find("[data-window='" + $(this).attr("data-target") + "']").addClass("active");
                 event.stopPropagation();
             });
-            scope.list.find("span").bind("click", function() {
+            scope.uslist.find("span").bind("click", function() {
                 scope.inputVal.val($(this).text());
-                scope.list.hide();
+                scope.uslist.hide();
                 scope.userList.hide();
                 event.stopPropagation();
             });
@@ -42,7 +43,7 @@ zui.directive("ngToggle", function($http) {
         $(document).not($("#selectBtn")).bind("click", function() {
             scope.opation.hide();
         });
-        $(document).not(scope.list).bind("click", function() {
+        $(document).not(scope.uslist).bind("click", function() {
             scope.userList.hide();
             scope.customers.hide();
         });
@@ -70,7 +71,6 @@ zui.directive("ngChart", function($http) {
                     enabled: false
                 }
             };
-
         $http.get(url + "?t=" + (+new Date())).success(function(res) {
             var data = res.data;
             if (data.marker.length) {
@@ -96,5 +96,21 @@ zui.directive("ngChart", function($http) {
 
     return {
         link: columnChart
+    };
+});
+// tab table
+zui.directive("ngTable", function($http) {
+    function tabTable(scope, element, attrs) {
+        scope.tabs = $("#tabs");
+        scope.tabs.find("li").bind("click", function() {
+            var target = $(this).attr("data-target");
+            $(this).siblings().removeClass("active");
+            $(this).addClass("active");
+            $("[data-window='" + target + "']").siblings(".db-table-box").addClass("free-table");
+            $("[data-window='" + target + "']").removeClass("free-table");
+        });
+    }
+    return {
+        link: tabTable
     };
 });
