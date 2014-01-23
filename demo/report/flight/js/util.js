@@ -32,7 +32,7 @@ zui.factory("$search",function($http){
 // page
 zui.factory("$page",function($http){
 
-    function build( $scope  ){
+    function build( $scope, page ){
         $scope.totalItems = 64;
         $scope.currentPage = 4;
         $scope.maxSize = 5;

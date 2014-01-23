@@ -41,10 +41,9 @@
 
 			<tr bgcolor = "#f5f5f5" class="search-btn">
 				<td colspan="2">
-					<button type="button" class="bt
-					n btn-primary btn-sm">确定</button>
+					<button type="button" class="btn btn-primary btn-sm">确定</button>
 					<button type="button" class="btn btn-default btn-sm">重置</button>
-					<a  ng-show="!showmore" href="javascript:;" ng-click="showmore=true" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a>
+					<a  ng-show="!showmore && searchKeys.length > 3" href="javascript:;" ng-click="showmore=true" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a>
 					<a ng-show="showmore" href="javascript:;" ng-click="showmore=false" class="search-more"><em class="glyphicon glyphicon-minus"></em><span id="text">收起</span></a>
 				</td>
 			</tr>

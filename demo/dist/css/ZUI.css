@@ -9473,3 +9473,10 @@ header .header-link a.cur {
 .chart {
   margin-top: 30px;
 }
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}

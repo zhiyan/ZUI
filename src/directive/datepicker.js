@@ -23,4 +23,4 @@ zui.directive("pickerdate",function(){
 	 return {
       link:link
     };
-})
+});
