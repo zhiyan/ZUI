@@ -10,7 +10,6 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
     $scope.chartUrl = "/api/chart.json";
 
     $scope.dateOffset = $vars.dateOffset;
-    
 });
 
 // 多日点击
