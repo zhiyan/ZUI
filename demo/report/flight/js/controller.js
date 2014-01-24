@@ -10,6 +10,8 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
         } );
 	};
 
+    $scope.pageTitle = "机票账户余额";
+
     $scope.chartUrl = "/api/chart.json";
 
     $scope.tableUrl = '/api/table.json';
