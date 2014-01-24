@@ -64,13 +64,11 @@ zui.controller('ClickStepAnalyzeController', function($scope, $routeParams, $htt
 
 // Top航线上传
 zui.controller('TopAirUploadController', function($scope, $routeParams, $http) {
-    $scope.pageTitle = "Top航线上传";
     $scope.upfile = true; //上传
 });
 
 // Top航线列表
 zui.controller('TopAirListController', function($scope, $routeParams, $http) {
-    $scope.pageTitle = "Top航线列表";
     $scope.upfile = false; //
     $scope.chartUrl = "/api/chart.json";
     $http.get('/api/table.json').success(function(data) {
@@ -81,7 +79,6 @@ zui.controller('TopAirListController', function($scope, $routeParams, $http) {
 
 // Top航线消费
 zui.controller('TopAirConsumeController', function($scope, $routeParams, $http) {
-    $scope.pageTitle = "Top航线消费";
     $scope.upfile = false; //
     $scope.searchTop = true;
     $scope.chartUrl = "/api/chart.json";
@@ -101,7 +98,6 @@ zui.controller('CpcPriceSettingController', function($scope, $routeParams, $http
         $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售', "测试"];
         $scope.list = data.data.flights;
     });
-    $scope.searchKeys
 });
 
 // 航空公司舱位票面额汇总

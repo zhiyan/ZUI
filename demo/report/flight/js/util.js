@@ -60,7 +60,6 @@ zui.directive("ngToggle", function($http) {
         scope.inputVal = $("#input-val");
         scope.customers = $(".customer-list");
         scope.toggleShow = function() {
-            console.log(element);
             scope.opation.show();
             event.stopPropagation();
         };
