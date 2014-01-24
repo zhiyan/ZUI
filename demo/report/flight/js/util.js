@@ -1,51 +1,53 @@
 // service
-zui.value("$vars",{
-    "dateOffset" : 7
+zui.value("$vars", {
+    "dateOffset": 7
 });
 
 // search
-zui.factory("$search",function($http){
+zui.factory("$search", function($http) {
 
-    var keys = ["scope","customerType","searchType","terminalType","incomeType"];
+    var keys = ["scope", "customerType", "searchType", "terminalType", "incomeType"];
 
-    function getKey( arr ){
-        if( !!arr ){
+    function getKey(arr) {
+        if ( !! arr) {
             return arr.join();
-        }else{
+        } else {
             return keys.join();
         }
     }
 
-    function init( $scope, param  ){
-        var keys = getKey( param );
-        $http.get('/api/search.json',{"keys":keys}).success(function(res) {
+    function init($scope, param) {
+        var keys = getKey(param);
+        $http.get('/api/search.json', {
+            "keys": keys
+        }).success(function(res) {
             $scope.searchKeys = keys.split(",");
             $scope.searchParam = res.data;
         });
     }
 
     return {
-        "init" : init
+        "init": init
     };
 });
 
 // page
-zui.factory("$page",function($http){
+zui.factory("$page", function($http) {
 
-    function build( $scope  ){
+    function build($scope) {
         $scope.totalItems = 64;
         $scope.currentPage = 4;
         $scope.maxSize = 5;
-         
-        $scope.setPage = function (pageNo) {
-           $scope.currentPage = pageNo;
-        };   
+
+        $scope.setPage = function(pageNo) {
+            $scope.currentPage = pageNo;
+        };
         $scope.bigTotalItems = 175;
         $scope.bigCurrentPage = 1;
     }
 
     return {
-        "build" : build
+        "build": build
     };
 });
 

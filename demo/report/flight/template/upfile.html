@@ -1,40 +1,31 @@
-<!-- filter -->
 <div class="search" ng-search>
-	<h3>机票多日点击</h3>
-	<div class="search-box">
+	<h3>{{pageTitle}}</h3>
+	<div class="search-box" ng-if="searchBox">
 		<table>
 			<tr>
-				<th>开始时间：</th>
-				<td>
-					<div class="btn-group btn-group-sm search-quick-date">
-					  <button type="button" class="btn btn-default" ng-click="dateOffset=1" ng-class="{'cur':dateOffset==1}">昨天</button>
-					  <button type="button" class="btn btn-default" ng-click="dateOffset=7" ng-class="{'cur':dateOffset==7}">最近7天</button>
-					  <button type="button" class="btn btn-default" ng-click="dateOffset=30" ng-class="{'cur':dateOffset==30}">最近三十天</button>
-					</div>
-					<div class="search-date">
-						<input type="text" pickerdate value="" class="form-control date-from"  cate="day" ng-model="search.fromdate" ng-change="dateOffset=''">
-						<em>--</em>
-						<input type="text" pickerdate value="" class="form-control date-to" cate="day" ng-model="search.todate" ng-change="dateOffset=''">
-					</div>
-				</td>
-			</tr>
-			<tr ng-repeat="one in searchKeys" ng-show="$index <= 2 || showmore">
-				<th>{{searchParam[one].name}}</th>
+				<th>价格类型</th>
 				<td>
 					<ul class="search-options">
-						<li ng-repeat="param in searchParam[one].values">
-							<input type="checkbox" name="{{one}}" value="{{param.id}}" />{{param.name}}
+						<li>
+							<input type="checkbox" value="" />固定点击价格
+						</li>
+						<li>
+							<input type="checkbox" value="" />阶梯点击价格
 						</li>
 					</ul>
 				</td>
 			</tr>
 
-			<tr ng-if="navTab">
-				<th>查询方式</th>
+			<tr>
+				<th>业务范围</th>
 				<td>
 					<ul class="search-options">
-						<li><input type="radio" name="search-type" checked/>时间段</li>
-						<li><input type="radio" name="search-type"/>日期</li>
+						<li>
+							<input type="checkbox" value="" />国内
+						</li>
+						<li>
+							<input type="checkbox" value="" />国际
+						</li>
 					</ul>
 				</td>
 			</tr>
@@ -43,45 +34,23 @@
 				<td colspan="2">
 					<button type="button" class="btn btn-primary btn-sm">确定</button>
 					<button type="button" class="btn btn-default btn-sm">重置</button>
-					<a  ng-show="!showmore" href="javascript:;" ng-click="showmore=true" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a>
-					<a ng-show="showmore" href="javascript:;" ng-click="showmore=false" class="search-more"><em class="glyphicon glyphicon-minus"></em><span id="text">收起</span></a>
 				</td>
 			</tr>
 		</table>
 	</div>
 </div>
-
-<!-- chart -->
-<div  ng-chart class="chart" url="{{chartUrl}}" ng-if="chartUrl"></div>
-<!-- tab -->
-<ul class="nav nav-tabs" ng-if="navTab" id="tabs" ng-table>
-	<li class="active" data-target="sales">
-		<a href="javascript:;" >
-		<i class="blue icon-inbox bigger-130"></i>
-		<span class="bigger-110">售出点击</span>
-		</a>
-	</li>
-	<li data-target="free">
-		<a href="javascript:;" >
-		<i class="orange icon-location-arrow bigger-130 "></i>
-		<span class="bigger-110">免费点出</span>
-		</a>
-	</li>
-</ul>
-
+<div class="upfile-box" ng-if="upfile">
+	<div class="form-control">
+		<input type="file" class="file-input"/><button type="button" class="btn btn-primary">上传</button>
+	</div>
+</div>
 <!-- table -->
-<div class="db-table">
-	<div class="search-input" ng-toggle>
-		<div class="input-group-btn">
-              <button type="button" class="form-control dropdown-toggle" ng-click="toggleShow()" id="selectBtn"><span id="input-select-text" data-value="0">网站名称</span> <span class="caret"></span></button>
-              <ul class="dropdown-menu" id="opation" ng-show="toggleShow">
-                <li data-id="0">网站名称</li>
-                <li data-id="1">客户ID</li>
-                <li data-id="2" ng-click="showCustomer('#customers')">客服</li>
-                <li data-id="3" ng-click="showCustomer('#salers')">销售</li>
-              </ul>
-        </div>
-		<input type="text" value="" placeholder="请输入用户名" class="form-control input-text" id="input-val">
+<div class="db-table" ng-if="chartUrl">
+	<div class="search-input" ng-if="searchTop" ng-toggle>
+		<lable>
+		<span class="search-des">月份</span>
+		<input type="text" pickerdate="" value="" class="form-control date-from ng-pristine ng-valid" cate="day" ng-model="search.fromdate" ng-change="dateOffset=''">
+		</lable>
 		<button type="button" class="btn btn-primary">查询</button>
 		<a class="glyphicon glyphicon-save" href="javascript:void(0)" target="_blank">下载报表</a>
 		<!--customerList-->
@@ -159,6 +128,18 @@
 		</div>
 		<!--end customerList-->
 	</div>
+	<div class="search-input" ng-if="searchPrice" ng-toggle>
+		<div class="input-group-btn">
+              <button type="button" class="form-control dropdown-toggle" ng-click="toggleShow()" id="selectBtn"><span id="input-select-text" data-value="0">客户名称</span> <span class="caret"></span></button>
+              <ul class="dropdown-menu" id="opation" ng-show="toggleShow">
+                <li data-id="0">客户名称</li>
+                <li data-id="1">业务名称</li>
+              </ul>
+        </div>
+		<input type="text" value="" placeholder="请输入用户名" class="form-control input-text" id="input-val">
+		<button type="button" class="btn btn-primary">查询</button>
+		<a class="glyphicon glyphicon-save" href="javascript:void(0)" target="_blank">下载报表</a>
+	</div>
 	<div class="db-table-box" data-window="sales">
 		<div class="db-cont">
 			<table>
@@ -179,29 +160,5 @@
 		</div>
 	    <div class="db-footer"><span class="total">合计22个客户</span><span class="db-number">632,020.00</span></div>
 		<div pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></div>
-	</div>
-<!-- if tab -->
-	<div class="db-table-box free-table" ng-if="navTab" data-window="free">
-		<div class="db-cont">
-			<table>
-				<tr>
-					<th ng-repeat="t in title">{{t}}</th>
-				</tr>
-				<tr ng-repeat="one in list">
-					<td>{{one.id}}</td>
-					<td>{{one.otaPay}}</td>
-					<td>{{one.pay}}</td>
-					<td>{{one.insuranceId}}</td>
-					<td>{{one.insuranceAccountId}}</td>
-					<td>{{one.payDate}}</td>
-					<td>{{one.profit}}</td>
-					<td>{{one.payed}}</td>
-				</tr>
-			</table>
-		</div>
-	    <div class="db-footer"><span class="total">合计23个客户</span><span class="db-number">632,020.00</span></div>
-
-		<div pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></div>
-		
 	</div>
 </div>
