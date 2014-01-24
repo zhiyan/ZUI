@@ -74,14 +74,17 @@
 <div class="db-table">
 	<div class="search-input" ng-toggle>
 		<div class="input-group-btn">
-              <button type="button" class="form-control dropdown-toggle" ng-click="toggleShow()" id="selectBtn"><span id="input-select-text" data-value="0">网站名称</span> <span class="caret"></span></button>
-              <ul class="dropdown-menu" id="opation">
-                <li data-id="0">网站名称</li>
-                <li data-id="1">客户ID</li>
-                <li data-id="2" ng-click="showCustomer('#customers')">客服</li>
-                <li data-id="3" ng-click="showCustomer('#salers')">销售</li>
-              </ul>
-        </div>
+			<button type="button" class="form-control dropdown-toggle" ng-click="toggleShow()" id="selectBtn">
+				<span id="input-select-text" data-value="0">网站名称</span>
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" id="opation">
+				<li data-id="0">网站名称</li>
+				<li data-id="1">客户ID</li>
+				<li data-id="2" ng-click="showCustomer('#customers')">客服</li>
+				<li data-id="3" ng-click="showCustomer('#salers')">销售</li>
+			</ul>
+		</div>
 		<input type="text" value="" placeholder="请输入用户名" class="form-control input-text" id="input-val">
 		<button type="button" class="btn btn-primary" ng-click="submit()">查询</button>
 		<a class="glyphicon glyphicon-save" href="javascript:void(0)" target="_blank">下载报表</a>
@@ -89,72 +92,118 @@
 		<div class="db-user-list" id="db-user-list">
 			<ul class="nav nav-tabs">
 				<li class="active" data-target="flight">
-					<a href="javascript:;">
-					<i class="blue icon-inbox bigger-130"></i>
-					<span class="bigger-110">机票</span>
+					<a href="javascript:;"> <i class="blue icon-inbox bigger-130"></i>
+						<span class="bigger-110">机票</span>
 					</a>
 				</li>
 				<li data-target="hotel">
-					<a href="javascript:;">
-					<i class="orange icon-location-arrow bigger-130 "></i>
-					<span class="bigger-110">酒店</span>
+					<a href="javascript:;"> <i class="orange icon-location-arrow bigger-130 "></i>
+						<span class="bigger-110">酒店</span>
 					</a>
 				</li>
 				<li data-target="vacation">
 					<a href="javascript:;">
-					<i class="orange icon-location-arrow bigger-130 "></i>
-					<span class="bigger-110">度假</span>
+						<i class="orange icon-location-arrow bigger-130 "></i>
+						<span class="bigger-110">度假</span>
 					</a>
 				</li>
 				<li data-target="safety">
 					<a href="javascript:;">
-					<i class="orange icon-location-arrow bigger-130 "></i>
-					<span class="bigger-110">保险</span>
+						<i class="orange icon-location-arrow bigger-130 "></i>
+						<span class="bigger-110">保险</span>
 					</a>
 				</li>
 			</ul>
 			<ul class="customer-list" id="customers">
 				<li data-window="flight" class="active">
-					<span>机票</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
+					<span>机票</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
 				</li>
 				<li data-window="hotel">
-					<span>酒店</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
+					<span>酒店</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
 				</li>
 				<li data-window="vacation">
-					<span>度假</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
+					<span>度假</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
 				</li>
 				<li data-window="safety">
-					<span>保险</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
+					<span>保险</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
 				</li>
 			</ul>
 			<ul class="customer-list" id="salers">
 				<li data-window="flight" class="active">
-					<span>销售机票</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
+					<span>销售机票</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
 				</li>
 				<li data-window="hotel">
-					<span>销售酒店</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
+					<span>销售酒店</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
 				</li>
 				<li data-window="vacation">
-					<span>销售度假</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
+					<span>销售度假</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
 				</li>
 				<li data-window="safety">
-					<span>销售保险</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
-					<span>张三</span><span>李四</span><span>王五</span>
+					<span>销售保险</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
+					<span>张三</span>
+					<span>李四</span>
+					<span>王五</span>
 				</li>
 			</ul>
 		</div>
@@ -178,10 +227,13 @@
 				</tr>
 			</table>
 		</div>
-	    <div class="db-footer"><span class="total">合计{{}}个客户</span><span class="db-number">632,020.00</span></div>
+		<div class="db-footer">
+			<span class="total">合计{{}}个客户</span>
+			<span class="db-number">632,020.00</span>
+		</div>
 		<div pagination total-items="totalItems" page="currentPage" max-size="maxSize" class="pagination-sm" on-select-page="setPage(page)"></div>
 	</div>
-<!-- if tab -->
+	<!-- if tab -->
 	<div class="db-table-box free-table" ng-if="navTab" data-window="free">
 		<div class="db-cont">
 			<table>
@@ -200,9 +252,10 @@
 				</tr>
 			</table>
 		</div>
-	    <div class="db-footer"><span class="total">合计23个客户</span><span class="db-number">632,020.00</span></div>
-
+		<div class="db-footer">
+			<span class="total">合计23个客户</span>
+			<span class="db-number">632,020.00</span>
+		</div>
 		<div pagination total-items="totalItems" page="currentPage" max-size="maxSize" class="pagination-sm"></div>
-		
 	</div>
 </div>

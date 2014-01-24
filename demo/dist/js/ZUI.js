@@ -78,6 +78,7 @@ zui.directive("ngMenu",function($http,$location){
       })
       .on("click",".menu-c a",function(){
         currentUrl = $(this).attr("href");
+        document.title = "QBOSS-"+$(this).attr("title");
       });
   }
 
