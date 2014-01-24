@@ -8929,6 +8929,12 @@ header .header-link a.cur {
   border: 1px solid #e6e6e6;
 }
 
+.db-table .search-input .search-des {
+  float: left;
+  font-weight: 800;
+  line-height: 29px;
+}
+
 .db-table .search-input .input-group-btn {
   float: left;
   width: 110px;
@@ -9101,6 +9107,26 @@ header .header-link a.cur {
 
 .nav-tabs .active {
   background-color: #fff;
+}
+
+.upfile-box {
+  margin-top: 30px;
+}
+
+.upfile-box .form-control {
+  width: 278px;
+  padding: 0;
+  border-radius: 0;
+}
+
+.upfile-box .form-control .file-input {
+  float: left;
+  margin: 2px 0 0px 4px;
+  line-height: 26px;
+}
+
+.upfile-box .form-control .btn {
+  margin-top: -1px;
 }
 
 .btn-default,

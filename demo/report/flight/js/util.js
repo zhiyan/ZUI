@@ -1,24 +1,26 @@
 // service
-zui.value("$vars",{
-    "dateOffset" : 7
+zui.value("$vars", {
+    "dateOffset": 7
 });
 
 // search
-zui.factory("$search",function($http){
+zui.factory("$search", function($http) {
 
-    var keys = ["scope","customerType","searchType","terminalType","incomeType"];
+    var keys = ["scope", "customerType", "searchType", "terminalType", "incomeType"];
 
-    function getKey( arr ){
-        if( !!arr ){
+    function getKey(arr) {
+        if ( !! arr) {
             return arr.join();
-        }else{
+        } else {
             return keys.join();
         }
     }
 
-    function init( $scope, param  ){
-        var keys = getKey( param );
-        $http.get('/api/search.json',{"keys":keys}).success(function(res) {
+    function init($scope, param) {
+        var keys = getKey(param);
+        $http.get('/api/search.json', {
+            "keys": keys
+        }).success(function(res) {
             $scope.searchKeys = keys.split(",");
             $scope.searchParam = res.data;
         });
@@ -95,7 +97,7 @@ zui.factory("$page",function(){
     }
 
     return {
-        "build" : build
+        "build": build
     };
 });
 
@@ -108,7 +110,6 @@ zui.directive("ngToggle", function($http) {
         scope.inputVal = $("#input-val");
         scope.customers = $(".customer-list");
         scope.toggleShow = function() {
-            console.log(element);
             scope.opation.show();
             event.stopPropagation();
         };
@@ -131,7 +132,7 @@ zui.directive("ngToggle", function($http) {
                 event.stopPropagation();
             });
             event.stopPropagation();
-        }
+        };
         scope.opation.find("li").bind("click", function() {
             scope.inputVal.val("");
             scope.opation.hide();

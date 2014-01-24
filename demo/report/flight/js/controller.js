@@ -79,16 +79,42 @@ zui.controller('ClickStepAnalyzeController', function($scope, $routeParams, $htt
 });
 
 // Top航线上传
-zui.controller('TopAirUploadController', function($scope, $routeParams, $http) {});
+zui.controller('TopAirUploadController', function($scope, $routeParams, $http) {
+    $scope.upfile = true; //上传
+});
 
 // Top航线列表
-zui.controller('TopAirListController', function($scope, $routeParams, $http) {});
+zui.controller('TopAirListController', function($scope, $routeParams, $http) {
+    $scope.upfile = false; //
+    $scope.chartUrl = "/api/chart.json";
+    $http.get('/api/table.json').success(function(data) {
+        $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售', "测试"];
+        $scope.list = data.data.flights;
+    });
+});
 
 // Top航线消费
-zui.controller('TopAirConsumeController', function($scope, $routeParams, $http) {});
+zui.controller('TopAirConsumeController', function($scope, $routeParams, $http) {
+    $scope.upfile = false; //
+    $scope.searchTop = true;
+    $scope.chartUrl = "/api/chart.json";
+    $http.get('/api/table.json').success(function(data) {
+        $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售', "测试"];
+        $scope.list = data.data.flights;
+    });
+});
 
 // CPC价格配置
-zui.controller('CpcPriceSettingController', function($scope, $routeParams, $http) {});
+zui.controller('CpcPriceSettingController', function($scope, $routeParams, $http) {
+    $scope.searchBox = true;
+    $scope.pageTitle = "CPC价格配置";
+    $scope.searchPrice = true;
+    $scope.chartUrl = "/api/chart.json";
+    $http.get('/api/table.json').success(function(data) {
+        $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售', "测试"];
+        $scope.list = data.data.flights;
+    });
+});
 
 // 航空公司舱位票面额汇总
 zui.controller('CompanyCollectController', function($scope, $routeParams, $http) {});

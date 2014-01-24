@@ -27,19 +27,19 @@ zui.config(['$routeProvider',
                 controller: 'ClickStepAnalyzeController'
             })
             .when('/topAirUpload', {
-                templateUrl: 'template/common.html',
+                templateUrl: 'template/upfile.html',
                 controller: 'TopAirUploadController'
             })
             .when('/topAirList', {
-                templateUrl: 'template/common.html',
+                templateUrl: 'template/upfile.html',
                 controller: 'TopAirListController'
             })
             .when('/topAirConsume', {
-                templateUrl: 'template/common.html',
+                templateUrl: 'template/upfile.html',
                 controller: 'TopAirConsumeController'
             })
             .when('/cpcPriceSetting', {
-                templateUrl: 'template/common.html',
+                templateUrl: 'template/upfile.html',
                 controller: 'CpcPriceSettingController'
             })
             .when('/companyCollect', {
