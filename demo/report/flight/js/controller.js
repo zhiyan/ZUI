@@ -1,16 +1,32 @@
 // 账户余额
 zui.controller('AccountBalanceController', function($scope, $routeParams, $http, $vars, $search, $page) {
-	$search.init( $scope );
 
-    $http.get('/api/table.json').success(function(data) {
-        $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
-        $scope.list = data.data.flights;
-        $page.build( $scope );
-    });
+	// table回调渲染
+	var cbTable = function( res ){
+		$scope.title = ['','客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
+		$scope.list = res.data.flights;
+        $page.build( $scope, res.data.pager, function(){
+            $search.getTable( $scope, cbTable, true);
+        } );
+	};
 
     $scope.chartUrl = "/api/chart.json";
 
+    $scope.tableUrl = '/api/table.json';
+
     $scope.dateOffset = $vars.dateOffset;
+
+	$search.init( $scope );
+
+	$scope.loaded = function(){
+	    $search.getTable( $scope, cbTable);
+	    $search.getChart( $scope );
+	};
+
+    $scope.submit = function(){
+    	$search.getTable( $scope, cbTable);
+	    $search.getChart( $scope );
+    };
 
 });
 

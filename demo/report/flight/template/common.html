@@ -23,7 +23,7 @@
 				<td>
 					<ul class="search-options">
 						<li ng-repeat="param in searchParam[one].values">
-							<input type="checkbox" name="{{one}}" value="{{param.id}}" />{{param.name}}
+							<label><input type="checkbox" name="{{one}}" value="{{param.id}}" />{{param.name}}</label>
 						</li>
 					</ul>
 				</td>
@@ -41,7 +41,7 @@
 
 			<tr bgcolor = "#f5f5f5" class="search-btn">
 				<td colspan="2">
-					<button type="button" class="btn btn-primary btn-sm">确定</button>
+					<button type="button" class="btn btn-primary btn-sm" ng-click="submit()">确定</button>
 					<button type="button" class="btn btn-default btn-sm" ng-click="reset()">重置</button>
 					<a  ng-show="!showmore && searchKeys.length > 3" href="javascript:;" ng-click="showmore=true" class="search-more"><em class="glyphicon glyphicon-plus"></em><span id="text">更多筛选条件</span></a>
 					<a ng-show="showmore" href="javascript:;" ng-click="showmore=false" class="search-more"><em class="glyphicon glyphicon-minus"></em><span id="text">收起</span></a>
@@ -52,7 +52,8 @@
 </div>
 
 <!-- chart -->
-<div  ng-chart class="chart" url="{{chartUrl}}" ng-if="chartUrl"></div>
+<div class="chart" ng-if="chartUrl"></div>
+
 <!-- tab -->
 <ul class="nav nav-tabs" ng-if="navTab" id="tabs" ng-table>
 	<li class="active" data-target="sales">
@@ -82,7 +83,7 @@
               </ul>
         </div>
 		<input type="text" value="" placeholder="请输入用户名" class="form-control input-text" id="input-val">
-		<button type="button" class="btn btn-primary">查询</button>
+		<button type="button" class="btn btn-primary" ng-click="submit()">查询</button>
 		<a class="glyphicon glyphicon-save" href="javascript:void(0)" target="_blank">下载报表</a>
 		<!--customerList-->
 		<div class="db-user-list" id="db-user-list">
@@ -177,8 +178,8 @@
 				</tr>
 			</table>
 		</div>
-	    <div class="db-footer"><span class="total">合计22个客户</span><span class="db-number">632,020.00</span></div>
-		<div pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></div>
+	    <div class="db-footer"><span class="total">合计{{}}个客户</span><span class="db-number">632,020.00</span></div>
+		<div pagination total-items="totalItems" page="currentPage" max-size="maxSize" class="pagination-sm" on-select-page="setPage(page)"></div>
 	</div>
 <!-- if tab -->
 	<div class="db-table-box free-table" ng-if="navTab" data-window="free">
@@ -201,7 +202,7 @@
 		</div>
 	    <div class="db-footer"><span class="total">合计23个客户</span><span class="db-number">632,020.00</span></div>
 
-		<div pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></div>
+		<div pagination total-items="totalItems" page="currentPage" max-size="maxSize" class="pagination-sm"></div>
 		
 	</div>
 </div>

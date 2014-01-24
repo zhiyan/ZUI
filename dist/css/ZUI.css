@@ -8876,6 +8876,10 @@ header .header-link a.cur {
   margin-right: 10px;
 }
 
+.search .search-box .search-options li label {
+  font-weight: normal;
+}
+
 .search .search-box .search-btn {
   line-height: 40px;
   background-color: #f5f5f5;

@@ -42,10 +42,6 @@ zui.directive("ngSearch",function(){
 		};
 	})();
 
-	var reset = function( scope ){
-		scope.search = scope.master || {};
-	};
-
 	function searchBox(scope, element, attrs){
 
 		var offset;
@@ -57,13 +53,30 @@ zui.directive("ngSearch",function(){
 
 		// init date
 		handleDate.initDate( scope, element );
+
+		scope.origin = angular.copy(scope.search);
+
 		scope.master = angular.copy(scope.search);
+
+
 		offset = scope.dateOffset;
 
 		scope.reset = function(){
-			scope.search = angular.copy( scope.master ) || {};
+			scope.search = angular.copy( scope.origin ) || {};
 			scope.dateOffset = offset;
 		};
+
+		scope.setMaster = function(){
+			scope.master = angular.copy( scope.search ) || {};
+		};
+
+		scope.submit = scope.submit || angular.noop;
+
+		// 加载完成回调
+		if( typeof scope.loaded === 'function' ){
+			scope.loaded();
+			scope.loaded = null;
+		}
 
 	}
 
