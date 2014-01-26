@@ -1,16 +1,16 @@
 // 账户余额
 zui.controller('AccountBalanceController', function($scope, $routeParams, $http, $vars, $search, $page) {
 
-	// table回调渲染
-	var cbTable = function( res ){
-		$scope.title = ['','客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
-		$scope.list = res.data.flights;
-        $page.build( $scope, res.data.pager, function(){
-            $search.getTable( $scope, cbTable, true);
-        } );
-	};
+    // table回调渲染
+    var cbTable = function(res) {
+        $scope.title = ['', '客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
+        $scope.list = res.data.flights;
+        $page.build($scope, res.data.pager, function() {
+            $search.getTable($scope, cbTable, true);
+        });
+    };
 
-    $scope.pageTitle = "机票账户余额";
+    $scope.pageTitle = "账户余额";
 
     $scope.chartUrl = "/api/chart.json";
 
@@ -18,16 +18,16 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
 
     $scope.dateOffset = $vars.dateOffset;
 
-	$search.init( $scope );
+    $search.init($scope);
 
-	$scope.loaded = function(){
-	    $search.getTable( $scope, cbTable);
-	    $search.getChart( $scope );
-	};
+    $scope.loaded = function() {
+        $search.getTable($scope, cbTable);
+        $search.getChart($scope);
+    };
 
-    $scope.submit = function(){
-    	$search.getTable( $scope, cbTable);
-	    $search.getChart( $scope );
+    $scope.submit = function() {
+        $search.getTable($scope, cbTable);
+        $search.getChart($scope);
     };
 
 });
@@ -35,6 +35,7 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
 // 多日点击
 zui.controller('MultiClickController', function($scope) {
     $scope.data = [];
+    $scope.pageTitle = "多日点击";
     // List.query(function (response) {
     //     angular.forEach(response.list, function (item) {
     //         if (item.id) {
@@ -48,11 +49,13 @@ zui.controller('MultiClickController', function($scope) {
 // 多日消费
 zui.controller('MultiConsumeController', function($scope, $routeParams, $http) {
     $scope.chartUrl = "/api/chart.json";
+    $scope.pageTitle = "多日消费";
 });
 
 // 多日出票
 zui.controller('MultiDraftController', function($scope, $routeParams, $http) {
     $scope.chartUrl = "/api/chart.json";
+    $scope.pageTitle = "多日出票";
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
         $scope.dbTitle = [{
@@ -69,11 +72,14 @@ zui.controller('MultiDraftController', function($scope, $routeParams, $http) {
 });
 
 // 点击分析
-zui.controller('ClickAnalyzeController', function($scope, $routeParams, $http) {});
+zui.controller('ClickAnalyzeController', function($scope, $routeParams, $http) {
+    $scope.pageTitle = "点击分析";
+});
 
 // 点击阶梯分析
 zui.controller('ClickStepAnalyzeController', function($scope, $routeParams, $http) {
     $scope.navTab = true;
+    $scope.pageTitle = "点击阶梯分析";
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
         $scope.list = data.data.flights;
@@ -81,13 +87,15 @@ zui.controller('ClickStepAnalyzeController', function($scope, $routeParams, $htt
 });
 
 // Top航线上传
-zui.controller('TopAirUploadController', function($scope, $routeParams, $http) {
+zui.controller('TopAirUploadController', function($scope, $routeParams, $http) {点击阶梯分析
+    $scope.pageTitle = "Top航线上传";
     $scope.upfile = true; //上传
 });
 
 // Top航线列表
 zui.controller('TopAirListController', function($scope, $routeParams, $http) {
-    $scope.upfile = false; //
+    $scope.upfile = false;
+    $scope.pageTitle = "Top航线列表";
     $scope.chartUrl = "/api/chart.json";
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售', "测试"];
@@ -99,6 +107,7 @@ zui.controller('TopAirListController', function($scope, $routeParams, $http) {
 zui.controller('TopAirConsumeController', function($scope, $routeParams, $http) {
     $scope.upfile = false; //
     $scope.searchTop = true;
+    $scope.pageTitle = "Top航线消费";
     $scope.chartUrl = "/api/chart.json";
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售', "测试"];
@@ -119,16 +128,26 @@ zui.controller('CpcPriceSettingController', function($scope, $routeParams, $http
 });
 
 // 航空公司舱位票面额汇总
-zui.controller('CompanyCollectController', function($scope, $routeParams, $http) {});
+zui.controller('CompanyCollectController', function($scope, $routeParams, $http) {
+    $scope.pageTitle = "航空公司舱位票面额汇总";
+});
 
 // 业务视角收入报表
-zui.controller('BussinessIncomeController', function($scope, $routeParams, $http) {});
+zui.controller('BussinessIncomeController', function($scope, $routeParams, $http) {
+    $scope.pageTitle = "业务视角收入报表";
+});
 
 // 航空公司CPA总额阶梯票面额汇总
-zui.controller('CompanyCpaCollectController', function($scope, $routeParams, $http) {});
+zui.controller('CompanyCpaCollectController', function($scope, $routeParams, $http) {
+    $scope.pageTitle = "航空公司CPA总额阶梯票面额汇总";
+});
 
 // CPC月结报表
-zui.controller('CpcMonthController', function($scope, $routeParams, $http) {});
+zui.controller('CpcMonthController', function($scope, $routeParams, $http) {
+    $scope.pageTitle = "CPC月结报表";
+});
 
 // CPA月结报表
-zui.controller('CpaMonthController', function($scope, $routeParams, $http) {});
+zui.controller('CpaMonthController', function($scope, $routeParams, $http) {、
+    $scope.pageTitle = "CPA月结报表";
+});
