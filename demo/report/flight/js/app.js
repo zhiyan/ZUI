@@ -39,7 +39,7 @@ zui.config(['$routeProvider',
                 controller: 'TopAirConsumeController'
             })
             .when('/cpcPriceSetting', {
-                templateUrl: 'template/upfile.html',
+                templateUrl: 'template/common.html',
                 controller: 'CpcPriceSettingController'
             })
             .when('/companyCollect', {

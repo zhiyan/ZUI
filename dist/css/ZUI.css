@@ -9129,6 +9129,22 @@ header .header-link a.cur {
   margin-top: -1px;
 }
 
+.modal-dialog .modal-content {
+  border-radius: 0;
+}
+
+.modal-dialog .modal-content .modal-header {
+  padding: 0 10px;
+}
+
+.modal-dialog .modal-content .modal-body li {
+  list-style: none;
+}
+
+.modal-dialog .modal-content .modal-footer {
+  padding: 10px;
+}
+
 .btn-default,
 .btn-primary,
 .btn-success,

@@ -1,11 +1,78 @@
 {
-	"ret":true,
-	"errmsg":null,
-	"data":{
-		"scope":{"name":"业务范围","values":[{"id":1,"name":"国内"},{"id":2,"name":"国际"}]},
-		"customerType":{"name":"客户类型","values":[{"id":1,"name":"国内1"},{"id":2,"name":"国际1"}]},
-		"searchType":{"name":"业务范围","values":[{"id":1,"name":"国内2"},{"id":2,"name":"国际2"}]},
-		"terminalType":{"name":"事件类型","values":[{"id":1,"name":"国内3"},{"id":2,"name":"国际3"}]},
-		"incomeType":{"name":"测试类型","values":[{"id":1,"name":"a"},{"id":2,"name":"b"}]}
-	}
+    "ret": true,
+    "errmsg": null,
+    "data": {
+        "scope": {
+            "name": "业务范围",
+            "values": [{
+                "id": 1,
+                "name": "国内"
+            }, {
+                "id": 2,
+                "name": "国际"
+            }]
+        },
+        "customerType": {
+            "name": "客户类型",
+            "values": [{
+                "id": 1,
+                "name": "国内1"
+            }, {
+                "id": 2,
+                "name": "国际1"
+            }]
+        },
+        "searchType": {
+            "name": "业务范围",
+            "values": [{
+                "id": 1,
+                "name": "国内2"
+            }, {
+                "id": 2,
+                "name": "国际2"
+            }]
+        },
+        "terminalType": {
+            "name": "事件类型",
+            "values": [{
+                "id": 1,
+                "name": "国内3"
+            }, {
+                "id": 2,
+                "name": "国际3"
+            }]
+        },
+        "salesType": {
+            "name": "售出情况",
+            "values": [{
+                "id": 1,
+                "name": "售出点击",
+                "modle": "sold"
+            }, {
+                "id": 2,
+                "name": "未售出点击",
+                "modle": "unsold"
+            }]
+        },
+        "incomeType": {
+            "name": "收入类型",
+            "values": [{
+                "id": 1,
+                "name": "CPC",
+                "checked": "sold"
+            }, {
+                "id": 2,
+                "name": "CPA",
+                "checked": "sold"
+            }, {
+                "id": 3,
+                "name": "CPM",
+                "checked": "sold"
+            }, {
+                "id": 4,
+                "name": "免费",
+                "checked": "unsold"
+            }]
+        }
+    }
 }

@@ -1,86 +1,103 @@
 // search
-zui.directive("ngSearch",function(){
+zui.directive("ngSearch", function() {
 
-	// 日期处理
-	var handleDate = (function(){
+    // 日期处理
+    var handleDate = (function() {
 
-		var dateFormat = 'YYYY-MM-DD';
+        var dateFormat = 'YYYY-MM-DD';
 
-		function makeDate( scope ){
-			scope.search.fromdate = moment().subtract('days', scope.dateOffset).format( dateFormat );
-			scope.search.todate =  moment().format( dateFormat );
-		}
+        function makeDate(scope) {
+            scope.search.fromdate = moment().subtract('days', scope.dateOffset).format(dateFormat);
+            scope.search.todate = moment().format(dateFormat);
+        }
 
-		function initDate( scope, element ){
+        function initDate(scope, element) {
 
-			makeDate( scope );
+            makeDate(scope);
 
-			scope.$watch("dateOffset",function(newValue){
-				if(!!newValue) makeDate( scope );
-			});
+            scope.$watch("dateOffset", function(newValue) {
+                if ( !! newValue) makeDate(scope);
+            });
 
-			scope.$watch("search.fromdate",function(){
-				var fdate = moment(scope.search.fromdate),
-				 	tdate = moment(scope.search.todate);
-				if( +fdate >= +tdate ){
-					scope.search.todate = fdate.add('day',1).format( dateFormat );
-				}
-			});
+            scope.$watch("search.fromdate", function() {
+                var fdate = moment(scope.search.fromdate),
+                    tdate = moment(scope.search.todate);
+                if (+fdate >= +tdate) {
+                    scope.search.todate = fdate.add('day', 1).format(dateFormat);
+                }
+            });
 
-			scope.$watch("search.todate",function(){
-				var fdate = moment(scope.search.fromdate),
-				 	tdate = moment(scope.search.todate);
-				if( +fdate >= +tdate ){
-					scope.search.fromdate = tdate.subtract('day',1).format( dateFormat );
-				}
-			});
+            scope.$watch("search.todate", function() {
+                var fdate = moment(scope.search.fromdate),
+                    tdate = moment(scope.search.todate);
+                if (+fdate >= +tdate) {
+                    scope.search.fromdate = tdate.subtract('day', 1).format(dateFormat);
+                }
+            });
 
-		}
+        }
 
-		return {
-			"initDate" : initDate
-		};
-	})();
+        return {
+            "initDate": initDate
+        };
+    })();
 
-	function searchBox(scope, element, attrs){
+    function searchBox(scope, element, attrs, $scope) {
 
-		var offset;
+        var offset;
 
-		scope.search={};
-		if( !scope.dateOffset ){
-			scope.dateOffset = 0;
-		}
+        scope.search = {};
+        if (!scope.dateOffset) {
+            scope.dateOffset = 0;
+        }
 
-		// init date
-		handleDate.initDate( scope, element );
+        // init date
+        handleDate.initDate(scope, element);
 
-		scope.origin = angular.copy(scope.search);
+        scope.origin = angular.copy(scope.search);
 
-		scope.master = angular.copy(scope.search);
+        scope.master = angular.copy(scope.search);
 
 
-		offset = scope.dateOffset;
+        offset = scope.dateOffset;
 
-		scope.reset = function(){
-			scope.search = angular.copy( scope.origin ) || {};
-			scope.dateOffset = offset;
-		};
+        scope.reset = function() {
+            scope.search = angular.copy(scope.origin) || {};
+            scope.dateOffset = offset;
+            element.find("input").attr("checked", false);
+        };
 
-		scope.setMaster = function(){
-			scope.master = angular.copy( scope.search ) || {};
-		};
+        scope.setMaster = function() {
+            scope.master = angular.copy(scope.search) || {};
+        };
 
-		scope.submit = scope.submit || angular.noop;
+        scope.shortSelect = function(ele) {
+            var curEle = $(ele);
+            if (curEle.data("modle") === "") {
+                return;
+            }
+            scope.flag = $(ele).prop("checked");
+            $("[data-value = '" + curEle.data("modle") + "']").prop("checked", scope.flag);
+        }
+        scope.submit = function() {
+            var $key = [];
+            var cloumList = element.find("tr[cloum-type]");
+            for (var i = 0; i < cloumList.length; i++) {
+                $key.push(cloumList.eq(i).attr("cloum-type"));
+            }
+            // console.log($("input[name='scope']").data("val"));
+        }
+        scope.submit = scope.submit || angular.noop;
 
-		// 加载完成回调
-		if( typeof scope.loaded === 'function' ){
-			scope.loaded();
-			scope.loaded = null;
-		}
+        // 加载完成回调
+        if (typeof scope.loaded === 'function') {
+            scope.loaded();
+            scope.loaded = null;
+        }
 
-	}
+    }
 
-	return {
-      link:searchBox
+    return {
+        link: searchBox
     };
 });

@@ -6,7 +6,7 @@ zui.value("$vars", {
 // search
 zui.factory("$search", function($http) {
 
-    var keys = ["scope", "customerType", "searchType", "terminalType", "incomeType"];
+    var keys = ["scope", "customerType", "searchType", "terminalType", "incomeType", "salesType"];
 
     function getKey(arr) {
         if ( !! arr) {
@@ -26,7 +26,7 @@ zui.factory("$search", function($http) {
         });
     }
 
-    function getChart( $scope, cb ){
+    function getChart($scope, cb) {
         var defaultCb,
             option = {
                 title: null,
@@ -63,37 +63,39 @@ zui.factory("$search", function($http) {
             angular.element(".chart").highcharts(option);
         };
         cb = typeof cb === 'function' ? cb : defaultCb;
-        $http.get( $scope.chartUrl, {"params":$scope.search} ).success( cb );
+        $http.get($scope.chartUrl, {
+            "params": $scope.search
+        }).success(cb);
     }
 
-    function getTable( $scope, cb, isPageTarget){
-        $http.get( $scope.tableUrl, {"params": isPageTarget ? $scope.master : $scope.search} ).success( function(res){
+    function getTable($scope, cb, isPageTarget) {
+        $http.get($scope.tableUrl, {
+            "params": isPageTarget ? $scope.master : $scope.search
+        }).success(function(res) {
             cb(res);
-            if( isPageTarget ){
+            if (isPageTarget) {
                 $scope.setMaster();
             }
-        } );
+        });
     }
-
     return {
-        "init" : init,
-        "getChart" : getChart,
-        "getTable" : getTable
+        "init": init,
+        "getChart": getChart,
+        "getTable": getTable
     };
 });
 
 // page
-zui.factory("$page",function(){
+zui.factory("$page", function() {
 
-    function build( $scope, page, cb ){
+    function build($scope, page, cb) {
         $scope.totalItems = page.totalItems;
         $scope.currentPage = page.currentPage;
         $scope.maxSize = 5;
-         
-        $scope.setPage = function (pageNo) {
+        $scope.setPage = function(pageNo) {
             $scope.master.page = pageNo;
-            if( typeof cb === 'function') cb();
-        };   
+            if (typeof cb === 'function') cb();
+        };
     }
 
     return {
@@ -114,9 +116,15 @@ zui.directive("ngToggle", function($http) {
             event.stopPropagation();
         };
         scope.showCustomer = function(ele) {
+            $this = $(ele);
+            if ($this.data("type") === "") {
+                scope.setVal(ele);
+                return;
+            };
             scope.userList.show();
-            scope.uslist = $(ele);
+            scope.uslist = $($this.data("type"));
             scope.customers.hide();
+            scope.opation.hide();
             scope.uslist.show();
             scope.userList.find(".nav li").bind("click", function() {
                 $(this).addClass("active");
@@ -133,18 +141,19 @@ zui.directive("ngToggle", function($http) {
             });
             event.stopPropagation();
         };
-        scope.opation.find("li").bind("click", function() {
+        scope.setVal = function(ele) {
+            scope.userList.hide();
             scope.inputVal.val("");
+            scope.inputVal.focus();
             scope.opation.hide();
-            scope.inputText.text($(this).text());
-            scope.inputText.attr("data-value", $(this).attr("data-id"));
-        });
+            scope.inputText.text($(ele).text());
+            scope.inputText.attr("data-value", $(ele).attr("data-id"));
+        };
         $(document).not($("#selectBtn")).bind("click", function() {
             scope.opation.hide();
         });
-        $(document).not(scope.uslist).bind("click", function() {
+        $("#closeBtn").bind("click", function() {
             scope.userList.hide();
-            scope.customers.hide();
         });
     }
     return {
@@ -152,19 +161,38 @@ zui.directive("ngToggle", function($http) {
     };
 });
 
-// tab table
-zui.directive("ngTable", function($http) {
-    function tabTable(scope, element, attrs) {
-        scope.tabs = $("#tabs");
-        scope.tabs.find("li").bind("click", function() {
-            var target = $(this).attr("data-target");
-            $(this).siblings().removeClass("active");
-            $(this).addClass("active");
-            $("[data-window='" + target + "']").siblings(".db-table-box").addClass("free-table");
-            $("[data-window='" + target + "']").removeClass("free-table");
+//弹窗
+var ModalCtrl = function($scope, $modal, $log) {
+    $scope.items = ['审批通过', '审批驳回'];
+
+    $scope.open = function() {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'myModalContent.html',
+            controller: ModalInstanceCtrl,
+            resolve: {
+                items: function() {
+                    return $scope.items;
+                }
+            }
         });
-    }
-    return {
-        link: tabTable
+
+        modalInstance.result.then(function(selectedItem) {
+            $scope.selected = selectedItem;
+        });
     };
-});
+};
+var ModalInstanceCtrl = function($scope, $modalInstance, items) {
+
+    $scope.items = items;
+    $scope.selected = {
+        item: $scope.items[0]
+    };
+    $scope.ok = function() {
+        $modalInstance.close($scope.selected.item);
+    };
+
+    $scope.cancel = function() {
+        $modalInstance.dismiss('cancel');
+    };
+};
