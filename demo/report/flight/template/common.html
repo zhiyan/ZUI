@@ -205,7 +205,7 @@
 					<td>{{one.payDate}}</td>
 					<td>{{one.profit}}</td>
 					<td>{{one.payed}}</td>
-					<td ng-if="oper"><a href="javascript:;" ng-click="open()">审批</a></td>
+					<td ng-if="oper"><a href="javascript:;" ng-click="open($event.target)">审批</a></td>
 				</tr>
 			</table>
 			<!--[S] open window-->

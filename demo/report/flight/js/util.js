@@ -163,12 +163,11 @@ zui.directive("ngToggle", function($http) {
     };
 });
 
-//弹窗
+// 弹窗
 var ModalCtrl = function($scope, $modal, $log) {
     $scope.items = ['审批通过', '审批驳回'];
 
-    $scope.open = function() {
-
+    $scope.open = function(target) {
         var modalInstance = $modal.open({
             templateUrl: 'myModalContent.html',
             controller: ModalInstanceCtrl,
@@ -180,12 +179,11 @@ var ModalCtrl = function($scope, $modal, $log) {
         });
 
         modalInstance.result.then(function(selectedItem) {
-            $scope.selected = selectedItem;
+            $(target).text(selectedItem);
         });
     };
 };
 var ModalInstanceCtrl = function($scope, $modalInstance, items) {
-
     $scope.items = items;
     $scope.selected = {
         item: $scope.items[0]
@@ -193,7 +191,6 @@ var ModalInstanceCtrl = function($scope, $modalInstance, items) {
     $scope.ok = function() {
         $modalInstance.close($scope.selected.item);
     };
-
     $scope.cancel = function() {
         $modalInstance.dismiss('cancel');
     };
