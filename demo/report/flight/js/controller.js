@@ -163,3 +163,7 @@ zui.controller('CompanyCpaCollectController', function($scope, $routeParams, $ht
 zui.controller('CpcMonthController', function($scope, $routeParams, $http) {
     $scope.pageTitle = "CPC月结报表";
 });
+// CPA月结报表
+zui.controller('CpaMonthController', function($scope, $routeParams, $http) {
+    $scope.pageTitle = "CPA月结报表";
+});

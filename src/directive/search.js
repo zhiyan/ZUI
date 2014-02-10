@@ -45,7 +45,6 @@ zui.directive("ngSearch", function() {
     function searchBox(scope, element, attrs, $scope) {
 
         var offset;
-
         scope.search = {};
         if (!scope.dateOffset) {
             scope.dateOffset = 0;
@@ -90,12 +89,14 @@ zui.directive("ngSearch", function() {
             }
         }
         scope.submit = function() {
-            var $key = [];
-            var cloumList = element.find("tr[cloum-type]");
-            for (var i = 0; i < cloumList.length; i++) {
-                $key.push(cloumList.eq(i).attr("cloum-type"));
+            var $keys = scope.searchKeys;
+            var $searchVal = {};
+            for (var i = 0; i < $keys.length; i++) {
+                $searchVal[$keys[i]] = $("input[name='" + $keys[i] + "']:checked").map(function() {
+                    return $(this).data("text");
+                }).get().join(",");
             }
-            // console.log($("input[name='scope']").data("val"));
+            //请求接口
         }
         scope.submit = scope.submit || angular.noop;
 
