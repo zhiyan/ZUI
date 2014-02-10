@@ -163,7 +163,7 @@ zui.directive("ngToggle", function($http) {
     };
 });
 
-// 弹窗
+//弹窗
 var ModalCtrl = function($scope, $modal, $log) {
     $scope.items = ['审批通过', '审批驳回'];
 
