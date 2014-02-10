@@ -14,10 +14,9 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
 
     $scope.tableUrl = '/api/table.json';
 
-    $scope.dateOffset = $vars.dateOffset;
+    $scope.searchBox = true;
 
     $scope.searchSelect = searchSelectFirst;
-    $scope.searchDay = true;
     $search.init($scope);
     $scope.loaded = function() {
         $search.getTable($scope, cbTable);
@@ -32,11 +31,13 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
 });
 
 // 多日点击
-zui.controller('MultiClickController', function($scope, searchSelectSecond) {
+zui.controller('MultiClickController', function($scope, $vars, searchSelectSecond) {
     $scope.pageTitle = "多日点击";
     $scope.searchSelect = searchSelectSecond;
+    $scope.searchBox = true;
     $scope.searchDay = true;
     $scope.data = [];
+    $scope.dateOffset = $vars.dateOffset;
     // List.query(function (response) {
     //     angular.forEach(response.list, function (item) {
     //         if (item.id) {
@@ -48,18 +49,22 @@ zui.controller('MultiClickController', function($scope, searchSelectSecond) {
 });
 
 // 多日消费
-zui.controller('MultiConsumeController', function($scope, $routeParams, $http, searchSelectSecond) {
+zui.controller('MultiConsumeController', function($scope, $vars, $routeParams, $http, searchSelectSecond) {
     $scope.pageTitle = "多日消费";
     $scope.chartUrl = "/api/chart.json";
+    $scope.searchBox = true;
     $scope.searchDay = true;
     $scope.searchSelect = searchSelectSecond;
+    $scope.dateOffset = $vars.dateOffset;
 });
 
 // 多日出票
-zui.controller('MultiDraftController', function($scope, $routeParams, $http, searchSelectSecond) {
+zui.controller('MultiDraftController', function($scope, $vars, $routeParams, $http, searchSelectSecond) {
     $scope.chartUrl = "/api/chart.json";
     $scope.pageTitle = "多日出票";
+    $scope.searchBox = true;
     $scope.searchDay = true;
+    $scope.dateOffset = $vars.dateOffset;
     $scope.searchSelect = searchSelectSecond;
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
@@ -77,17 +82,21 @@ zui.controller('MultiDraftController', function($scope, $routeParams, $http, sea
 });
 
 // 点击分析
-zui.controller('ClickAnalyzeController', function($scope, $routeParams, $http, searchSelectSecond) {
+zui.controller('ClickAnalyzeController', function($scope, $vars, $routeParams, $http, searchSelectSecond) {
     $scope.pageTitle = "点击分析";
+    $scope.searchBox = true;
     $scope.searchDay = true;
+    $scope.dateOffset = $vars.dateOffset;
     $scope.searchSelect = searchSelectSecond;
 });
 
 // 点击阶梯分析
-zui.controller('ClickStepAnalyzeController', function($scope, $routeParams, $http, searchSelectThird) {
+zui.controller('ClickStepAnalyzeController', function($scope, $vars, $routeParams, $http, searchSelectThird) {
     $scope.pageTitle = "点击阶梯分析";
     $scope.navTab = true;
+    $scope.searchBox = true;
     $scope.searchDay = true;
+    $scope.dateOffset = $vars.dateOffset;
     $scope.searchSelect = searchSelectThird;
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
@@ -104,7 +113,6 @@ zui.controller('TopAirUploadController', function($scope, $routeParams, $http) {
 // Top航线列表
 zui.controller('TopAirListController', function($scope, $routeParams, $http) {
     $scope.pageTitle = "Top航线列表";
-    $scope.upfile = false; //
     $scope.chartUrl = "/api/chart.json";
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售', "测试"];
@@ -114,8 +122,6 @@ zui.controller('TopAirListController', function($scope, $routeParams, $http) {
 
 // Top航线消费
 zui.controller('TopAirConsumeController', function($scope, $routeParams, $http) {
-    $scope.upfile = false; //
-    $scope.searchTop = true;
     $scope.chartUrl = "/api/chart.json";
     $scope.pageTitle = "Top航线消费";
     $http.get('/api/table.json').success(function(data) {
@@ -127,6 +133,7 @@ zui.controller('TopAirConsumeController', function($scope, $routeParams, $http) 
 // CPC价格配置
 zui.controller('CpcPriceSettingController', function($scope, $routeParams, $http, searchSelectFourth) {
     $scope.pageTitle = "CPC价格配置";
+    $scope.searchBox = true;
     $scope.searchPrice = true;
     $scope.oper = true;
     $scope.chartUrl = "/api/chart.json";

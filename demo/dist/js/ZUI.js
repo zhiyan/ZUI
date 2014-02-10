@@ -25,7 +25,7 @@ zui.constant("searchSelectFirst", [{
     opa: "#customers"
 }, {
     name: "销售",
-    opa: "#customers"
+    opa: "#salers"
 }]);
 zui.constant("searchSelectSecond", [{
     name: "网站名称"
@@ -38,7 +38,7 @@ zui.constant("searchSelectSecond", [{
     opa: "#customers"
 }, {
     name: "销售",
-    opa: "#customers"
+    opa: "#salers"
 }]);
 zui.constant("searchSelectThird", [{
     name: "网站名称"
@@ -207,11 +207,21 @@ zui.directive("ngSearch", function() {
 
         scope.shortSelect = function(ele) {
             var curEle = $(ele);
-            if (curEle.data("modle") === "") {
+            var otherNod = $("[data-value = '" + curEle.data("modle") + "']").attr("name");
+            var checked = $(ele).prop("checked");
+            if (curEle.data("modle") === "" && curEle.data("value") === "") {
                 return;
             }
-            scope.flag = $(ele).prop("checked");
-            $("[data-value = '" + curEle.data("modle") + "']").prop("checked", scope.flag);
+            if (curEle.data("modle")) {
+                $("[data-value = '" + curEle.data("modle") + "']").prop("checked", checked);
+            }
+            if (curEle.data("value")) {
+                var len = $("[data-value = '" + curEle.data("value") + "']:checked").length;
+                var lenM = $("[data-modle = '" + curEle.data("value") + "']:checked").length;
+                if (len === 0 || lenM === 0) {
+                    $("[data-modle = '" + curEle.data("value") + "']").prop("checked", checked);
+                }
+            }
         }
         scope.submit = function() {
             var $key = [];

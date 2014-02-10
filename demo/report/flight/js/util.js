@@ -116,7 +116,7 @@ zui.directive("ngToggle", function($http) {
             event.stopPropagation();
         };
         scope.showCustomer = function(ele) {
-            $this = $(ele);
+            var $this = $(ele);
             if ($this.data("type") === "") {
                 scope.setVal(ele);
                 return;
@@ -126,6 +126,8 @@ zui.directive("ngToggle", function($http) {
             scope.customers.hide();
             scope.opation.hide();
             scope.uslist.show();
+            scope.inputText.text($(ele).text());
+            scope.inputText.attr("data-value", $(ele).attr("data-id"));
             scope.userList.find(".nav li").bind("click", function() {
                 $(this).addClass("active");
                 $(this).siblings().removeClass("active");
@@ -152,7 +154,7 @@ zui.directive("ngToggle", function($http) {
         $(document).not($("#selectBtn")).bind("click", function() {
             scope.opation.hide();
         });
-        $("#closeBtn").bind("click", function() {
+        $("#closeBtn,#searchTable").bind("click", function() {
             scope.userList.hide();
         });
     }

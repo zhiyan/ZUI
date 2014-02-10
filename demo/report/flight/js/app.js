@@ -31,11 +31,11 @@ zui.config(['$routeProvider',
                 controller: 'TopAirUploadController'
             })
             .when('/topAirList', {
-                templateUrl: 'template/upfile.html',
+                templateUrl: 'template/common.html',
                 controller: 'TopAirListController'
             })
             .when('/topAirConsume', {
-                templateUrl: 'template/upfile.html',
+                templateUrl: 'template/common.html',
                 controller: 'TopAirConsumeController'
             })
             .when('/cpcPriceSetting', {

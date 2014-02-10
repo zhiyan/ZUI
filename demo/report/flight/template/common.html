@@ -1,7 +1,7 @@
 <!-- filter -->
 <div class="search" ng-search>
 	<h3>{{pageTitle}}</h3>
-	<div class="search-box">
+	<div class="search-box" ng-if="searchBox">
 		<table>
 			<tr ng-if="searchDay">
 				<th>开始时间：</th>
@@ -66,7 +66,7 @@
               <!-- <li data-id="3" ng-click="showCustomer('#salers')">销售</li>-->
         </div>
 		<input type="text" value="" placeholder="请输入用户名" class="form-control input-text" id="input-val">
-		<button type="button" class="btn btn-primary" ng-click="submit()">查询</button>
+		<button type="button" class="btn btn-primary" ng-click="submit()" id="searchTable">查询</button>
 		<a class="glyphicon glyphicon-save" href="javascript:void(0)" target="_blank">下载报表</a>
 		<!--customerList-->
 		<div class="db-user-list" id="db-user-list">

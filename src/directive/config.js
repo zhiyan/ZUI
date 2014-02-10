@@ -20,7 +20,7 @@ zui.constant("searchSelectFirst", [{
     opa: "#customers"
 }, {
     name: "销售",
-    opa: "#customers"
+    opa: "#salers"
 }]);
 zui.constant("searchSelectSecond", [{
     name: "网站名称"
@@ -33,7 +33,7 @@ zui.constant("searchSelectSecond", [{
     opa: "#customers"
 }, {
     name: "销售",
-    opa: "#customers"
+    opa: "#salers"
 }]);
 zui.constant("searchSelectThird", [{
     name: "网站名称"
