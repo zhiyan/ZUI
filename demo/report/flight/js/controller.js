@@ -1,7 +1,8 @@
 // 账户余额
-zui.controller('AccountBalanceController', function($scope, $routeParams, $http, $vars, $search, $page, searchSelectFirst) {
+zui.controller('AccountBalanceController', function($scope, $routeParams, $http, $vars, $search, $page) {
     // table回调渲染
     var cbTable = function(res) {
+        if( !res ) return;
         $scope.title = ['', '客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
         $scope.list = res.data.flights;
         $page.build($scope, res.data.pager, function() {
@@ -20,7 +21,7 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
 
     $scope.searchBox = true;
 
-    $scope.searchSelect = searchSelectFirst;
+    $scope.searchSelect = $vars.searchSelect[0];
 
     $search.init($scope);
 
@@ -38,9 +39,9 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
 });
 
 // 多日点击
-zui.controller('MultiClickController', function($scope, $vars, searchSelectSecond) {
+zui.controller('MultiClickController', function($scope, $vars) {
     $scope.pageTitle = "多日点击";
-    $scope.searchSelect = searchSelectSecond;
+    $scope.searchSelect = $vars.searchSelect[1];
     $scope.searchBox = true;
     $scope.searchDay = true;
     $scope.data = [];
@@ -56,23 +57,23 @@ zui.controller('MultiClickController', function($scope, $vars, searchSelectSecon
 });
 
 // 多日消费
-zui.controller('MultiConsumeController', function($scope, $vars, $routeParams, $http, searchSelectSecond) {
+zui.controller('MultiConsumeController', function($scope, $vars, $routeParams, $http) {
     $scope.pageTitle = "多日消费";
     $scope.chartUrl = "/api/chart.json";
     $scope.searchBox = true;
     $scope.searchDay = true;
-    $scope.searchSelect = searchSelectSecond;
+    $scope.searchSelect = $vars.searchSelect[1];
     $scope.dateOffset = $vars.dateOffset;
 });
 
 // 多日出票
-zui.controller('MultiDraftController', function($scope, $vars, $routeParams, $http, searchSelectSecond) {
+zui.controller('MultiDraftController', function($scope, $vars, $routeParams, $http) {
     $scope.chartUrl = "/api/chart.json";
     $scope.pageTitle = "多日出票";
     $scope.searchBox = true;
     $scope.searchDay = true;
     $scope.dateOffset = $vars.dateOffset;
-    $scope.searchSelect = searchSelectSecond;
+    $scope.searchSelect = $vars.searchSelect[1];
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
         $scope.dbTitle = [{
@@ -89,22 +90,22 @@ zui.controller('MultiDraftController', function($scope, $vars, $routeParams, $ht
 });
 
 // 点击分析
-zui.controller('ClickAnalyzeController', function($scope, $vars, $routeParams, $http, searchSelectSecond) {
+zui.controller('ClickAnalyzeController', function($scope, $vars, $routeParams, $http) {
     $scope.pageTitle = "点击分析";
     $scope.searchBox = true;
     $scope.searchDay = true;
     $scope.dateOffset = $vars.dateOffset;
-    $scope.searchSelect = searchSelectSecond;
+    $scope.searchSelect = $vars.searchSelect[1];
 });
 
 // 点击阶梯分析
-zui.controller('ClickStepAnalyzeController', function($scope, $vars, $routeParams, $http, searchSelectThird) {
+zui.controller('ClickStepAnalyzeController', function($scope, $vars, $routeParams, $http) {
     $scope.pageTitle = "点击阶梯分析";
     $scope.navTab = true;
     $scope.searchBox = true;
     $scope.searchDay = true;
     $scope.dateOffset = $vars.dateOffset;
-    $scope.searchSelect = searchSelectThird;
+    $scope.searchSelect = $vars.searchSelect[2];
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['', 'otaPay', 'pay', 'insuranceId', 'insuranceAccountId', 'payDate', 'profit', 'payed'];
         $scope.list = data.data.flights;
@@ -138,13 +139,13 @@ zui.controller('TopAirConsumeController', function($scope, $routeParams, $http) 
 });
 
 // CPC价格配置
-zui.controller('CpcPriceSettingController', function($scope, $routeParams, $http, searchSelectFourth) {
+zui.controller('CpcPriceSettingController', function($scope, $routeParams, $http) {
     $scope.pageTitle = "CPC价格配置";
     $scope.searchBox = true;
     $scope.searchPrice = true;
     $scope.oper = true;
     $scope.chartUrl = "/api/chart.json";
-    $scope.searchSelect = searchSelectFourth;
+    $scope.searchSelect = $vars.searchSelect[3];
     $http.get('/api/table.json').success(function(data) {
         $scope.title = ['客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售', "测试", "操作"];
         $scope.list = data.data.flights;

@@ -1,7 +1,14 @@
 // service
 zui.value("$vars", {
-    "dateOffset": 7
+    "dateOffset": 7,
+    "searchSelect" : [
+        [{name: "网站名称"}, {name: "客户id"}, {name: "账户名称"}, {name: "客服", opa: "#customers"}, {name: "销售", opa: "#salers"}],
+        [{name: "网站名称"}, {name: "域名"}, {name: "客户id"}, {name: "客服", opa: "#customers"}, {name: "销售", opa: "#salers"}] ,
+        [{name: "网站名称"}, {name: "域名"}, {name: "客户id"}],
+        [{name: "客户id"}, {name: "网站名"}]
+    ] 
 });
+
 
 // search
 zui.factory("$search", function($http) {
@@ -37,6 +44,7 @@ zui.factory("$search", function($http) {
                 }
             };
         defaultCb = function(res) {
+            if( !res ) return;
             var data = res.data;
             if (data.marker.length) {
                 angular.forEach(data.marker, function(value, key) {
@@ -67,6 +75,7 @@ zui.factory("$search", function($http) {
         $http.get($scope.tableUrl, {
             "params": isPageTarget ? $scope.master : $scope.search
         }).success(function(res) {
+            console.log(res)
             cb(res);
             if (isPageTarget) {
                 $scope.setMaster();

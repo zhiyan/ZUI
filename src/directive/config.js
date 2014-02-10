@@ -9,41 +9,19 @@ zui.constant("paginationConfig", {
     nextText: '下一页',
     lastText: '尾页'
 });
-zui.constant("searchSelectFirst", [{
-    name: "网站名称"
-}, {
-    name: "客户id"
-}, {
-    name: "账户名称"
-}, {
-    name: "客服",
-    opa: "#customers"
-}, {
-    name: "销售",
-    opa: "#salers"
-}]);
-zui.constant("searchSelectSecond", [{
-    name: "网站名称"
-}, {
-    name: "域名"
-}, {
-    name: "客户id"
-}, {
-    name: "客服",
-    opa: "#customers"
-}, {
-    name: "销售",
-    opa: "#salers"
-}]);
-zui.constant("searchSelectThird", [{
-    name: "网站名称"
-}, {
-    name: "域名"
-}, {
-    name: "客户id"
-}]);
-zui.constant("searchSelectFourth", [{
-    name: "客户id"
-}, {
-    name: "网站名"
+
+// ajax transformResponse 
+zui.config(['$httpProvider', function($httpProvider, $cookieStore) {
+
+    var ruleHtml = '<div class="alert alert-danger"> <h3 style="margin:10px 0;">您没有权限查看该页面</h3> </div>';
+    $httpProvider.defaults.transformResponse.push(function( data ){
+        if( typeof data === "object"){
+            if( data.ret === false ){
+                angular.element("#main").html( ruleHtml );
+                return "";
+            }
+        }
+        return data;
+    });
+
 }]);
