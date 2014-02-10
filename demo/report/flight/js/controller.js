@@ -14,10 +14,16 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
 
     $scope.tableUrl = '/api/table.json';
 
+    $scope.dateOffset = $vars.dateOffset;
+
+    $scope.searchDay = true;
+
     $scope.searchBox = true;
 
     $scope.searchSelect = searchSelectFirst;
+
     $search.init($scope);
+
     $scope.loaded = function() {
         $search.getTable($scope, cbTable);
         $search.getChart($scope);
