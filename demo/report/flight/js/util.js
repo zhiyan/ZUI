@@ -6,18 +6,13 @@ zui.value("$vars", {
 // search
 zui.factory("$search", function($http) {
 
-    var keys = ["scope", "customerType", "searchType", "terminalType", "incomeType", "salesType"];
-
-    function getKey(arr) {
-        if ( !! arr) {
-            return arr.join();
-        } else {
-            return keys.join();
-        }
-    }
+    var keysDefault = ["scope", "customerType", "searchType", "terminalType", "incomeType", "salesType"],
+        keysSet;
 
     function init($scope, param) {
-        var keys = getKey(param);
+        var keys;
+        keysSet = param || keysDefault;
+        keys =  keysSet.join();
         $http.get('/api/search.json', {
             "keys": keys
         }).success(function(res) {
@@ -78,10 +73,21 @@ zui.factory("$search", function($http) {
             }
         });
     }
+
+    function param( $scope ){
+
+        angular.forEach(keysSet, function( name ) {
+            $scope.search[name] = angular.element("[name="+name+"]:checked").map(function(){
+                return this.value;
+            }).get().join(",");
+        });
+        
+    }
     return {
         "init": init,
         "getChart": getChart,
-        "getTable": getTable
+        "getTable": getTable,
+        "param" : param
     };
 });
 

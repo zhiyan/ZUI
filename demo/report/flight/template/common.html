@@ -18,12 +18,12 @@
 					</div>
 				</td>
 			</tr>
-			<tr ng-repeat="one in searchKeys" ng-show="$index <= 2 || showmore" cloum-type="{{one}}">
+			<tr ng-repeat="one in searchKeys" ng-show="$index <= 2 || showmore">
 				<th>{{searchParam[one].name}}</th>
 				<td>
 					<ul class="search-options">
 						<li ng-repeat="param in searchParam[one].values">
-							<label><input type="checkbox" name="{{one}}" value="{{param.id}}" data-modle="{{param.modle}}" data-value="{{param.checked}}" ng-click="shortSelect($event.target)" data-val="{{param.id}}" data-text="{{param.name}}"/>{{param.name}}</label>
+							<label><input type="checkbox" name="{{one}}" value="{{param.id}}" />{{param.name}}</label>
 						</li>
 					</ul>
 				</td>

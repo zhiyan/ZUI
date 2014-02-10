@@ -64,29 +64,22 @@ zui.directive("ngSearch", function() {
         scope.reset = function() {
             scope.search = angular.copy(scope.origin) || {};
             scope.dateOffset = offset;
-            element.find("input").attr("checked", false);
+            element.find("input").prop("checked", false);
         };
 
         scope.setMaster = function() {
             scope.master = angular.copy(scope.search) || {};
         };
 
-        scope.shortSelect = function(ele) {
-            var curEle = $(ele);
-            if (curEle.data("modle") === "") {
-                return;
-            }
-            scope.flag = $(ele).prop("checked");
-            $("[data-value = '" + curEle.data("modle") + "']").prop("checked", scope.flag);
-        }
-        scope.submit = function() {
-            var $key = [];
-            var cloumList = element.find("tr[cloum-type]");
-            for (var i = 0; i < cloumList.length; i++) {
-                $key.push(cloumList.eq(i).attr("cloum-type"));
-            }
-            // console.log($("input[name='scope']").data("val"));
-        }
+        // scope.shortSelect = function(ele) {
+        //     var curEle = $(ele);
+        //     if (curEle.data("modle") === "") {
+        //         return;
+        //     }
+        //     scope.flag = $(ele).prop("checked");
+        //     $("[data-value = '" + curEle.data("modle") + "']").prop("checked", scope.flag);
+        // };
+
         scope.submit = scope.submit || angular.noop;
 
         // 加载完成回调

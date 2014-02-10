@@ -30,6 +30,7 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
     };
 
     $scope.submit = function() {
+        $search.param($scope);
         $search.getTable($scope, cbTable);
         $search.getChart($scope);
     };
