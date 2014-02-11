@@ -75,7 +75,6 @@ zui.factory("$search", function($http) {
         $http.get($scope.tableUrl, {
             "params": isPageTarget ? $scope.master : $scope.search
         }).success(function(res) {
-            console.log(res)
             cb(res);
             if (isPageTarget) {
                 $scope.setMaster();
