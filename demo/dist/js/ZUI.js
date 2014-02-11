@@ -194,12 +194,6 @@ zui.directive("ngSearch", function() {
 
         scope.submit = scope.submit || angular.noop;
 
-        // 加载完成回调
-        if (typeof scope.loaded === 'function') {
-            scope.loaded();
-            scope.loaded = null;
-        }
-
     }
 
     return {

@@ -3,38 +3,24 @@ zui.controller('AccountBalanceController', function($scope, $routeParams, $http,
     // table回调渲染
     var cbTable = function(res) {
         if( !res ) return;
-        $scope.title = ['', '客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'];
         $scope.list = res.data.flights;
         $page.build($scope, res.data.pager, function() {
-            $search.getTable($scope, cbTable, true);
+            $search.getTable($scope, true);
         });
     };
-    $scope.pageTitle = "机票账户余额";
 
-    $scope.chartUrl = "/api/chart.json";
-
-    $scope.tableUrl = '/api/table.json';
-
-    $scope.dateOffset = $vars.dateOffset;
-
-    $scope.searchDay = true;
-
-    $scope.searchBox = true;
-
-    $scope.searchSelect = $vars.searchSelect[0];
-
-    $search.init($scope);
-
-    $scope.loaded = function() {
-        $search.getTable($scope, cbTable);
-        $search.getChart($scope);
-    };
-
-    $scope.submit = function() {
-        $search.param($scope);
-        $search.getTable($scope, cbTable);
-        $search.getChart($scope);
-    };
+    $search.init( $scope, {
+        "pageTitle" : "机票账户余额",  //页面标题
+        "chartUrl" : "/api/chart.json",  //报表请求url
+        "tableUrl" : "/api/table.json",  // 列表请求url
+        "dateOffset" : $vars.dateOffset, //默认时间段
+        "searchDay" : true, //是否显示时间段选择器
+        "searchBox" : true, //是否显示查询条件
+        "searchSelect" : $vars.searchSelect[0], //过滤器字段
+        "tableTitle" : ['', '客户ID', '网站ID', '网站地址', '客户类型', '终端类型', '客服', '销售'], //列表头
+        // "searchKeys" : [] //查询条件
+        "cbTable" : cbTable //列表查询回调
+    });
 
 });
 

@@ -14,17 +14,32 @@ zui.value("$vars", {
 zui.factory("$search", function($http) {
 
     var keysDefault = ["scope", "customerType", "searchType", "terminalType", "incomeType", "salesType"],
-        keysSet;
+        cbTable;
 
-    function init($scope, param) {
-        var keys;
-        keysSet = param || keysDefault;
-        keys =  keysSet.join();
+    function init($scope, config) {
+
+        config.searchKeys = config.searchKeys || keysDefault;
+
+        cbTable = config.cbTable || angular.noop;
+
+        angular.forEach(config, function( value, key ) {
+            if( key !== 'cbTable' )
+                $scope[ key ] = value;
+        });
+
         $http.get('/api/search.json', {
-            "keys": keys
+            "keys": config.searchKeys.join()
         }).success(function(res) {
-            $scope.searchKeys = keys.split(",");
             $scope.searchParam = res.data;
+            // 加载完成回调
+            getTable($scope);
+            getChart($scope);
+            // 查询
+            $scope.submit = function() {
+                param($scope);
+                getTable($scope);
+                getChart($scope);
+            };
         });
     }
 
@@ -71,11 +86,11 @@ zui.factory("$search", function($http) {
         }).success(cb);
     }
 
-    function getTable($scope, cb, isPageTarget) {
+    function getTable($scope, isPageTarget) {
         $http.get($scope.tableUrl, {
             "params": isPageTarget ? $scope.master : $scope.search
         }).success(function(res) {
-            cb(res);
+            cbTable(res);
             if (isPageTarget) {
                 $scope.setMaster();
             }
@@ -84,7 +99,7 @@ zui.factory("$search", function($http) {
 
     function param( $scope ){
 
-        angular.forEach(keysSet, function( name ) {
+        angular.forEach($scope.keys, function( name ) {
             $scope.search[name] = angular.element("[name="+name+"]:checked").map(function(){
                 return this.value;
             }).get().join(",");
