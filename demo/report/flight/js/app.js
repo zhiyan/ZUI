@@ -63,7 +63,7 @@ zui.config(['$routeProvider',
                 controller: 'CpaMonthController'
             })
             .otherwise({
-                redirectTo: '/accountBalance'
+                templateUrl: '/common/404.html'
             });
     }
 ]);

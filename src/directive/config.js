@@ -13,7 +13,7 @@ zui.constant("paginationConfig", {
 // ajax transformResponse 
 zui.config(['$httpProvider', function($httpProvider, $cookieStore) {
 
-    var ruleHtml = '<div class="alert alert-danger"> <h3 style="margin:10px 0;">您没有权限查看该页面</h3> </div>';
+    var ruleHtml = '<div class="alert alert-danger"> <h3 style="margin:0;">您没有权限查看该页面</h3> </div>';
     $httpProvider.defaults.transformResponse.push(function( data ){
         if( typeof data === "object"){
             if( data.ret === false ){
