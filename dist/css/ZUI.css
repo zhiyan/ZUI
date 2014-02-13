@@ -9009,16 +9009,11 @@ header .header-link a.cur {
 }
 
 .db-table .search-input .db-user-list .customer-list {
-  display: none;
   padding: 10px;
 }
 
-.db-table .search-input .db-user-list .customer-list .active {
-  display: block;
-}
-
 .db-table .search-input .db-user-list .customer-list li {
-  display: none;
+  list-style: none;
 }
 
 .db-table .search-input .db-user-list .customer-list li span {

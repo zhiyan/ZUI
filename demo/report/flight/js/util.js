@@ -1,12 +1,46 @@
 // service
 zui.value("$vars", {
     "dateOffset": 7,
-    "searchSelect" : [
-        [{name: "网站名称"}, {name: "客户id"}, {name: "账户名称"}, {name: "客服", opa: "#customers"}, {name: "销售", opa: "#salers"}],
-        [{name: "网站名称"}, {name: "域名"}, {name: "客户id"}, {name: "客服", opa: "#customers"}, {name: "销售", opa: "#salers"}] ,
-        [{name: "网站名称"}, {name: "域名"}, {name: "客户id"}],
-        [{name: "客户id"}, {name: "网站名"}]
-    ] 
+    "searchSelect": [
+        [{
+            name: "网站名称"
+        }, {
+            name: "客户id"
+        }, {
+            name: "账户名称"
+        }, {
+            name: "客服",
+            opa: "#customers"
+        }, {
+            name: "销售",
+            opa: "#salers"
+        }],
+        [{
+            name: "网站名称"
+        }, {
+            name: "域名"
+        }, {
+            name: "客户id"
+        }, {
+            name: "客服",
+            opa: "#customers"
+        }, {
+            name: "销售",
+            opa: "#salers"
+        }],
+        [{
+            name: "网站名称"
+        }, {
+            name: "域名"
+        }, {
+            name: "客户id"
+        }],
+        [{
+            name: "客户id"
+        }, {
+            name: "网站名"
+        }]
+    ]
 });
 
 
@@ -22,9 +56,9 @@ zui.factory("$search", function($http) {
 
         cbTable = config.cbTable || angular.noop;
 
-        angular.forEach(config, function( value, key ) {
-            if( key !== 'cbTable' )
-                $scope[ key ] = value;
+        angular.forEach(config, function(value, key) {
+            if (key !== 'cbTable')
+                $scope[key] = value;
         });
 
         $http.get('/api/search.json', {
@@ -59,7 +93,7 @@ zui.factory("$search", function($http) {
                 }
             };
         defaultCb = function(res) {
-            if( !res ) return;
+            if (!res) return;
             var data = res.data;
             if (data.marker.length) {
                 angular.forEach(data.marker, function(value, key) {
@@ -97,20 +131,19 @@ zui.factory("$search", function($http) {
         });
     }
 
-    function param( $scope ){
+    function param($scope) {
 
-        angular.forEach($scope.keys, function( name ) {
-            $scope.search[name] = angular.element("[name="+name+"]:checked").map(function(){
+        angular.forEach($scope.keys, function(name) {
+            $scope.search[name] = angular.element("[name=" + name + "]:checked").map(function() {
                 return this.value;
             }).get().join(",");
         });
-        
-    }
+    };
     return {
         "init": init,
         "getChart": getChart,
         "getTable": getTable,
-        "param" : param
+        "param": param
     };
 });
 
@@ -157,13 +190,6 @@ zui.directive("ngToggle", function($http) {
             scope.uslist.show();
             scope.inputText.text($(ele).text());
             scope.inputText.attr("data-value", $(ele).attr("data-id"));
-            scope.userList.find(".nav li").bind("click", function() {
-                $(this).addClass("active");
-                $(this).siblings().removeClass("active");
-                scope.uslist.find("li").removeClass("active");
-                scope.uslist.find("[data-window='" + $(this).attr("data-target") + "']").addClass("active");
-                event.stopPropagation();
-            });
             scope.uslist.find("span").bind("click", function() {
                 scope.inputVal.val($(this).text());
                 scope.uslist.hide();
