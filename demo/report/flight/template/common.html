@@ -23,7 +23,7 @@
 				<td>
 					<ul class="search-options">
 						<li ng-repeat="param in searchParam[one].values">
-							<label><input type="checkbox" name="{{one}}" value="{{param.id}}" />{{param.name}}</label>
+							<label><input type="checkbox" name="{{one}}" value="{{param.id}}" data-modle="{{param.modle}}" data-value="{{param.checked}}" ng-click="shortSelect($event.target)" data-val="{{param.id}}" data-text="{{param.name}}"/>{{param.name}}</label>
 						</li>
 					</ul>
 				</td>
@@ -71,66 +71,9 @@
 		<!--customerList-->
 		<div class="db-user-list" id="db-user-list">
 			<em class="pull-right close" id="closeBtn">X</em>
-			<ul class="nav nav-tabs">
-				<li class="active" data-target="flight">
-					<a href="javascript:;"> <i class="blue icon-inbox bigger-130"></i>
-						<span class="bigger-110">机票</span>
-					</a>
-				</li>
-				<li data-target="hotel">
-					<a href="javascript:;"> <i class="orange icon-location-arrow bigger-130 "></i>
-						<span class="bigger-110">酒店</span>
-					</a>
-				</li>
-				<li data-target="vacation">
-					<a href="javascript:;">
-						<i class="orange icon-location-arrow bigger-130 "></i>
-						<span class="bigger-110">度假</span>
-					</a>
-				</li>
-				<li data-target="safety">
-					<a href="javascript:;">
-						<i class="orange icon-location-arrow bigger-130 "></i>
-						<span class="bigger-110">保险</span>
-					</a>
-				</li>
-			</ul>
 			<ul class="customer-list" id="customers">
-				<li data-window="flight" class="active">
+				<li>
 					<span>机票</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-				</li>
-				<li data-window="hotel">
-					<span>酒店</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-				</li>
-				<li data-window="vacation">
-					<span>度假</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-				</li>
-				<li data-window="safety">
-					<span>保险</span>
 					<span>李四</span>
 					<span>王五</span>
 					<span>张三</span>
@@ -142,40 +85,7 @@
 				</li>
 			</ul>
 			<ul class="customer-list" id="salers">
-				<li data-window="flight" class="active">
-					<span>销售机票</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-				</li>
-				<li data-window="hotel">
-					<span>销售酒店</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-				</li>
-				<li data-window="vacation">
-					<span>销售度假</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-					<span>张三</span>
-					<span>李四</span>
-					<span>王五</span>
-				</li>
-				<li data-window="safety">
+				<li>
 					<span>销售保险</span>
 					<span>李四</span>
 					<span>王五</span>
