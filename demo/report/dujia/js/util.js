@@ -1,2 +1,0 @@
-// service
-angular.module('zuiServices', []);
