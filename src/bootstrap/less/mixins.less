@@ -209,7 +209,7 @@
 // Opacity
 .opacity(@opacity) {
   opacity: @opacity;
-  // IE8 filter
+  // IE8 interceptor
   @opacity-ie: (@opacity * 100);
   filter: ~"alpha(opacity=@{opacity-ie})";
 }
@@ -287,7 +287,7 @@
 // Reset filters for IE
 //
 // When you need to remove a gradient background, do not forget to use this to reset
-// the IE filter for IE9 and below.
+// the IE interceptor for IE9 and below.
 .reset-filter() {
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
 }

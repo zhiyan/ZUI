@@ -8730,7 +8730,6 @@ header .header-link a {
   height: 42px;
   padding: 0 30px;
   font-size: 16px;
-  font-weight: bold;
   line-height: 42px;
   color: #fff;
   text-decoration: none;
@@ -8739,6 +8738,34 @@ header .header-link a {
 header .header-link a:hover,
 header .header-link a.cur {
   background: #2972b1;
+}
+
+header .right {
+  float: right;
+}
+
+header .right a {
+  font-size: 14px;
+  line-height: 42px;
+  color: #fff;
+  text-decoration: none;
+}
+
+header .right a:hover {
+  text-decoration: underline;
+}
+
+header .right i {
+  padding: 0 10px;
+  font-style: normal;
+  color: #fff;
+}
+
+header .right span {
+  font-size: 14px;
+  line-height: 42px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .menu {
@@ -8821,6 +8848,12 @@ header .header-link a.cur {
   border-top-width: 2px;
 }
 
+.search .search-box input[type=text] {
+  height: 24px;
+  padding: 0 5px;
+  border: 1px solid #ddd;
+}
+
 .search .search-box .search-date {
   float: left;
 }
@@ -8859,7 +8892,7 @@ header .header-link a.cur {
 
 .search .search-box .search-options {
   width: 885px;
-  padding: 10px 0;
+  padding: 0;
 }
 
 .search .search-box .search-options li {
@@ -8877,6 +8910,7 @@ header .header-link a.cur {
 }
 
 .search .search-box .search-options li label {
+  margin-bottom: 0;
   font-weight: normal;
 }
 
@@ -8914,8 +8948,13 @@ header .header-link a.cur {
   text-align: center;
 }
 
-.db-table {
-  margin-top: 30px;
+.db-table.loading {
+  background: url(http://source.qunar.com/qss/large-loading.gif) no-repeat center center;
+}
+
+.db-table.loading table {
+  display: block;
+  height: 400px;
 }
 
 .db-table .chart {
@@ -8924,56 +8963,11 @@ header .header-link a.cur {
 }
 
 .db-table .search-input {
+  height: 38px;
   padding: 5px;
   background-color: #f2fbff;
   border: 1px solid #e6e6e6;
-}
-
-.db-table .search-input .search-des {
-  float: left;
-  font-weight: 800;
-  line-height: 29px;
-}
-
-.db-table .search-input .input-group-btn {
-  float: left;
-  width: 110px;
-}
-
-.db-table .search-input .input-group-btn .dropdown-toggle {
-  width: 96px;
-}
-
-.db-table .search-input .input-group-btn .caret {
-  float: right;
-  margin-top: 7px;
-}
-
-.db-table .search-input .input-group-btn .dropdown-menu {
-  left: 10px;
-  width: 96px;
-  margin: 0;
-  border-top: 0;
-  border-radius: 0;
-}
-
-.db-table .search-input .input-group-btn .dropdown-menu li {
-  padding: 5px 16px;
-}
-
-.db-table .search-input .input-group-btn .dropdown-menu li:hover {
-  cursor: pointer;
-  background-color: #f5f5f5;
-}
-
-.db-table .search-input .input-text {
-  margin-left: 150px;
-}
-
-.db-table .search-input .form-control {
-  float: left;
-  width: 135px;
-  margin: 0 10px;
+  border-bottom: 0;
 }
 
 .db-table .search-input .glyphicon {
@@ -8982,60 +8976,17 @@ header .header-link a.cur {
   cursor: pointer;
 }
 
-.db-table .search-input .db-user-list {
-  position: absolute;
-  left: 134px;
-  z-index: 1001;
-  display: none;
-  width: 400px;
-  padding: 10px;
-  margin-top: 4px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  background-clip: padding-box;
-}
-
-.db-table .search-input .db-user-list .nav-tabs {
-  position: static;
-  margin: 10px 0 0px 0px;
-}
-
-.db-table .search-input .db-user-list .nav > li > a {
-  padding: 3px 15px;
-}
-
-.db-table .search-input .db-user-list .customer-list {
-  display: none;
-  padding: 10px;
-}
-
-.db-table .search-input .db-user-list .customer-list .active {
-  display: block;
-}
-
-.db-table .search-input .db-user-list .customer-list li {
-  display: none;
-}
-
-.db-table .search-input .db-user-list .customer-list li span {
-  display: inline-block;
-  max-width: 80px;
-  padding: 0 10px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.db-table .search-input .db-user-list .customer-list li span:hover {
-  background-color: #f5f5f5;
-}
-
 .db-table table {
   width: 100%;
   border: 1px solid #e6e6e6;
+}
+
+.db-table table thead tr {
+  background: #f6f6f6;
+}
+
+.db-table table tbody tr:hover {
+  background: #f9f9f9;
 }
 
 .db-table table tr {
@@ -9046,9 +8997,47 @@ header .header-link a.cur {
 
 .db-table table tr td,
 .db-table table tr th {
-  line-height: 24px;
-  text-indent: 15px;
+  padding: 5px 10px;
   border-right: 1px solid #e6e6e6;
+}
+
+.db-table table tr td.left,
+.db-table table tr th.left {
+  text-align: left;
+}
+
+.db-table table tr td.right,
+.db-table table tr th.right {
+  text-align: right;
+}
+
+.db-table table tr td.center,
+.db-table table tr th.center {
+  text-align: center;
+}
+
+.db-table table tr td.nowrap,
+.db-table table tr th.nowrap {
+  white-space: nowrap;
+}
+
+.db-table table tr.nowrap {
+  white-space: nowrap;
+}
+
+.db-table table tr.left td,
+.db-table table tr.left th {
+  text-align: left;
+}
+
+.db-table table tr.right td,
+.db-table table tr.right th {
+  text-align: right;
+}
+
+.db-table table tr.center td,
+.db-table table tr.center th {
+  text-align: center;
 }
 
 .db-table table .db-date {
@@ -9151,7 +9140,6 @@ header .header-link a.cur {
 .btn-info,
 .btn-warning,
 .btn-danger {
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
 }
@@ -9178,7 +9166,6 @@ header .header-link a.cur {
 }
 
 .btn-default {
-  text-shadow: 0 1px 0 #fff;
   background-image: -webkit-gradient(linear, left 0%, left 100%, from(#ffffff), to(#e6e6e6));
   background-image: -webkit-linear-gradient(top, #ffffff, 0%, #e6e6e6, 100%);
   background-image: -moz-linear-gradient(top, #ffffff 0%, #e6e6e6 100%);
@@ -9514,10 +9501,6 @@ header .header-link a.cur {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe8e8e8', endColorstr='#fff5f5f5', GradientType=0);
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.chart {
-  margin-top: 30px;
 }
 
 .nav,

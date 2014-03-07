@@ -1,2 +1,2 @@
 // init
-var zui = angular.module('zui',['ngRoute','ngResource','ui.bootstrap']);
+var zui = angular.module('zui',['ngRoute','ngResource','ui.bootstrap','ngCookies']);

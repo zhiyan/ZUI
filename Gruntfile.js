@@ -28,12 +28,12 @@ module.exports = function(grunt) {
           banner: '<%= banner %>',
           stripBanners: true
         },
-        src: ['src/<%= pkg.name %>.js','src/directive/*'],
+        src: ['src/<%= pkg.name %>.js','src/directive/*','src/plugins/*','src/basic.js'],
         dest: 'dist/js/<%= pkg.name %>.js'
       },
       angular:{
         // src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js','<%= path.angular %>angular-animate.js'],
-        src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js'],
+        src:['<%= path.angular %>angular.js','<%= path.angular %>angular-route.js','<%= path.angular %>angular-resource.js','<%= path.angular %>angular-cookies.js'],
         dest:'dist/js/libs/angular.js'
       },
       bootstrap:{
@@ -87,17 +87,19 @@ module.exports = function(grunt) {
         src:"libs/highcharts/highcharts.js",
         dest:'dist/js/libs/highcharts.js'
       },
-      dist:{
-        expand: true,
-        src:"dist/**/*",
-        dest:"demo/",
-        filter: 'isFile'
+      html5shiv:{
+        src:"libs/html5shiv/html5shiv.js",
+        dest:'dist/js/libs/html5shiv.js'
+      },
+      respond:{
+        src:"libs/respond.js",
+        dest:'dist/js/libs/respond.js'
       }
     },
 
     watch: {
       main: {
-        files: ['<%= source %>','src/directive/*'],
+        files: ['<%= source %>','src/plugins/*','src/directive/*'],
         tasks: ['concat','uglify','copy']
       },
       recess:{

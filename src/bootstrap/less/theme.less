@@ -19,7 +19,6 @@
 .btn-info,
 .btn-warning,
 .btn-danger {
-  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
   @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
   .box-shadow(@shadow);
 
@@ -52,7 +51,7 @@
 }
 
 // Apply the mixin to the buttons
-.btn-default { .btn-styles(@btn-default-bg;); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
+.btn-default { .btn-styles(@btn-default-bg;); border-color: #ccc; }
 .btn-primary { background: #3498db;border-color:#268acd;}
 .btn-success { .btn-styles(@btn-success-bg); }
 .btn-warning { .btn-styles(@btn-warning-bg); }
@@ -229,11 +228,6 @@
   border-color: darken(@well-bg, 10%);
   @shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);
   .box-shadow(@shadow);
-}
-
-// chart
-.chart{
-  margin-top: 30px;
 }
 
 // angular-bootstrap

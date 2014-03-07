@@ -1,76 +1,22 @@
-# ZUI ¿ª·¢ÎÄµµ
+# ZUI å¼€å‘æ–‡æ¡£
 
-## ÎÄ¼şÄ¿Â¼»®·Ö
+## æ–‡ä»¶ç›®å½•åˆ’åˆ†
 
-* src Ô´ÂëÄ¿Â¼
-	* bootstrap bootstrapÔ´ÂëÎÄ¼ş¼Ğ£¬°üº¬jsºÍcss£¨less£©
-	* basic.less ZUIµÄcssÔ´ÎÄ¼ş£¬Ä¿Ç°Ö±½ÓÒıÈëbootstrap
-	* ZUI.js ZUIµÄjsÔ´ÎÄ¼ş
-* dist Éú³ÉÄ¿Â¼
-	* css ±àÒëÉú³ÉµÄcssÎÄ¼ş£¬ZUI.css
-	* font cssÖĞÓÃµ½µÄfontÍ¼±ê
-	* js ±àÒëÉú³ÉµÄjsÎÄ¼ş£¬°üº¬ZUI.js, bootstrap.js(bootstrap×Ô´øjs¿Ø¼ş)
-		* ZUIÓÃµ½µÄ¿â£¬¸ù¾İĞèÒªÒıÈë£¬°üº¬angular, highcharts, jqueryµÈ
-* demo Ê¾ÀıÎÄ¼ş¼Ğ£¬²âÊÔÓÃ£¬ĞènginxÆğ·şÎñ·ÃÎÊ
+* src æºç ç›®å½•
+	* bootstrap bootstrapæºç æ–‡ä»¶å¤¹ï¼ŒåŒ…å«jså’Œcssï¼ˆlessï¼‰
+	* basic.less ZUIçš„cssæºæ–‡ä»¶ï¼Œç›®å‰ç›´æ¥å¼•å…¥bootstrap
+	* ZUI.js ZUIçš„jsæºæ–‡ä»¶
+* dist ç”Ÿæˆç›®å½•
+	* css ç¼–è¯‘ç”Ÿæˆçš„cssæ–‡ä»¶ï¼ŒZUI.css
+	* font cssä¸­ç”¨åˆ°çš„fontå›¾æ ‡
+	* js ç¼–è¯‘ç”Ÿæˆçš„jsæ–‡ä»¶ï¼ŒåŒ…å«ZUI.js, bootstrap.js(bootstrapè‡ªå¸¦jsæ§ä»¶)
+		* ZUIç”¨åˆ°çš„åº“ï¼Œæ ¹æ®éœ€è¦å¼•å…¥ï¼ŒåŒ…å«angular, highcharts, jqueryç­‰
 
 
 ## grunt
 
-gruntÖ§³ÖÈÎÎñ:
+gruntæ”¯æŒä»»åŠ¡:
 
 * dist-js
 * dist-css
 * watch
-
-## ĞÂÏîÄ¿¹¹½¨(Ôİ¶¨)
-css:
-
-	<link rel="stylesheet" href="../dist/css/ZUI.min.css">
-
-js:
-
-	<script src="../dist/js/libs/angular.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/services/main.js"></script>
-	<script src="js/controller/main.js"></script>
-	<script src="js/filters/main.js"></script>
-
-ÆäÖĞservice/controllerj/filtersÎªÒµÎñÂß¼­
-
-## ´ı¿ª·¢
-
-* ÑùÊ½
-	* »ù±¾É«²Ê
-	* Õ¤¸ñ
-	* ÅÅ°æ
-	* °´Å¥/°´Å¥×é
-	* ±í¸ñ
-	* ÊäÈë¿ò
-	* ÏÂÀ­²Ëµ¥
-	* µ¼º½
-	* Tab
-	* Á´½ÓÎÄ×Ö
-	* Ãæ°üĞ¼ 
-	* ·ÖÒ³×é¼ş
-	* ±êÇ©
-	* »ÕÕÂ
-	* ÌáÊ¾¿ò
-	* ½ø¶ÈÌõ
-	* µ¯´°
-	* ÈÕÀú
-	* Ñ¡Ôñ¿Ø¼ş
-	* ¹ö¶¯Ìõ
-	* ÆøÅİ
-* ½Å±¾
-	* UI¿Ø¼şÕûºÏangular
-	* angular ¼Ü¹¹´î½¨
-	* ²Ëµ¥ÏµÍ³
-	* highcharts·â×°
-	* »ù´¡service/filters/controllers
-	* angular Òì²½¼ÓÔØ·½°¸
-	* ²âÊÔÓÃÀı
-* Ò³Ãæ
-	* 18¸öÒ³Ãæ¸ù¾İangular´î½¨
-	* charts
-	* Ä£ÄâºóÌ¨Êı¾İ/²âÊÔ
-

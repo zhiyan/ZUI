@@ -1,0 +1,248 @@
+<!doctype html>
+<html ng-app="zui">
+<head>
+	<meta charset="UTF-8">
+	<title>ZUI -- demo</title>
+	<link rel="stylesheet" href="dist/css/ZUI.min.css">
+</head>
+<body style="margin-bottom: 100px;" class="ng-cloak">
+
+<h1>栅格系统</h1>
+<div class="row">
+	<div class="col-md-1">1</div>
+	<div class="col-md-1">2</div>
+</div>
+
+<h1>排版 - 字体</h1>
+
+<h1>h1文字效果展示 english</h1>
+<h2>h2文字效果展示 english</h2>
+<h3>h3文字效果展示 english</h3>
+<h4>h4文字效果展示 english</h4>
+<h5>h5文字效果展示 english</h5>
+<h6>h6文字效果展示 english</h6>
+
+<h1>排版 - 行高</h1>
+
+<p>去哪儿网（Qunar.com）是全球最大的中文旅行平台，其网站上线于2005年5月，公司总部位于北京。去哪儿网通过网站及移动客户端的全平台覆盖，随时随地为旅行者提供国内外机票、酒店、度假、旅游团购、及旅行信息的深度搜索，帮助旅行者找到性价比最高的产品和最优质的信息,聪明地安排旅行。去哪儿网凭借其便捷、先进的智能搜索技术对互联网上的旅行信息进行整合，为用户提供实时、可靠、全面的旅游产品查询和信息比较服务。</p>
+
+<h1>排版 - 强调</h1>
+
+<strong>去哪儿网</strong>
+<span class="strong">去哪儿网</span>
+<em>去哪儿网</em>
+<span class="em">去哪儿网</span>
+<b>去哪儿网</b>
+<span class="b">去哪儿网</span>
+
+<h1>输入框</h1>
+<input type="text" value="" placeholder="请输入用户名" class="form-control" style="width: 200px;margin:10px;">
+<input type="text" value="" placeholder="请输入用户名" class="form-control input-sm" style="width: 200px;margin:10px;">
+
+<h1>按钮</h1>
+<a href="" class="btn btn-default">确定</a> <input type="button" class="btn btn-default" value="确定"> <button type="button" class="btn btn-default">确定</button><br><br>
+<a href="" class="btn btn-primary">确定</a> <input type="button" class="btn btn-primary" value="确定"> <button type="button" class="btn btn-primary">确定</button><br><br>
+<a href="" class="btn btn-default btn-sm">确定</a> <input type="button" class="btn btn-default btn-sm" value="确定"> <button type="button" class="btn btn-default btn-sm">确定</button><br><br>
+<a href="" class="btn btn-primary btn-sm">确定</a> <input type="button" class="btn btn-primary btn-sm" value="确定"> <button type="button" class="btn btn-primary btn-sm">确定</button><br><br>
+
+
+<h1>下拉菜单</h1>
+
+<select name="" id="" class="form-control" style="width: 200px;">
+	<option value="">选项</option>
+</select>
+
+<h1>按钮组</h1>
+
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default cur">按日</button>
+  <button type="button" class="btn btn-default">按周</button>
+  <button type="button" class="btn btn-default">按月</button>
+  <button type="button" class="btn btn-default disabled">按年</button>
+</div>
+<br><br>
+<div class="btn-group btn-group-sm">
+  <button type="button" class="btn btn-default cur">按日</button>
+  <button type="button" class="btn btn-default">按周</button>
+  <button type="button" class="btn btn-default">按月</button>
+  <button type="button" class="btn btn-default disabled">按年</button>
+</div>
+
+
+
+<h1>导航</h1>
+<div class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+<h1>Tab</h1>
+<ul class="nav nav-tabs">
+<li class="pull-right">
+	<a data-toggle="tab" href="#write" data-target="write" class="btn-new-mail">
+    <span class="btn bt1n-small btn-purple no-border">
+	<i class=" icon-envelope bigger-130"></i>
+	<span>Write Mail</span>
+	</span>
+	</a>
+	</li>
+	<li class="active">
+		<a data-toggle="tab" href="#inbox" data-target="inbox">
+		<i class="blue icon-inbox bigger-130"></i>
+		<span class="bigger-110">Inbox</span>
+		</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#sent" data-target="sent">
+		<i class="orange icon-location-arrow bigger-130 "></i>
+		<span class="bigger-110">Sent</span>
+		</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#draft" data-target="draft">
+		<i class="green icon-pencil bigger-130"></i>
+		<span class="bigger-110">Draft</span>
+		</a>
+	</li>
+	<li class="dropdown">
+		<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+		<i class="pink icon-tags bigger-130"></i>
+		<span class="bigger-110">
+		Tags
+		<i class="icon-caret-down"></i>
+		</span>
+		</a>
+		<ul class="dropdown-menu dropdown-light-blue dropdown-125">
+		<li>
+			<a data-toggle="tab" href="#tag-1" data-target="tag-1">
+			<span class="mail-tag badge badge-pink"></span>
+			<span class="pink">Tag#1</span>
+			</a>
+		</li>
+		<li>
+			<a data-toggle="tab" href="#tag-family" data-target="tag-family">
+			<span class="mail-tag badge badge-success"></span>
+			<span class="green">Family</span>
+			</a>
+		</li>
+		<li>
+			<a data-toggle="tab" href="#tag-friends" data-target="tag-friends">
+			<span class="mail-tag badge badge-info"></span>
+			<span class="blue">Friends</span>
+			</a>
+		</li>
+		<li>
+			<a data-toggle="tab" href="#tag-work" data-target="tag-work">
+			<span class="mail-tag badge badge-grey"></span>
+			<span class="grey">Work</span>
+			</a>
+		</li>
+		</ul>
+	</li>
+</ul>
+<h1>链接文字</h1>
+<p><a href="">test1</a><br/><a href="">test2</a><br/><a href="">test3</a></p>
+<h1>面包屑</h1>
+<ul class="breadcrumb"><li>首页</li><li>收益</li><li class="active">今日收益</li></ul>
+<h1>翻页</h1>
+<ul class="pagination">
+<li class="disabled">
+	<a href="#"><span class="icon-double-angle-left"><<</span></a>
+</li>
+<li class="active">
+	<a href="#">1</a>
+</li>
+<li>
+	<a href="#">3</a>
+</li>
+<li>
+	<a href="#">4</a>
+</li>
+<li>
+	<a href="#">5</a>
+</li>
+<li>
+	<a href="#"><span class="icon-double-angle-right">>></span></a>
+</li>
+</ul>
+<h1>标签</h1>
+<p>
+        <button type="button" class="btn btn-xs btn-default">Default</button>
+        <button type="button" class="btn btn-xs btn-primary">Primary</button>
+        <button type="button" class="btn btn-xs btn-success">Success</button>
+        <button type="button" class="btn btn-xs btn-info">Info</button>
+        <button type="button" class="btn btn-xs btn-warning">Warning</button>
+        <button type="button" class="btn btn-xs btn-danger">Danger</button>
+        <button type="button" class="btn btn-xs btn-link">Link</button>
+      </p>
+<h1>徽章</h1>
+<div class="badge">300</div>
+<h1>提示框</h1>
+	<div class="alert alert-tip">
+        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+      </div>
+<h1>进度条</h1>
+	<div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"><span class="sr-only">45%</span></div>
+    </div>
+<h1>弹窗</h1>
+<div class="modal" id="mymodal" style="display:block;position: static; border:1px solid #ccc;">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">x</button>
+        <h3>Are you sure remove item from order ?</h3>
+    </div>
+    <div class="modal-body">
+        <p><img scr="URL"> Any HTML elements. </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary">确定</a>
+        <a href="#" class="btn btn-default">关闭</a>
+    </div>  
+</div>  
+<h1>日历</h1>
+月:
+<input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="month"/>
+日:
+<input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="day"/>
+季度：
+<input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="quarter"/>
+年：
+<input type="text" datepicker value="" class="form-control" style="width: 200px;" cate="year"/>
+
+<script src="dist/js/libs/jquery.js"></script>
+<script src="dist/js/libs/angular.js"></script>
+<script>
+	angular.module('zuiServices', []);
+</script>
+<script src="dist/js/ZUI.js"></script>
+</body>
+</html>

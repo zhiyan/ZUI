@@ -1,107 +1,156 @@
 .db-table{
-	margin-top:30px;
+	&.loading{
+		background: url(http://source.qunar.com/qss/large-loading.gif) no-repeat center center;
+		table{
+			height: 400px;
+			display:block;
+		}
+	}
 	.chart{min-width:700px;height:400px;}
 	.search-input{
 		background-color:#f2fbff;
 		border:1px solid #e6e6e6;
 		padding: 5px;
-		.search-des{
-			float:left;
-			font-weight: 800;
-			line-height: 29px;
-		}
-		.input-group-btn{
-			float:left;
-			width:110px;
-			.dropdown-toggle{
-				width:96px;
-			}
-			.caret{
-				float: right;
-				margin-top:7px;
-			}
-			.dropdown-menu{
-				border-radius: 0px;
-				margin: 0px;
-				left: 10px;
-				width: 96px;
-				border-top: 0px;
-				li{
-					padding: 5px 16px;
-				}
-				li:hover{
-					background-color:#f5f5f5;
-					cursor: pointer;
+		height: 38px;
+		border-bottom: 0;
+		// .search-des{
+		// 	float:left;
+		// 	font-weight: 800;
+		// 	line-height: 29px;
+		// }
+		// .input-group-btn{
+		// 	float:left;
+		// 	width:110px;
+		// 	.dropdown-toggle{
+		// 		width:96px;
+		// 	}
+		// 	.caret{
+		// 		float: right;
+		// 		margin-top:7px;
+		// 	}
+		// 	.dropdown-menu{
+		// 		border-radius: 0px;
+		// 		margin: 0px;
+		// 		left: 10px;
+		// 		width: 96px;
+		// 		border-top: 0px;
+		// 		li{
+		// 			padding: 5px 16px;
+		// 		}
+		// 		li:hover{
+		// 			background-color:#f5f5f5;
+		// 			cursor: pointer;
 					
-				};
-			}
-		}
-		.input-text{
-			margin-left: 150px;
-		}
-		.form-control{
-			width: 135px;
-			float: left;
-			margin:0px 10px;
-		}
+		// 		};
+		// 	}
+		// }
+		// .input-text{
+		// 	margin-left: 150px;
+		// }
+		// .form-control{
+		// 	width: 135px;
+		// 	float: left;
+		// 	margin:0px 10px;
+		// }
 		.glyphicon{
 			float: right;
 			margin: 5px 10px;
 			cursor: pointer;
 		}
-		.db-user-list{
-			position: absolute;
-			left: 134px;
-			z-index: 1001;
-			width: 400px;
-			background-color: #fff;
-			border: 1px solid #ccc;
-			border: 1px solid rgba(0,0,0,0.15);
-			border-radius: 0px;
-			-webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-			box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-			background-clip: padding-box;
-			margin-top: 4px;
-			padding:10px;
-			display: none;
-			.nav-tabs{
-				position: static;
-				margin: 10px 0px 0px 0px;
-			}
-			.nav>li>a{
-				padding:3px 15px; 
-			}
-			.customer-list{
-				padding: 10px;
-				display: none;
-				.active{display: block;}
-				li{
-					display: none;
-					span{
-						display: inline-block;
-						margin:5px; 
-						max-width: 80px;
-						cursor: pointer;
-						padding: 0px 10px;
-						&:hover{
-							background-color:#f5f5f5;
-						};
-					}
-				}	
-			}
-		}
+		// .db-user-list{
+		// 	position: absolute;
+		// 	left: 134px;
+		// 	z-index: 1001;
+		// 	width: 400px;
+		// 	background-color: #fff;
+		// 	border: 1px solid #ccc;
+		// 	border: 1px solid rgba(0,0,0,0.15);
+		// 	border-radius: 0px;
+		// 	-webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+		// 	box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+		// 	background-clip: padding-box;
+		// 	margin-top: 4px;
+		// 	padding:10px;
+		// 	display: none;
+		// 	.nav-tabs{
+		// 		position: static;
+		// 		margin: 10px 0px 0px 0px;
+		// 	}
+		// 	.nav>li>a{
+		// 		padding:3px 15px; 
+		// 	}
+		// 	.customer-list{
+		// 		padding: 10px;
+		// 		display: none;
+		// 		.active{display: block;}
+		// 		li{
+		// 			display: none;
+		// 			span{
+		// 				display: inline-block;
+		// 				margin:5px; 
+		// 				max-width: 80px;
+		// 				cursor: pointer;
+		// 				padding: 0px 10px;
+		// 				&:hover{
+		// 					background-color:#f5f5f5;
+		// 				};
+		// 			}
+		// 		}	
+		// 	}
+		// }
 	}
 	table{
 		border:1px solid #e6e6e6;
 		width: 100%;
+		thead{
+			tr{
+				background: #f6f6f6;
+			}
+		}
+		tbody{
+			tr{
+				&:hover{
+					background: #f9f9f9;
+				}
+			}
+		}
 		tr{
 			border:1px solid #e6e6e6;
 			border-left:0px;
 			border-right:0px;
 			td,th{
 				border-right:1px solid #e6e6e6;
-				text-indent: 15px;
-				line-height: 24px;
+				padding:5px 10px;
+				&.left{
+					text-align: left;
+				}
+				&.right{
+					text-align: right;
+				}
+				&.center{
+					text-align: center;
+				}
+				&.nowrap{
+					white-space: nowrap;
+				}
+			}
+			&.nowrap{
+				white-space: nowrap;
+			}
+			&.left{
+				td,th{
+					text-align:left;
+				}
+			}
+			&.right{
+				td,th{
+					text-align: right;
+				}
+			}
+			&.center{
+				td,th{
+					text-align:center;
+				}
 			}
 		}
 		.db-date{

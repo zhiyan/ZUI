@@ -8,7 +8,7 @@ zui.directive("ngSearch", function() {
 
         function makeDate(scope) {
             scope.search.fromdate = moment().subtract('days', scope.dateOffset).format(dateFormat);
-            scope.search.todate = moment().format(dateFormat);
+            scope.search.todate = moment().subtract('days', 1).format(dateFormat);
         }
 
         function initDate(scope, element) {
@@ -22,16 +22,16 @@ zui.directive("ngSearch", function() {
             scope.$watch("search.fromdate", function() {
                 var fdate = moment(scope.search.fromdate),
                     tdate = moment(scope.search.todate);
-                if (+fdate >= +tdate) {
-                    scope.search.todate = fdate.add('day', 1).format(dateFormat);
+                if (+fdate > +tdate) {
+                    scope.search.todate = fdate.format(dateFormat);
                 }
             });
 
             scope.$watch("search.todate", function() {
                 var fdate = moment(scope.search.fromdate),
                     tdate = moment(scope.search.todate);
-                if (+fdate >= +tdate) {
-                    scope.search.fromdate = tdate.subtract('day', 1).format(dateFormat);
+                if (+fdate > +tdate) {
+                    scope.search.fromdate = tdate.format(dateFormat);
                 }
             });
 
@@ -42,7 +42,7 @@ zui.directive("ngSearch", function() {
         };
     })();
 
-    function searchBox(scope, element, attrs, $scope) {
+    function link(scope, element, attrs) {
 
         var offset;
 
@@ -54,6 +54,11 @@ zui.directive("ngSearch", function() {
         // init date
         handleDate.initDate(scope, element);
 
+        if( !scope.searchDate ){
+            delete scope.search.fromdate;
+            delete scope.search.todate;
+        }
+
         scope.origin = angular.copy(scope.search);
 
         scope.master = angular.copy(scope.search);
@@ -64,27 +69,20 @@ zui.directive("ngSearch", function() {
         scope.reset = function() {
             scope.search = angular.copy(scope.origin) || {};
             scope.dateOffset = offset;
-            element.find("input").prop("checked", false);
+            element.find("input:checkbox").prop("checked", false);
+            element.find("input:radio.default").prop("checked",true);
+            element.find("input:text:not([noreset])").val("");
         };
 
         scope.setMaster = function() {
             scope.master = angular.copy(scope.search) || {};
         };
 
-        // scope.shortSelect = function(ele) {
-        //     var curEle = $(ele);
-        //     if (curEle.data("modle") === "") {
-        //         return;
-        //     }
-        //     scope.flag = $(ele).prop("checked");
-        //     $("[data-value = '" + curEle.data("modle") + "']").prop("checked", scope.flag);
-        // };
-
         scope.submit = scope.submit || angular.noop;
 
     }
 
     return {
-        link: searchBox
+        link: link
     };
 });
